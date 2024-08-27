@@ -1,0 +1,93 @@
+
+        body {
+            font-family: cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #f1aaf6;
+        }
+        header {
+            background-color: #c680e9;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #880e8e;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+        }
+        footer {
+            background-color: #880e8e;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #presentacion img {
+            display: block;
+            margin: 0 auto;
+            width: 300px;
+            height: 400px;
+        }
+        p{
+            font-size: 20px;
+            text-align: justify;
+        }
+        #videos {
+            text-align: center; /* Centrar el contenido horizontalmente */
+        }
+        
+        #videos h2 {
+            text-align: left; /* Alinear el título a la izquierda */
+        }
+        
+        .video-container {
+            display: inline-block; /* Para que el contenedor se ajuste al tamaño del video */
+        }
+        #gustos {
+            text-align: center;
+        }
+        
+        #gustos h2 {
+            font-size: 24px;
+            text-align: left;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+        }
+        
+        .boton-peliculas,
+        .boton-musica,
+        .boton-libros {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(119, 76, 175); 
+            color: white; 
+            transition: background-color 0.3s;
+        }
+        
+        
