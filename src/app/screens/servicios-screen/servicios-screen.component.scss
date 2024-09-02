@@ -1,0 +1,113 @@
+/* landing */
+
+.header-landing {
+  background-color: #F3F5F9; /* color */
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Nexa !important;
+}
+
+.text-section {
+  max-width: 500px;
+}
+
+.text-section h1 {
+  color: #3167D9;
+  font-size: 68px;
+  margin-bottom: 20px;
+  font-family: Nexa !important;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+/* Sección de servicios */
+.services-section {
+  background-color: #F3F5F9;
+  //padding: 10px;
+  //text-align: center;
+}
+
+.services-section h2 {
+  color: #3167D9;
+  font-size: 30px;
+  margin-bottom: 40px;
+  font-family: Nexa !important;
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.services-carousel {
+  display: flex;
+  //justify-content: space-around;
+  //align-items: stretch;
+  gap: 20px; // Espacio entre las card
+  font-family: Nexa !important;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  //max-width: 300px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  //text-align: center;
+  font-family: Nexa !important;
+}
+
+.service-icon img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  color: #2463EB;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-family: Nexa !important;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.two p {
+  margin-bottom: 70px;
+}
+
+.btn-appointment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Alinea el texto a la izquierda y el icono a la derecha */
+  color: #3167D9;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #3167D9;
+}
+
+.btn-appointment i {
+  margin-left: 10px; /* Espacio entre el texto y el icono */
+}
+
+.btn-appointment:hover {
+  background-color: #3167D9;
+  border-color: #3167D9;
+  color: white;
+
+}

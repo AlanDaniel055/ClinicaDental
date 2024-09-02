@@ -1,0 +1,169 @@
+.header-landing {
+  background-color: #F3F5F9;
+}
+
+.todo{
+  width: 100%;
+  padding: 1%;
+}
+
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  max-width: 1400px;
+  margin: auto;
+  font-family: Nexa !important;
+
+}
+
+.contacto{
+  padding-left: 100px;
+}
+
+.encabezado{
+  font-size: 2.3rem;
+  color: #2463EB;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: Nexa !important;
+}
+
+.container{
+  width: 500px;
+  height: 350px;
+ // max-width: 1100px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+  font-size: 20px;
+  color: #2463EB;
+  margin: 10px;
+  padding-left: 200px;
+
+}
+
+h4{
+  font-size: 16px;
+  color: #2463EB;
+  margin-bottom: 15px;
+}
+
+.dato{
+  font-size: 14px;
+  color: #747070;
+  margin: 15px 0;
+  padding: 5px;
+  background-color: #F3F1EC;
+  border-radius: 25px;
+}
+
+.doctor-image {
+  flex: 1;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  width: 88px !important; /* Ancho de 300px */
+  height: auto;
+  margin-left: 180px;
+  margin-right: 80px;
+
+}
+
+.doctor-imag {
+  flex: 1;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  width: 100px !important; /* Ancho de 300px */
+  height: auto;
+  margin-left: 40px;
+  margin-right: 80px;
+}
+
+.doctor-image img {
+  max-width: 100%;
+   /* La altura se ajustará automáticamente */
+}
+
+.pie2{
+  padding-left: 100px;
+
+}
+
+.info-extra {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items:last baseline;
+  width: 15%;
+  text-align:left;
+  align-self: center;
+}
+
+.info-item p:first-child {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.info-item p {
+  font-size: 16px;
+  color: #2463EB;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.icons{
+  width: 50px;
+  height: auto;
+  align-self: center;
+}
+
+.pie{
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  max-width: 1400px;
+  margin: auto;
+  font-family: Nexa !important;
+  line-height: 5;
+}
+
+.wrapper, .pie{
+  margin: 20px;
+  padding: 0;
+}
+
+.icons, .info-item{
+  display: grid;
+  grid-row-gap: 0;
+}
+
+/* Estilos para el contenedor del mapa */
+.mapa {
+  display: flex;
+  justify-content: center; /* Centra el mapa horizontalmente */
+}
+
+.map-frame {
+  border: 0; /* Elimina el borde predeterminado */
+  border-radius: 15px; /* Esquinas redondeadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  overflow: hidden; /* Asegura que el contenido respete el borde redondeado */
+}
+

@@ -1,0 +1,60 @@
+.header-landing {
+  background-color: #F3F5F9;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Nexa !important;
+}
+
+/* Estilos para el encabezado */
+.image-title {
+  font-size: 2.5rem;
+  color: #2463EB;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: Nexa !important;
+}
+
+/* Estilos para la imagen del doctor */
+.doctor-image {
+  flex: 1;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+  width: 435px !important; /* Ancho de 300px */
+  height: auto;
+
+}
+
+.doctor-image img {
+  max-width: 100%;
+   /* La altura se ajustará automáticamente */
+}
+
+/* Estilos para la sección de texto */
+.text-section {
+  flex: 2;
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  line-height: 1.4; // Espaciado entre el texto
+  margin-bottom: 20px;
+}
+
+.text-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilo para el último párrafo */
+.text-section p:last-child {
+  font-weight: bold;
+  color: #2463EB;
+}

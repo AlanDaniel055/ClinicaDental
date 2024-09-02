@@ -1,0 +1,38 @@
+<div class="wrapper">
+
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="/assets/images/Logo.png" alt="Logo-Consultorio">
+      </div>
+
+      <ul class="navbar-links">
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Inicio" aria-current="page" (click)="clickNavLink('Inicio')">Inicio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Nosotros" aria-current="page" (click)="clickNavLink('Nosotros')">Nosotros</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Servicios" aria-current="page" (click)="clickNavLink('Servicios')">Servicios</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Contacto" aria-current="page" (click)="clickNavLink('Contacto')">Contacto</a>
+        </li>
+
+      </ul>
+
+      <div class="navbar-actions">
+        <a class="register" (click)="clickNavLink('Login')">Iniciar Sesión</a>
+        <a class="register" (click)="clickNavLink('Registro-pacientes')">Registrarse</a>
+      </div>
+ 
+    </nav>
+
+  </header>
+
+</div>

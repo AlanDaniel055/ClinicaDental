@@ -1,0 +1,106 @@
+<div class="header-landing">
+  <div>
+    <app-navbar></app-navbar>
+  </div>
+</div>
+<div class="todo">
+  <div class="wrapper">
+    <div class="encabezado">
+      <div class="titulo">
+        <h1>Registro</h1>
+      </div>
+      <h2>Llene la información con cuidado</h2>
+    </div>
+    <div class="registro">
+      <h3>Información Personal</h3>
+
+      <label>Nombre(s)</label>
+      <mat-form-field class="mat-input" appearance="outline">
+        <input matInput [(ngModel)]="paciente.first_name" name="nombre" placeholder="Ingresa tu nombre">
+      </mat-form-field>
+      <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
+
+      <label>Apellido Paterno</label>
+      <mat-form-field class="mat-input" appearance="outline">
+        <input matInput [(ngModel)]="paciente.last_name" placeholder="Ingresa tu apellido paterno">
+      </mat-form-field>
+      <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
+
+      <label>Apellido Materno</label>
+      <mat-form-field class="mat-input" appearance="outline">
+        <input matInput [(ngModel)]="paciente.apellido_materno" placeholder="Ingresa tu apellido materno">
+      </mat-form-field>
+      <div *ngIf="errors.apellido_materno " class="invalid-feedback">{{ errors.apellido_materno }}</div>
+
+
+      <label>Fecha de nacimiento</label>
+      <mat-form-field class="mat-input" appearance="outline">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="paciente.fecha_nacimiento" (focus)="picker.open()"
+          placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="errors.fecha_nacimiento " class="invalid-feedback">{{ errors.fecha_nacimiento }}</div>
+
+
+      <label>Correo electrónico</label>
+      <mat-form-field class="mat-input" appearance="outline">
+        <input matInput [(ngModel)]="paciente.email" placeholder="Ingresa tu correo electrónico" [disabled]="editar">
+      </mat-form-field>
+      <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
+
+
+      <label>Contraseña</label>
+      <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
+        <input matInput [(ngModel)]="paciente.password" type="{{ inputType_1 }}" placeholder="Ingresa tu contraseña">
+        <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{hide_1 ? 'visibility_off' :
+          'visibility'}}</mat-icon>
+      </mat-form-field>
+      <div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div>
+
+
+      <label>Confirmar Contraseña</label>
+      <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
+        <input matInput [(ngModel)]="paciente.confirmar_password" type="{{ inputType_2 }}"
+          placeholder="Confirma tu contraseña">
+        <mat-icon matSuffix class="eye-icon" (click)="showPwdConfirmar()">{{hide_2 ? 'visibility_off' :
+          'visibility'}}</mat-icon>
+      </mat-form-field>
+      <div *ngIf="errors.confirmar_password" class="invalid-feedback">{{ errors.confirmar_password }}</div>
+
+
+      <label>Número telefónico</label>
+      <mat-form-field class="mat-input" appearance="outline">
+        <input matInput [(ngModel)]="paciente.telefono" mask='(000) 000-0000'
+          placeholder="Ingresa tu número telefónico">
+      </mat-form-field>
+      <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
+
+
+      <div class="image-upload-container">
+        <div class="image-preview">
+          <img *ngIf="imagePreview" [src]="imagePreview" alt="Vista previa de la imagen">
+          <img *ngIf="!imagePreview" src="assets/images/user.jpg" alt="Imagen por defecto">
+          <!-- Puedes poner una imagen por defecto aquí -->
+        </div>
+
+        <div class="upload-input">
+          <label class="texto">Agregar foto</label>
+          <button class="foto">
+            <label for="fileInput" class="seleccion">Selecciona tu Foto</label>
+          </button>
+          <input  id="fileInput" type="file" (change)="onFileSelected($event)" accept="image/*">
+          <div *ngIf="errors.photoFileName" class="invalid-feedback">{{ errors.photoFileName }}</div>
+
+          <!--<input matInput [(ngModel)]="photoFileName" name="photo" placeholder="Dirección de la foto" readonly>-->
+        </div>
+
+      </div>
+      <!-- Botones -->
+      <div class="section-buttons">
+        <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+        <button class="btn-alert" (click)="registrar()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>

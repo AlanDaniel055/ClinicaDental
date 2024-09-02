@@ -1,0 +1,85 @@
+/* landing */
+
+.header-landing {
+  background-color: #F3F5F9; /* color */
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Nexa !important;
+}
+
+.text-section {
+  max-width: 500px;
+}
+
+.text-section h1 {
+  color: #2463EB;
+  font-size: 68px;
+  margin-bottom: 20px;
+  font-family: Nexa !important;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.text-section p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #666666;
+}
+
+/* Botones */
+
+.buttons {
+  display: flex;
+  flex-direction: column; /* Disposición vertical */
+  gap: 20px; /* Espacio entre botones */
+}
+
+.buttons a {
+  text-decoration: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+.buttons .ubicacion {
+  background-color: #3167D9;
+  color: white;
+  border-radius: 25px;
+}
+
+.buttons .contacto {
+  background-color: transparent;
+  color: #3167D9;
+  border: 1px solid #3167D9;
+  border-radius: 25px;
+}
+
+.buttons .contacto i {
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.buttons .ubicacion, .buttons .contacto {
+  min-width: 50px; /* Ancho mínimo */
+  width: 90%; /* Ancho adaptable al contenedor */
+  cursor: pointer;
+}
+
+.doctor-image {
+  max-width: 500px;
+}
+
+.doctor-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
