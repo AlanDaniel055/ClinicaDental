@@ -13,6 +13,7 @@ export class LoginScreenComponent implements OnInit {
   public username: string = "";
   public password: string = "";
   public type: String = "password";
+  activarLink: any;
 
   constructor(
     private router: Router,
@@ -40,6 +41,13 @@ export class LoginScreenComponent implements OnInit {
       this.type = "password";
     }
 
+  }
+
+  public clickNavLink(link: string){
+    this.router.navigate([link]);
+    setTimeout(() => {
+      this.activarLink(link);
+    }, 100);
   }
 
 }

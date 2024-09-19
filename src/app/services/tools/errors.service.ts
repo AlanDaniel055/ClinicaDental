@@ -10,18 +10,31 @@ export class ErrorsService {
   public numeric: string;
   public betweenDate: string;
   public email: string;
-  public areaRequired: string; // Agrega un mensaje de error para el campo de área de investigación
+  public areaRequired: string;
+  public onlyLetters: string;
+  public phoneNumber: string;
+  public ageRange: string;
+  public passwordStrength: string;
+  public dateNotFuture: string;
+  public dateNotPast: string;
 
-  constructor() { // Inicializa las propiedades del servicio con mensajes de error predeterminados
+  constructor() {
     this.generic = 'Favor de verificar el tipo de dato introducido no es válido';
     this.required = 'Campo requerido';
     this.numeric = 'Solo se aceptan valores numéricos';
     this.betweenDate = 'Fecha no es válida';
     this.email = 'Favor de introducir un correo con el formato correcto';
-    this.areaRequired = 'Área de investigación es un campo requerido'; // Mensaje de error para el campo de área de investigación
+    this.areaRequired = 'Área de investigación es un campo requerido';
+    this.onlyLetters = 'Solo se aceptan letras y espacios';
+    this.phoneNumber = 'El número de teléfono debe tener 10 dígitos';
+    this.ageRange = 'La edad no está dentro del rango permitido';
+    this.passwordStrength = 'La contraseña debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y caracteres especiales';
+    this.dateNotFuture = 'La fecha de nacimiento no puede ser una fecha futura';
+    this.dateNotPast = 'La fecha no puede ser una fecha anterior a la actual';
+
   }
 
-  between(min: any, max: any) { // métodos que devuelven mensajes de error dinámicos basados en parámetros que se les pasan.
+  between(min: any, max: any) {
     return 'El valor introducido debe de ser entre ' + min + ' y ' + max;
   }
 
@@ -32,25 +45,4 @@ export class ErrorsService {
   min(size: any) {
     return 'El campo no cumple la longitud aceptada: ' + size;
   }
-
-
 }
-
-
-/* Notas
-
-Este es el servicio Angular llamado ErrorsService
-que se utiliza para manejar los mensajes de error
-en una aplicación.
-
-1. Inyectable y NgModule: decorador que indica que una
-clase es un servicio que puede ser inyectado en otros
-componentes o servicios.
-
-2. Constructor
-
-3. Métodos between, max y min
-
-
-
-*/

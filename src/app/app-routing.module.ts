@@ -6,6 +6,9 @@ import { ServiciosScreenComponent } from './screens/servicios-screen/servicios-s
 import { ContactoScreenComponent } from './screens/contacto-screen/contacto-screen.component';
 import { RegistroPacientesComponent } from './partials/registro-pacientes/registro-pacientes.component';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
+import { PacientesScreenComponent } from './screens/pacientes-screen/pacientes-screen.component';
+import { PerfilPacienteScreenComponent } from './screens/perfil-paciente-screen/perfil-paciente-screen.component';
+import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agendar-cita-screen.component';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -15,6 +18,10 @@ const routes: Routes = [
   { path: 'Contacto', component: ContactoScreenComponent, pathMatch: 'full' }, // Pagina contacto
   { path: 'Registro-pacientes', component: RegistroPacientesComponent, pathMatch: 'full' }, // Pagina registro
   { path: 'Login', component: LoginScreenComponent, pathMatch: 'full' }, // Pagina login
+  { path: 'Paciente', component: PacientesScreenComponent, pathMatch: 'full' }, // Home del paciente
+  { path: 'Perfil-paciente', component: PerfilPacienteScreenComponent, pathMatch: 'full' }, // Perfil del paciente
+  { path: 'Agendar-cita', component: AgendarCitaScreenComponent, pathMatch: 'full' }, // Agendar cita, vista del paciente
+
 
 ];
 

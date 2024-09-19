@@ -1,3 +1,4 @@
+import { MbscModule } from '@mobiscroll/angular';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 // mat-form-field
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
+import { PacientesScreenComponent } from './screens/pacientes-screen/pacientes-screen.component';
+import { NavbarUsuarioComponent } from './partials/navbar-usuario/navbar-usuario.component';
+import { PerfilPacienteScreenComponent } from './screens/perfil-paciente-screen/perfil-paciente-screen.component';
+import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agendar-cita-screen.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +46,14 @@ import { LoginScreenComponent } from './screens/login-screen/login-screen.compon
     ServiciosScreenComponent,
     ContactoScreenComponent,
     RegistroPacientesComponent,
-    LoginScreenComponent
+    LoginScreenComponent,
+    PacientesScreenComponent,
+    NavbarUsuarioComponent,
+    PerfilPacienteScreenComponent,
+    AgendarCitaScreenComponent
   ],
   imports: [
+    MbscModule, // Calendario
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

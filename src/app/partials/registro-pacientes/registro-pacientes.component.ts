@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PacientesService } from 'src/app/services/pacientes.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 declare var $: any;
 
 
@@ -49,7 +50,8 @@ export class RegistroPacientesComponent implements OnInit {
   constructor(
     private pacientesService: PacientesService,
     private location: Location,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -73,6 +75,7 @@ export class RegistroPacientesComponent implements OnInit {
     if (!$.isEmptyObject(this.errors)) {
       //return false;
     }
+    
 
     // TODO: checar el return y que las contraseñas coincidan (cuando tengamos el backend)
   }
