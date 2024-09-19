@@ -28,7 +28,7 @@ export class NavbarUsuarioComponent implements OnInit {
   }
 
   public activarLink(link: string){
-    
+
   }
 
 }
