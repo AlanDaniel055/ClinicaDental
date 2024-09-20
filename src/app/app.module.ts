@@ -36,6 +36,7 @@ import { PacientesScreenComponent } from './screens/pacientes-screen/pacientes-s
 import { NavbarUsuarioComponent } from './partials/navbar-usuario/navbar-usuario.component';
 import { PerfilPacienteScreenComponent } from './screens/perfil-paciente-screen/perfil-paciente-screen.component';
 import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agendar-cita-screen.component';
+import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-agenda-screen.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agenda
     PacientesScreenComponent,
     NavbarUsuarioComponent,
     PerfilPacienteScreenComponent,
-    AgendarCitaScreenComponent
+    AgendarCitaScreenComponent,
+    CitasAgendaScreenComponent
   ],
   imports: [
     MbscModule, // Calendario

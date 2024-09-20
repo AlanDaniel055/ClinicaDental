@@ -4,12 +4,14 @@
 
 .wrapper {
   background-color: #F3F5F9;
+  padding: 20px;
 }
 
 .container {
   width: 80%;
   max-width: 1200px;
   background-color: #F3F5F9;
+  //margin: 0 auto;
 }
 
 .header {
@@ -19,11 +21,12 @@
 
 .header h1 {
   color: #3167D9;
-  font-size: 1.8em;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .appointment-inf {
+  gap: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;

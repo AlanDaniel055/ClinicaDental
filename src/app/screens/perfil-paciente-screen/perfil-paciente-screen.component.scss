@@ -9,6 +9,7 @@ body {
 .container {
   width: 80%;
   max-width: 1200px;
+  padding: 20px;
 }
 
 .profile-header {
@@ -18,7 +19,7 @@ body {
 
 .profile-header h1 {
   color: #3167D9;
-  font-size: 1.8em;
+  font-size: 2rem;
   font-weight: bold;
   //font-family: Arial, Helvetica, sans-serif !important;
 }
