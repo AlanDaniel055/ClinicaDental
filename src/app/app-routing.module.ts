@@ -12,6 +12,8 @@ import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agenda
 import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-agenda-screen.component';
 import { HistorialConsultasScreenComponent } from './screens/historial-consultas-screen/historial-consultas-screen.component';
 import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
+import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
+
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'Historial-consultas', component: HistorialConsultasScreenComponent, pathMatch: 'full' }, // Historial de Consultas, vista del paciente
   { path: 'Historial-recetas', component: HistorialRecetasScreenComponent, pathMatch: 'full' }, // Historial de Recetas, vista del paciente
 
+  // Vista Doctor
+  { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda, vista del doctor
 ];
 
 @NgModule({

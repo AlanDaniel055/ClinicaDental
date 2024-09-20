@@ -12,11 +12,11 @@ setOptions({
 });
 
 @Component({
-  selector: 'app-citas-agenda-screen',
-  templateUrl: './citas-agenda-screen.component.html',
-  styleUrls: ['./citas-agenda-screen.component.scss']
+  selector: 'app-agenda-doc-screen',
+  templateUrl: './agenda-doc-screen.component.html',
+  styleUrls: ['./agenda-doc-screen.component.scss']
 })
-export class CitasAgendaScreenComponent implements OnInit {
+export class AgendaDocScreenComponent implements OnInit {
   // Para la agenda
 
   //myEvents: MbscCalendarEvent[] = [];
@@ -30,7 +30,7 @@ export class CitasAgendaScreenComponent implements OnInit {
       hora: '10:00 AM',
       motivo: 'Revisión y limpieza dental',
       duracion: '45 minutos',
-      odontologo: 'Dr. Carlos Ramírez',
+      paciente: 'María Emilia Mernes',
       color: '#5F2FA8' // Puedes utilizar diferentes colores para cada día
     },
     {
@@ -39,8 +39,8 @@ export class CitasAgendaScreenComponent implements OnInit {
       hora: '14:30 PM',
       motivo: 'Tratamiento de caries en molar izquierdo',
       duracion: '60 minutos',
-      odontologo: 'Dra. Ana Martínez',
-      color: '#1AAC7E'
+      paciente: 'Patricio Oward Junco',
+      color: '#00A572'
     },
     {
       dia: 'Miércoles',
@@ -48,7 +48,7 @@ export class CitasAgendaScreenComponent implements OnInit {
       hora: '9:30 AM',
       motivo: 'Colocación de corona en diente 14',
       duracion: '90 minutos',
-      odontologo: 'Dr. Javier Torres',
+      paciente: 'Nicole Denise Cucco',
       color: '#A82FA4'
     },
     {
@@ -57,7 +57,7 @@ export class CitasAgendaScreenComponent implements OnInit {
       hora: '11:15 AM',
       motivo: 'Consulta para implante dental',
       duracion: '30 minutos',
-      odontologo: 'Dr. Luis Fernández',
+      paciente: 'Peter Gene Hernández',
       color: '#EE9458'
     },
     {
@@ -66,7 +66,7 @@ export class CitasAgendaScreenComponent implements OnInit {
       hora: '16:00 PM',
       motivo: 'Extracción de muela de juicio',
       duracion: '75 minutos',
-      odontologo: 'Dra. Elena García',
+      paciente: 'Sergio Michel Pérez Mendoza',
       color: '#2F98A8'
     },
     {
@@ -75,7 +75,7 @@ export class CitasAgendaScreenComponent implements OnInit {
       hora: '15:00 PM',
       motivo: 'Ajuste de ortodoncia',
       duracion: '45 minutos',
-      odontologo: 'Dra. Patricia Sánchez',
+      paciente: 'Sebastián Obando Giraldo',
       color: '#FC6EA7'
     },
   ];

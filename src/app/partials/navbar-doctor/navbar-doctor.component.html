@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="/assets/images/Logo.png" alt="Logo-Consultorio" (click)="clickNavLink('Paciente')">
+        <!-- TODO: revisar que de acuerdo al rol sea el clicknavlink -->
+      </div>
+
+      <ul class="navbar-links">
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Agenda" aria-current="page" (click)="clickNavLink('Agenda')">Agenda</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Consulta" aria-current="page" (click)="clickNavLink('Consulta')">Consulta</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" id="Lista de pacientes" aria-current="page" (click)="clickNavLink('Lista de pacientes')">Lista de pacientes</a>
+        </li>
+
+      </ul>
+
+      <div class="navbar-actions">
+        <a class="register" (click)="clickNavLink('Login')">Cerrar Sesión</a>
+      </div>
+
+    </nav>
+
+  </header>
+
+</div>
