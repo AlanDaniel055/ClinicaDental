@@ -41,6 +41,7 @@ import { HistorialConsultasScreenComponent } from './screens/historial-consultas
 import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
 import { NavbarDoctorComponent } from './partials/navbar-doctor/navbar-doctor.component';
+import { NavbarRecepcionistaComponent } from './partials/navbar-recepcionista/navbar-recepcionista.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { NavbarDoctorComponent } from './partials/navbar-doctor/navbar-doctor.co
     HistorialConsultasScreenComponent,
     HistorialRecetasScreenComponent,
     AgendaDocScreenComponent,
-    NavbarDoctorComponent
+    NavbarDoctorComponent,
+    NavbarRecepcionistaComponent
   ],
   imports: [
     MbscModule, // Calendario
