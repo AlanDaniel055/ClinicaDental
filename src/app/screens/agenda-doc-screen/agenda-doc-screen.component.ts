@@ -40,7 +40,7 @@ export class AgendaDocScreenComponent implements OnInit {
       motivo: 'Tratamiento de caries en molar izquierdo',
       duracion: '60 minutos',
       paciente: 'Patricio Oward Junco',
-      color: '#00A572'
+      color: '#1AAC7E'
     },
     {
       dia: 'Miércoles',
