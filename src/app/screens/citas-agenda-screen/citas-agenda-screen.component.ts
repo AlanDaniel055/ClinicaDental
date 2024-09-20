@@ -64,7 +64,7 @@ export class CitasAgendaScreenComponent implements OnInit {
       dia: 'Viernes',
       fecha: '23/08/2024',
       hora: '16:00 PM',
-      motivo: 'Extracción de muela de juicio',
+      motivo: 'Extracción de muela del juicio',
       duracion: '75 minutos',
       odontologo: 'Dra. Elena García',
       color: '#2F98A8'
