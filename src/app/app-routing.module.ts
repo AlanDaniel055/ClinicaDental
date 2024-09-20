@@ -11,6 +11,7 @@ import { PerfilPacienteScreenComponent } from './screens/perfil-paciente-screen/
 import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agendar-cita-screen.component';
 import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-agenda-screen.component';
 import { HistorialConsultasScreenComponent } from './screens/historial-consultas-screen/historial-consultas-screen.component';
+import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -20,11 +21,14 @@ const routes: Routes = [
   { path: 'Contacto', component: ContactoScreenComponent, pathMatch: 'full' }, // Pagina contacto
   { path: 'Registro-pacientes', component: RegistroPacientesComponent, pathMatch: 'full' }, // Pagina registro
   { path: 'Login', component: LoginScreenComponent, pathMatch: 'full' }, // Pagina login
+
+  // Vista Paciente
   { path: 'Paciente', component: PacientesScreenComponent, pathMatch: 'full' }, // Home del paciente
   { path: 'Perfil-paciente', component: PerfilPacienteScreenComponent, pathMatch: 'full' }, // Perfil del paciente
   { path: 'Agendar-cita', component: AgendarCitaScreenComponent, pathMatch: 'full' }, // Agendar cita, vista del paciente
   { path: 'Citas-agendadas', component: CitasAgendaScreenComponent, pathMatch: 'full' }, // Citas agendadas, vista del paciente
   { path: 'Historial-consultas', component: HistorialConsultasScreenComponent, pathMatch: 'full' }, // Historial de Consultas, vista del paciente
+  { path: 'Historial-recetas', component: HistorialRecetasScreenComponent, pathMatch: 'full' }, // Historial de Recetas, vista del paciente
 
 ];
 

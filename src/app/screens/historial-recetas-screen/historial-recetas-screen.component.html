@@ -1,0 +1,43 @@
+<body>
+  <div>
+    <app-navbar-usuario></app-navbar-usuario>
+  </div>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>Historial de Recetas</h1>
+      </div>
+
+      <div class="content">
+        <div class="sidebar">
+          <ul>
+            <li *ngFor="let receta of recetas" (click)="seleccionarReceta(receta)"
+              [ngClass]="{'active': receta === recetaSeleccionada}">
+              {{ receta.titulo }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="detalle-receta print-area">
+          <h2>{{ recetaSeleccionada.titulo }}</h2>
+          <p><strong>Paciente:</strong> {{ recetaSeleccionada.paciente }}</p>
+          <p><strong>Fecha:</strong> {{ recetaSeleccionada.fecha }}</p>
+          <p><strong>Diagnóstico:</strong> {{ recetaSeleccionada.diagnostico }}</p>
+          <p><strong>Medicamento:</strong> {{ recetaSeleccionada.medicamento }}</p>
+          <p><strong>Dosis:</strong> {{ recetaSeleccionada.dosis }}</p>
+          <p><strong>Indicaciones:</strong> {{ recetaSeleccionada.indicaciones }}</p>
+          <p><strong>Nota:</strong> {{ recetaSeleccionada.nota }}</p>
+          <p><strong>Firma y sello del odontólogo:</strong>
+            <img src="/assets/images/firma.png" alt="Firma" class="Firma">
+          </p>
+          <div class="button-container">
+            <button (click)="imprimirReceta()">Imprimir</button>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</body>
