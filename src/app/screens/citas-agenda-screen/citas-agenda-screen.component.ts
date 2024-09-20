@@ -45,7 +45,7 @@ export class CitasAgendaScreenComponent implements OnInit {
     {
       dia: 'Miércoles',
       fecha: '21/08/2024',
-      hora: '9:30 AM',
+      hora: '09:30 AM',
       motivo: 'Colocación de corona en diente 14',
       duracion: '90 minutos',
       odontologo: 'Dr. Javier Torres',
