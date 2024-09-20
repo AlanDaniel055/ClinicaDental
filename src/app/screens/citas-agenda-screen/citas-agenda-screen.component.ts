@@ -80,6 +80,18 @@ export class CitasAgendaScreenComponent implements OnInit {
     },
   ];
 
+  semanaActual = 0;
+
+  siguienteSemana() {
+    this.semanaActual++;
+  }
+
+  anteriorSemana() {
+    if (this.semanaActual > 0) {
+      this.semanaActual--;
+    }
+  }
+
   constructor(
     private http: HttpClient,
   ) { }

@@ -62,3 +62,26 @@ body{
 .cita-detalle p strong {
   color: #555;
 }
+
+.btn-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 45px;
+  cursor: pointer;
+  border: #F3F5F9;
+  background-color: #F3F5F9;
+}
+
+.btn-flecha:first-child {
+  left: 10px;
+}
+
+.btn-flecha:last-child {
+  right: 10px;
+}
+
+button {
+  margin: 30px;
+  padding: 5px;
+}
