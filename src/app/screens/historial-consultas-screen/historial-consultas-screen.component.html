@@ -1,0 +1,44 @@
+<div>
+  <app-navbar-usuario></app-navbar-usuario>
+</div>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>Historial de Consultas</h1>
+      </div>
+
+      <div class="table table-striped tabla-historial">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Horario</th>
+              <th scope="col">Motivo de la consulta</th>
+              <!-- TODO: cambiarlo a servicio -->
+              <th scope="col">Conclusiones resultantes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of lista_citas; let i=index">
+              <td>{{cita.ID}}</td>
+              <td>{{cita.fecha_cita}}</td>
+              <td>{{cita.horario_cita}}</td>
+              <!-- TODO: Revisar lo del horario -->
+              <td>{{cita.servicios}}</td>
+              <td>{{cita.conclusiones}}</td>
+              <!-- TODO: Revisar esta columna pq en el esquema de citas no tenemos esto -->
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>

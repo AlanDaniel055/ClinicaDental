@@ -17,7 +17,7 @@ export class PacientesService {
   constructor(
     private http: HttpClient,
     private validatorService: ValidatorService,
-    private errorService: ErrorsService,
+    private errorService: ErrorsService
   ) { }
 
   public esquemaPaciente() {

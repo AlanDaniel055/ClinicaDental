@@ -1,0 +1,86 @@
+* {
+  font-family: Nexa !important;
+}
+
+body{
+  background-color: #F3F5F9; /* color */
+}
+
+.wrapper {
+  background-color: #F3F5F9;
+  padding: 20px;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  color: #3167D9;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+tr td {
+  height: 3rem;
+}
+
+th {
+  font-family: Nexa-Bold !important;
+  font-size: 18px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #231F20;
+  opacity: 1;
+}
+
+td {
+  text-align: left;
+  font-family: Nexa !important;
+  font-size: 15px !important;
+  letter-spacing: 0px !important;
+  color: #231F20 !important;
+  opacity: 1 !important;
+  padding-top: 18px;
+}
+
+.tabla-historial {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-bottom: #C1D2F6;
+}
+
+thead th {
+  background-color: #E0E7FF;
+  color: #333;
+  text-align: left;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #E0E0E0;
+  color: #555;
+}
+
+tbody tr:hover {
+  background-color: #F9FAFB;
+}
+
+th, td {
+  text-align: left;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
