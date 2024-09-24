@@ -4,12 +4,12 @@
   </div>
 </div>
 
-<div>
+<div class="wrapper">
   <body>
-    <div class="container">
+    <div class="container-2">
       <!-- Sección de perfil -->
       <div class="profile-header">
-        <h1>Perfil</h1>
+        <h1>Agendar Cita</h1>
       </div>
 
       <div class="profile-content">
@@ -23,58 +23,50 @@
           <label>Nombre(s)</label>
           <div class="input-group">
             <input type="text" value="Nicole Denise">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
           <label>Apellido Paterno</label>
           <div class="input-group">
             <input type="text" value="Cucco">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
           <label>Apellido Materno</label>
           <div class="input-group">
             <input type="text" value="Pérez">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
           <label>Fecha de nacimiento</label>
           <div class="input-group">
             <input value="2000-08-25">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
           <label>Correo electrónico</label>
           <div class="input-group">
             <input type="email" value="nicole23@gmail.com">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
-          <label>Alergias</label>
-          <div class="input-group">
-            <input type="text" value="No conocidas">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
-          </div>
         </div>
 
         <!-- Información del perfil - Columna Derecha -->
         <div class="profile-info-right">
+          <label>Alergias</label>
+          <div class="input-group">
+            <input type="text" value="No conocidas">
+          </div>
+
           <label>Enfermedades crónicas</label>
           <div class="input-group">
             <input type="text" value="Hipertensión arterial">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
           <label>Tipo de sangre</label>
           <div class="input-group">
             <input type="text" value="A positivo">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
           <label>Contacto de emergencia</label>
           <div class="input-group">
             <input type="tel" value="(123) 456-7890">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
           </div>
 
         </div>
@@ -83,7 +75,96 @@
   </body>
 </div>
 
-<div>
-  <app-agendar-cita-screen></app-agendar-cita-screen>
-</div>
 
+<div class="wrapper">
+<div class="appointment-section">
+  <!-- Selección de fecha y horarios -->
+  <div class="appointment-left">
+
+    <div class="date-time-section">
+      <label for="appointment-date">Fecha</label>
+      <mat-form-field class="appointment-input" appearance="outline">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="cita.fecha_cita" (focus)="picker.open()"
+          placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="errors.fecha_cita" class="invalid-feedback">{{ errors.fecha_cita }}</div>
+    </div>
+
+    <div class="time-slots">
+      <label>Horarios</label>
+
+      <h3>Mañana</h3>
+      <div class="time-row">
+        <button class="time-slot">09:00</button>
+        <button class="time-slot">10:00</button>
+        <button class="time-slot">11:00</button>
+        <button class="time-slot">12:00</button>
+      </div>
+      <h3>Tarde</h3>
+      <div class="time-row">
+        <button class="time-slot">13:00</button>
+        <button class="time-slot">14:00</button>
+        <button class="time-slot">15:00</button>
+        <button class="time-slot">16:00</button>
+        <button class="time-slot">17:00</button>
+      </div>
+      <h3>Noche</h3>
+      <div class="time-row">
+        <button class="time-slot">19:00</button>
+        <button class="time-slot">20:00</button>
+        <button class="time-slot">21:00</button>
+      </div>
+    </div>
+
+    <div class="services-section">
+      <label for="service-select">Servicios</label>
+      <mat-form-field appearance="outline" class="appointment-input">
+        <mat-label>Selecciona el servicio</mat-label>
+        <mat-select [(ngModel)]="cita.servicios" (ngModelChange)="calcularTotal()">
+          <mat-option *ngFor="let servicio of servicios" [value]="servicio.viewValue">
+            {{servicio.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="errors.servicios" class="invalid-feedback">{{ errors.servicios }}</div>
+    </div>
+  </div>
+
+  <!-- Resumen y formas de pago -->
+  <div class="appointment-right">
+    <div class="payment-section">
+      <label for="payment-select">Forma de pago</label>
+      <mat-form-field appearance="outline" class="appointment-input">
+        <mat-label>Selecciona la forma de pago</mat-label>
+        <mat-select [(ngModel)]="cita.forma_pago">
+          <mat-option *ngFor="let forma_pago of forma_pago" [value]="forma_pago.viewValue">
+            {{forma_pago.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="errors.forma_pago" class="invalid-feedback">{{ errors.forma_pago }}</div>
+    </div>
+
+    <div class="appointment-summary">
+      <h3>Resumen</h3>
+      <p><strong>Fecha:</strong> {{ cita.fecha_cita }}</p>
+      <p><strong>Hora:</strong> 20:00 <!-- TODO: Aquí agregar un valor dinámico más adelante -->
+      </p>
+      <p><strong>Servicio:</strong> {{ cita.servicios }}</p>
+      <p><strong>Forma de pago:</strong> {{ cita.forma_pago }}</p>
+      <p><strong>Total:</strong> ${{ total }}
+        <!-- TODO: Si el precio es fijo, calcularlo con base en el servicio seleccionado --></p>
+    </div>
+
+
+    <div class="appointment-buttons">
+      <button class="cancel-button">Cancelar</button>
+      <button class="save-button" (click)="guardar()">Guardar</button>
+    </div>
+
+  </div>
+</div>
+</div>

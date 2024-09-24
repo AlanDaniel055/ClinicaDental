@@ -168,3 +168,87 @@ label{
 .save-button:hover {
   background-color: #254A9B;
 }
+
+.container-2 {
+  width: 80%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.profile-header h1 {
+  color: #3167D9;
+  font-size: 2rem;
+  font-weight: bold;
+  //font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.profile-photo {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info-left, .profile-info-right {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.profile-info-left label, .profile-info-right label {
+  display: block;
+  margin-bottom: 5px;
+  //color: #666;
+  font-size: 0.9em;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input, .input-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9em;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #8D9396;
+}
+
+.input-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+.calendar-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
