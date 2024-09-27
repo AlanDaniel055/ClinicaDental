@@ -31,35 +31,34 @@ import random
 
 class CustomAuthToken(ObtainAuthToken):
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):  # Seriañizar el respectivo json
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
 
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
+        serializer.is_valid(raise_exception=True) # Checar que el usaurio este activo -> existe
+        user = serializer.validated_data['user'] # Obtener los roles de quien quiere iniciar sesion
         if user.is_active:
-
-            roles = user.groups.all()
-            role_names = []
+            roles = user.groups.all() # Trae todos los roles existentes en la base de datos 
+            role_names = [] # Crear un arreglo de datos para almacenarlos
             for role in roles:
                 role_names.append(role.name)
+            #Si solo es un rol especifico asignamos el elemento 0
+            role_names = role_names[0]
 
-            profile = Profiles.objects.filter(user=user).first()
-            if not profile:
-                return Response({},404)
+            token, created = Token.objects.get_or_create(user=user) # Obtiene el token de quien quiere iniciar sesión
 
-            token, created = Token.objects.get_or_create(user=user)
+            if role_names == 'paciente':
+                paciente = Pacientes.objects.filter(user=user).first()
+                paciente = PacienteSerializer(paciente).data
+                paciente["token"] = token.key
+                paciente["rol"] = "paciente" # Regresar el rol
+                return Response(paciente,200)            
+            # TODO: Demas roles
+            else:
+                return Response({"details":"Forbidden"},403) # En caso de que ningun rol coincida, mandar un 403
+                pass
 
-            return Response({
-                'id': user.pk,
-                'first_name': user.first_name,
-                'last_name': user.last_name,
-                'email': user.email,
-                'token': token.key,
-                'roles': role_names
-
-            })
-        return Response({}, status=status.HTTP_403_FORBIDDEN)
+        return Response({}, status=status.HTTP_403_FORBIDDEN) # si no existe el usuario
 
 
 class Logout(generics.GenericAPIView):

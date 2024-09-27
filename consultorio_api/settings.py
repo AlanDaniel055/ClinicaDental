@@ -157,6 +157,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# TODO 2 se definen las direcciones para las imagenes
+
+# Media files (Uploaded images, files, etc.)
+MEDIA_URL = '/media/'  # URL que se usará para acceder a los archivos subidos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Ruta en el sistema de archivos donde se almacenarán los archivos subidos
+
+
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

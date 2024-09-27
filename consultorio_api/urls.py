@@ -13,21 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from consultorio_api.views import bootstrap
 from consultorio_api.views import users
 from consultorio_api.views import auth
+from consultorio_api.views import pacientes
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     #Version
         path('bootstrap/version', bootstrap.VersionView.as_view()),
-    #Create User
-        path('users/', users.UsersView.as_view()),
-    #User Data
-        path('me/', users.Userme.as_view()),
+    #Create Paciente
+         path('pacientes/', pacientes.PacientesView.as_view()),
+    #Paciente Data
+        path('lista-pacientes/', pacientes.PacientesAll.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
         path('logout/', auth.Logout.as_view())
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # TODO: imagenes
+

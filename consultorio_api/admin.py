@@ -1,4 +1,5 @@
 from django.contrib import admin
 from consultorio_api.models import *
 
-admin.site.register(Profiles)
+# TODO 2 Añadir el modelo
+admin.site.register(Pacientes)

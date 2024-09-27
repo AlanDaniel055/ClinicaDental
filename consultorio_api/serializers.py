@@ -11,15 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id','first_name','last_name', 'email')
+               
+# TODO 3: serializar el usuario 
 
-class ProfilesSerializer(serializers.ModelSerializer):
+class PacienteSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
     class Meta:
-        model = Profiles
-        fields = "__all__"
-class ProfilesAllSerializer(serializers.ModelSerializer):
-    #user=UserSerializer(read_only=True)
-    class Meta:
-        model = Profiles
-        fields = '__all__'
-        depth = 1
+        model = Pacientes
+        fields = '__all__' 
