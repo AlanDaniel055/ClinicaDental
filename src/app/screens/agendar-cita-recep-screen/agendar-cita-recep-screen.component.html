@@ -4,13 +4,15 @@
   </div>
 </div>
 
-<div class="wrapper">
-  <body>
-    <div class="container-2">
+  <div class="wrapper">
+    <div class="container">
       <!-- Sección de perfil -->
       <div class="profile-header">
         <h1>Agendar Cita</h1>
       </div>
+
+      <div class="appointment-section">
+      <div class="appointment-left">
 
       <div class="profile-content">
         <!-- Foto de perfil -->
@@ -21,62 +23,83 @@
         <!-- Información del perfil - Columna Izquierda -->
         <div class="profile-info-left">
           <label>Nombre(s)</label>
-          <div class="input-group">
-            <input type="text" value="Nicole Denise">
-          </div>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.first_name" name="nombre" placeholder="Ingresa el nombre">
+          </mat-form-field>
+          <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
 
           <label>Apellido Paterno</label>
-          <div class="input-group">
-            <input type="text" value="Cucco">
-          </div>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.last_name" placeholder="Ingresa el apellido paterno">
+          </mat-form-field>
+          <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
 
           <label>Apellido Materno</label>
-          <div class="input-group">
-            <input type="text" value="Pérez">
-          </div>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.apellido_materno" placeholder="Ingresa el apellido materno">
+          </mat-form-field>
+          <div *ngIf="errors.apellido_materno " class="invalid-feedback">{{ errors.apellido_materno }}</div>
 
-          <label>Fecha de nacimiento</label>
-          <div class="input-group">
-            <input value="2000-08-25">
-          </div>
-
-          <label>Correo electrónico</label>
-          <div class="input-group">
-            <input type="email" value="nicole23@gmail.com">
-          </div>
-
+          <div class="date-time-section">
+            <label for="appointment-date">Fecha de nacimiento</label>
+            <mat-form-field class="appointment-input" appearance="outline">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="cita.fecha_cita" (focus)="picker.open()"
+                placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf="errors.fecha_cita" class="invalid-feedback">{{ errors.fecha_cita }}</div>
         </div>
 
-        <!-- Información del perfil - Columna Derecha -->
-        <div class="profile-info-right">
-          <label>Alergias</label>
-          <div class="input-group">
-            <input type="text" value="No conocidas">
-          </div>
-
-          <label>Enfermedades crónicas</label>
-          <div class="input-group">
-            <input type="text" value="Hipertensión arterial">
-          </div>
-
-          <label>Tipo de sangre</label>
-          <div class="input-group">
-            <input type="text" value="A positivo">
-          </div>
-
-          <label>Contacto de emergencia</label>
-          <div class="input-group">
-            <input type="tel" value="(123) 456-7890">
-          </div>
+          <label>Correo electrónico</label>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.email" placeholder="Ingresa el correo electrónico" [disabled]="editar">
+          </mat-form-field>
+          <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
 
         </div>
       </div>
+      </div>
+
+        <!-- Información del perfil - Columna Derecha -->
+        <div class="appointment-right">
+
+          <div class="profile-info-right">
+
+          <label>Alergias</label>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.alergias" placeholder="Ingresa las alergias">
+          </mat-form-field>
+          <div *ngIf="errors.alergias" class="invalid-feedback">{{ errors.alergias }}</div>
+
+          <label>Enfermedades crónicas</label>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.enfermedades_cronicas" placeholder="Ingresa las enfermedades crónicas">
+          </mat-form-field>
+          <div *ngIf="errors.enfermedades_cronicas" class="invalid-feedback">{{ errors.enfermedades_cronicas }}</div>
+
+          <label>Tipo de sangre</label>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.tipo_sangre" placeholder="Ingresa el tipo de sangre">
+          </mat-form-field>
+          <div *ngIf="errors.tipo_sangre" class="invalid-feedback">{{ errors.tipo_sangre }}</div>
+
+          <label>Número telefónico</label>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.telefono" mask='(000) 000-0000'
+              placeholder="Ingresa el número telefónico">
+          </mat-form-field>
+          <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
 </div>
 
 
 <div class="wrapper">
+  <div class="container">
 <div class="appointment-section">
   <!-- Selección de fecha y horarios -->
   <div class="appointment-left">
@@ -159,6 +182,7 @@
         <!-- TODO: Si el precio es fijo, calcularlo con base en el servicio seleccionado --></p>
     </div>
 
+    <br><br>
 
     <div class="appointment-buttons">
       <button class="cancel-button">Cancelar</button>
@@ -166,5 +190,6 @@
     </div>
 
   </div>
+</div>
 </div>
 </div>

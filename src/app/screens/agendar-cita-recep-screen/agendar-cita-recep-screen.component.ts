@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { CitasService } from 'src/app/services/citas.service';
+import { PacientesService } from 'src/app/services/pacientes.service';
 declare var $: any;
 
 @Component({
@@ -15,12 +16,14 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
   @Input() rol: string = "Recepcionista";
   @Input() datos_user: any = {};
 
+  public paciente: any = {};
   public cita: any = {};
   public editar: boolean = false;
   public errors: any = {};
   public total: number = 0;
 
   constructor(
+    private pacientesService: PacientesService,
     private citasService: CitasService,
     private location: Location,
     public dialog: MatDialog,
@@ -32,7 +35,13 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
     this.cita = this.citasService.esquemaCitas();
     this.cita.rol = this.rol;
     console.log("Cita: ", this.cita);
+
+    // Definir el esquema a mi JSON
+    this.paciente = this.pacientesService.esquemaPaciente();
+    this.paciente.rol = this.rol;
+    console.log("Paciente: ", this.paciente);
   }
+
 
   public guardar() {
     // Validar
