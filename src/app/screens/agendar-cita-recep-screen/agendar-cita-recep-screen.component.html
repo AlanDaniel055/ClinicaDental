@@ -91,6 +91,13 @@
           </mat-form-field>
           <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 
+          <label>Contacto de emergencia</label>
+          <mat-form-field class="mat-input" appearance="outline">
+            <input matInput [(ngModel)]="paciente.contacto_emergencia" mask='(000) 000-0000'
+              placeholder="Ingresa el contacto de emergencia">
+          </mat-form-field>
+          <div *ngIf="errors.contacto_emergencia" class="invalid-feedback">{{ errors.contacto_emergencia }}</div>
+
           </div>
         </div>
       </div>
