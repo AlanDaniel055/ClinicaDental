@@ -15,33 +15,29 @@
       <div class="appointment-left">
 
       <div class="profile-content">
-        <!-- Foto de perfil -->
-        <div class="profile-photo">
-          <img src="assets/images/user.jpg" alt="Foto de perfil">
-        </div>
 
         <!-- Información del perfil - Columna Izquierda -->
         <div class="profile-info-left">
           <label>Nombre(s)</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.first_name" name="nombre" placeholder="Ingresa el nombre">
           </mat-form-field>
           <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
 
           <label>Apellido Paterno</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.last_name" placeholder="Ingresa el apellido paterno">
           </mat-form-field>
           <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
 
           <label>Apellido Materno</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.apellido_materno" placeholder="Ingresa el apellido materno">
           </mat-form-field>
           <div *ngIf="errors.apellido_materno " class="invalid-feedback">{{ errors.apellido_materno }}</div>
 
           <div class="date-time-section">
-            <label for="appointment-date">Fecha de nacimiento</label>
+            <label for="appointment-input">Fecha de nacimiento</label>
             <mat-form-field class="appointment-input" appearance="outline">
               <input matInput [matDatepicker]="picker" [(ngModel)]="cita.fecha_cita" (focus)="picker.open()"
                 placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
@@ -52,7 +48,7 @@
         </div>
 
           <label>Correo electrónico</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.email" placeholder="Ingresa el correo electrónico" [disabled]="editar">
           </mat-form-field>
           <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
@@ -67,32 +63,32 @@
           <div class="profile-info-right">
 
           <label>Alergias</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.alergias" placeholder="Ingresa las alergias">
           </mat-form-field>
           <div *ngIf="errors.alergias" class="invalid-feedback">{{ errors.alergias }}</div>
 
           <label>Enfermedades crónicas</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.enfermedades_cronicas" placeholder="Ingresa las enfermedades crónicas">
           </mat-form-field>
           <div *ngIf="errors.enfermedades_cronicas" class="invalid-feedback">{{ errors.enfermedades_cronicas }}</div>
 
           <label>Tipo de sangre</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.tipo_sangre" placeholder="Ingresa el tipo de sangre">
           </mat-form-field>
           <div *ngIf="errors.tipo_sangre" class="invalid-feedback">{{ errors.tipo_sangre }}</div>
 
           <label>Número telefónico</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.telefono" mask='(000) 000-0000'
               placeholder="Ingresa el número telefónico">
           </mat-form-field>
           <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 
           <label>Contacto de emergencia</label>
-          <mat-form-field class="mat-input" appearance="outline">
+          <mat-form-field class="appointment-input" appearance="outline">
             <input matInput [(ngModel)]="paciente.contacto_emergencia" mask='(000) 000-0000'
               placeholder="Ingresa el contacto de emergencia">
           </mat-form-field>
