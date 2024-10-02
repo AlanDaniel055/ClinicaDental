@@ -39,6 +39,14 @@ import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agenda
 import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-agenda-screen.component';
 import { HistorialConsultasScreenComponent } from './screens/historial-consultas-screen/historial-consultas-screen.component';
 import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
+import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
+import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
+import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
+import { RegistroDoctorComponent } from './partials/registro-doctor/registro-doctor.component';
+import { AgendaDocScreensComponent } from './screens/agenda-doc-screens/agenda-doc-screens.component';
+import { RegistroRecepcionistaComponent } from './partials/registro-recepcionista/registro-recepcionista.component';
+import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
+import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +64,15 @@ import { HistorialRecetasScreenComponent } from './screens/historial-recetas-scr
     AgendarCitaScreenComponent,
     CitasAgendaScreenComponent,
     HistorialConsultasScreenComponent,
-    HistorialRecetasScreenComponent
+    HistorialRecetasScreenComponent,
+    DoctorScreenComponent,
+    RegistroScreenComponent,
+    HomeScreenComponent,
+    RegistroDoctorComponent,
+    AgendaDocScreensComponent,
+    RegistroRecepcionistaComponent,
+    AgendarCitaRecepScreenComponent,
+    RecepcionistaScreenComponent
   ],
   imports: [
     MbscModule, // Calendario

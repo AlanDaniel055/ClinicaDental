@@ -11,8 +11,11 @@
 
       <!-- Sección de bienvenida -->
       <div class="welcome-section">
-        <h1>Bienvenido <span>Nicole Denise!</span></h1>
-        <!-- TODO: hacerlo con la BD {{name_user}} -->
+        <h1 *ngIf="lista_pacientes.length > 0">
+          Bienvenido <span>
+            {{lista_pacientes[0].user.first_name}}
+            {{lista_pacientes[0].user.last_name}}
+          </span></h1>
       </div>
 
       <div class="main-content">
@@ -59,10 +62,11 @@
 
             <div class="profile-section">
               <h3>Perfil</h3>
-              <div class="profile-header">
+              <div class="profile-header" *ngIf="lista_pacientes.length > 0">
                 <img class="profile-pic" src="assets/images/user.jpg" alt="Imagen de perfil">
                 <div class="profile-info">
-                  <h4>Nicole Denise</h4>
+                  <h4>{{lista_pacientes[0].user.first_name}}
+                    {{lista_pacientes[0].user.last_name}}</h4>
                 </div>
               </div>
 
@@ -74,25 +78,31 @@
               </div>
 
               <!-- Contenido de la pestaña Información -->
-              <div class="tab-content active">
-                <p><strong>Nombre (s):</strong> Nicole Denise</p>
-                <p><strong>Apellido Paterno:</strong> Cucco</p>
-                <p><strong>Apellido Materno:</strong> Pérez</p>
-                <p><strong>Fecha de Nacimiento:</strong> 25/08/2000</p>
-                <p><strong>Correo electrónico:</strong> nicole23&#64;gmail.com</p>
-                <p><strong>Número de teléfono:</strong> 2222222222 </p>
+              <div class="tab-content active" *ngIf="lista_pacientes.length > 0">
+                <p><strong>Nombre (s):</strong> {{lista_pacientes[0].user.first_name}}</p>
+                <p><strong>Apellido Paterno:</strong> {{lista_pacientes[0].user.last_name}}</p>
+                <p><strong>Apellido Materno:</strong> {{lista_pacientes[0].apellido_materno}}</p>
+                <p><strong>Fecha de Nacimiento:</strong> {{lista_pacientes[0].fecha_nacimiento | date: 'dd/MM/yyyy':'UTC'}}</p>
 
+                <p><strong>Correo electrónico:</strong> {{lista_pacientes[0].user.email}}</p>
+                <p><strong>Número de teléfono:</strong> {{lista_pacientes[0].telefono}}</p>
+                <!-- <button (click)="goEditar(lista_pacientes[0].id)">Editar</button> -->
               </div>
-
               <!-- Contenido de la pestaña Datos médicos (aquí puedes agregar más detalles si es necesario) -->
               <div class="tab-content">
-                <p>Datos médicos aún no disponibles.</p>
+                <!-- TODO: ngIf y poner datos correctos -->
+                <!-- <p>Datos médicos aún no disponibles.</p> -->
+                <p><strong>Nombre (s):</strong> {{lista_pacientes[0].user.first_name}}</p>
+                <p><strong>Apellido Paterno:</strong> {{lista_pacientes[0].user.last_name}}</p>
+                <p><strong>Apellido Materno:</strong> {{lista_pacientes[0].apellido_materno}}</p>
+
               </div>
 
               <!-- Contenido de la pestaña Contacto (aquí puedes agregar más detalles si es necesario) -->
               <div class="tab-content">
-                <p>Información de contacto adicional.</p>
+                <!-- <p>Información de contacto adicional.</p> -->
               </div>
+
             </div>
 
           </div>
@@ -101,9 +111,9 @@
 
         <div class="right-section">
           <!-- Receta reciente -->
-          <div class="prescription-section">
+          <div class="prescription-section" *ngIf="lista_pacientes.length > 0">
             <h3>Receta reciente</h3>
-            <p><strong>Paciente:</strong> Nicole Denise Cucco Pérez</p>
+            <p><strong>Paciente:</strong>{{lista_pacientes[0].user.first_name}} {{lista_pacientes[0].user.last_name}}</p>
             <p><strong>Fecha:</strong> 18/08/2024</p>
             <p><strong>Diagnóstico:</strong> Gingivitis</p>
             <p><strong>Medicamento:</strong> Clorhexidina al 0.12% en solución</p>

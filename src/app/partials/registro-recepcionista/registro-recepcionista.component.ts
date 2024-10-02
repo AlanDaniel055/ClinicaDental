@@ -1,23 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatRadioChange } from '@angular/material/radio';
-import { PacientesService } from 'src/app/services/pacientes.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 
 declare var $: any;
 
 @Component({
-  selector: 'app-registro-pacientes',
-  templateUrl: './registro-pacientes.component.html',
-  styleUrls: ['./registro-pacientes.component.scss']
+  selector: 'app-registro-recepcionista',
+  templateUrl: './registro-recepcionista.component.html',
+  styleUrls: ['./registro-recepcionista.component.scss']
 })
+export class RegistroRecepcionistaComponent implements OnInit {
 
-export class RegistroPacientesComponent implements OnInit {
-
-  // TODO: checar si sirve para la parte del rol
-  //@Input() rol: string = "Paciente";
-
+  // Inputs
   @Input() rol: string = "";
   @Input() datos_user: any = {};
   imagePreview: string | ArrayBuffer | null = null;
@@ -29,12 +26,12 @@ export class RegistroPacientesComponent implements OnInit {
   public inputType_2: string = 'password';
 
   //Variables
-  public paciente: any = {};
+  public recepcionista: any = {};
   public editar: boolean = false;
   public errors: any = {};
 
   constructor(
-    private pacientesService: PacientesService,
+    private recepcionistaService: RecepcionistaService,
     private location: Location,
     public dialog: MatDialog,
     private router: Router,
@@ -42,10 +39,9 @@ export class RegistroPacientesComponent implements OnInit {
 
   ngOnInit(): void {
     // Definir el esquema a mi JSON
-    this.paciente = this.pacientesService.esquemaPaciente();
-    this.paciente.rol = this.rol; // Asigna el valor de la propiedad rol del componente (this.rol) a la propiedad rol del objeto paciente
-    console.log("Paciente: ", this.paciente);
-
+    this.recepcionista = this.recepcionistaService.esquemaRecepcionista();
+    this.recepcionista.rol = this.rol; // Asigna el valor de la propiedad rol del componente (this.rol) a la propiedad rol del objeto recepcionista
+    console.log("Recepcionista: ", this.recepcionista);
   }
 
   public cancelar() {
@@ -57,16 +53,16 @@ export class RegistroPacientesComponent implements OnInit {
     // Validar
     this.errors = [];
 
-    this.errors = this.pacientesService.validarPaciente(this.paciente, this.editar)
+    this.errors = this.recepcionistaService.validarRecepcionista(this.recepcionista, this.editar)
     if (!$.isEmptyObject(this.errors)) {
       //return false;
       //TODO: checar este return
     }
     //Validamos que las contraseñas coincidan
     //Validar la contraseña
-    if (this.paciente.password == this.paciente.confirmar_password) {
+    if (this.recepcionista.password == this.recepcionista.confirmar_password) {
       //Aquí si todo es correcto (las contraseñas coinciden) vamos a registrar - aquí se manda a consumir el servicio
-      this.pacientesService.registrarPaciente(this.paciente).subscribe(
+      this.recepcionistaService.registrarRecepcionista(this.recepcionista).subscribe(
         (response) => { // si todo sale correcto que nos mande al login
           alert("Usuario registrado correctamente");
           console.log("Usuario registrado: ", response); // agregar el router al constructor
@@ -77,8 +73,8 @@ export class RegistroPacientesComponent implements OnInit {
       );
     } else {
       alert("Las contraseñas no coinciden"); // lo regresa como vacio
-      this.paciente.password = "";
-      this.paciente.confirmar_password = "";
+      this.recepcionista.password = "";
+      this.recepcionista.confirmar_password = "";
     }
 
 
@@ -89,7 +85,7 @@ export class RegistroPacientesComponent implements OnInit {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       const file = fileInput.files[0];
-      this.paciente.photoFileName = file.name; // Aquí actualizamos el nombre del archivo en el objeto paciente.
+      this.recepcionista.photoFileName = file.name; // Aquí actualizamos el nombre del archivo en el objeto recepcionista.
 
       // Crear una vista previa de la imagen
       const reader = new FileReader();
@@ -105,8 +101,8 @@ export class RegistroPacientesComponent implements OnInit {
     console.log(event);
     console.log(event.value.toISOString());
 
-    this.paciente.fecha_nacimiento = event.value.toISOString().split("T")[0];
-    console.log("Fecha: ", this.paciente.fecha_nacimiento);
+    this.recepcionista.fecha_nacimiento = event.value.toISOString().split("T")[0];
+    console.log("Fecha: ", this.recepcionista.fecha_nacimiento);
   }
 
   //Funciones para password
@@ -131,5 +127,7 @@ export class RegistroPacientesComponent implements OnInit {
       this.hide_2 = false;
     }
   }
+
+
 
 }

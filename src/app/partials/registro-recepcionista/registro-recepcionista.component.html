@@ -3,26 +3,26 @@
 
   <label>Nombre(s)</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [(ngModel)]="paciente.first_name" name="nombre" placeholder="Ingresa tu nombre">
+    <input matInput [(ngModel)]="recepcionista.first_name" name="nombre" placeholder="Ingresa tu nombre">
   </mat-form-field>
   <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
 
   <label>Apellido Paterno</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [(ngModel)]="paciente.last_name" placeholder="Ingresa tu apellido paterno">
+    <input matInput [(ngModel)]="recepcionista.last_name" placeholder="Ingresa tu apellido paterno">
   </mat-form-field>
   <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
 
   <label>Apellido Materno</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [(ngModel)]="paciente.apellido_materno" placeholder="Ingresa tu apellido materno">
+    <input matInput [(ngModel)]="recepcionista.apellido_materno" placeholder="Ingresa tu apellido materno">
   </mat-form-field>
   <div *ngIf="errors.apellido_materno " class="invalid-feedback">{{ errors.apellido_materno }}</div>
 
 
   <label>Fecha de nacimiento</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [matDatepicker]="picker" [(ngModel)]="paciente.fecha_nacimiento" (focus)="picker.open()"
+    <input matInput [matDatepicker]="picker" [(ngModel)]="recepcionista.fecha_nacimiento" (focus)="picker.open()"
       placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -32,14 +32,14 @@
 
   <label>Correo electrónico</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [(ngModel)]="paciente.email" placeholder="Ingresa tu correo electrónico" [disabled]="editar">
+    <input matInput [(ngModel)]="recepcionista.email" placeholder="Ingresa tu correo electrónico" [disabled]="editar">
   </mat-form-field>
   <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
 
 
   <label>Contraseña</label>
   <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
-    <input matInput [(ngModel)]="paciente.password" type="{{ inputType_1 }}" placeholder="Ingresa tu contraseña">
+    <input matInput [(ngModel)]="recepcionista.password" type="{{ inputType_1 }}" placeholder="Ingresa tu contraseña">
     <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{hide_1 ? 'visibility_off' :
       'visibility'}}</mat-icon>
   </mat-form-field>
@@ -48,7 +48,7 @@
 
   <label>Confirmar Contraseña</label>
   <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
-    <input matInput [(ngModel)]="paciente.confirmar_password" type="{{ inputType_2 }}"
+    <input matInput [(ngModel)]="recepcionista.confirmar_password" type="{{ inputType_2 }}"
       placeholder="Confirma tu contraseña">
     <mat-icon matSuffix class="eye-icon" (click)="showPwdConfirmar()">{{hide_2 ? 'visibility_off' :
       'visibility'}}</mat-icon>
@@ -58,7 +58,7 @@
 
   <label>Número telefónico</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [(ngModel)]="paciente.telefono" mask='(000) 000-0000' placeholder="Ingresa tu número telefónico">
+    <input matInput [(ngModel)]="recepcionista.telefono" mask='(000) 000-0000' placeholder="Ingresa tu número telefónico">
   </mat-form-field>
   <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 

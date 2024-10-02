@@ -1,0 +1,61 @@
+<body>
+  <div class="header-landing">
+    <div>
+      <app-navbar></app-navbar>
+    </div>
+  </div>
+  <div class="todo">
+    <div class="wrapper">
+      <div class="encabezado">
+        <div class="titulo">
+          <h1>Registro</h1>
+        </div>
+        <h2>Llene la información con cuidado</h2>
+      </div>
+
+      <!-- Aquí inician los roles -->
+      <section class="rol-user">
+        <div class="container">
+          <!-- Radio buttons-->
+          <div class="row mt-5" style="text-align: center;">
+            <div class="form-group col-12"> <!-- La pantalla se divide en 12 columnas-->
+              <label class="title-user" for="tipo_usuario">Tipo de usuario</label>
+            </div>
+          </div>
+          <div class="row mt-3" style="text-align: center;">
+            <div class="form-group col-12">
+              <mat-radio-group [(ngModel)]="user.tipo_usuario" (change)="radioChange($event)" [disabled]="editar">
+                <mat-radio-button value="paciente">Paciente</mat-radio-button>
+                <mat-radio-button value="doctor">Doctor</mat-radio-button>
+                <mat-radio-button value="recepcionista">Recepcionista</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formularios -->
+      <section class="forms-registro">
+        <!-- Formulario del Paciente -->
+        <section class="registro-paciente" *ngIf="isPaciente">
+          <app-registro-pacientes [rol]="tipo_user" [datos_user]="user" ></app-registro-pacientes>
+        </section>
+
+        <!-- Formulario del Doctor -->
+        <section class="registro-doctor" *ngIf="isDoctor">
+          <app-registro-doctor [rol]="tipo_user" [datos_user]="user" ></app-registro-doctor>
+        </section>
+
+        <!-- Formulario del Recepcionista -->
+        <section class="registro-paciente" *ngIf="isRecepcionista">
+          <!-- TODO: registro-recepcionista 02/10/2024 -->
+          <app-registro-recepcionista [rol]="tipo_user" [datos_user]="user" ></app-registro-recepcionista>
+        </section>
+
+      </section>
+
+
+    </div>
+  </div>
+
+</body>

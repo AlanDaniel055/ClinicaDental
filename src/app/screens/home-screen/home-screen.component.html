@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="section-home">
+    <div class="body-home">
+      <!-- Home para el paciente -->
+      <section class="home-paciente" *ngIf="rol == 'paciente'">  <!-- TODO rol: pacienteS-->
+        <app-pacientes-screen></app-pacientes-screen>
+      </section>
+      <!-- Home para el doctor -->
+      <section class="home-doctor" *ngIf="rol == 'doctor'">
+        <app-doctor-screen></app-doctor-screen>
+      </section>
+      <!-- Home para recepcionista -->
+      <section class="home-recepcionista" *ngIf="rol == 'recepcionista'">
+        <app-recepcionista-screen></app-recepcionista-screen>
+      </section>
+    </div>
+  </div>
+</div>

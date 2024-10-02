@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { FacadeService } from './facade.service';
 
-
 //Crear una constante
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class PacientesService {
+export class RecepcionistaService {
 
   constructor(
     private http: HttpClient,
@@ -24,7 +23,7 @@ export class PacientesService {
     private facadeService: FacadeService
   ) { }
 
-  public esquemaPaciente() {
+  public esquemaRecepcionista() {
     return {
       'rol': '',
       'first_name': '',
@@ -39,9 +38,9 @@ export class PacientesService {
     }
   }
 
-  //Validación para el formulario del paciente
-  public validarPaciente(data: any, editar: boolean) {
-    console.log("Validando paciente... ", data);
+  //Validación para el formulario del recepcionista
+  public validarRecepcionista(data: any, editar: boolean) {
+    console.log("Validando recepcionista... ", data);
     let error: any = [];
 
     // Validaciones para el primer nombre
@@ -116,22 +115,20 @@ export class PacientesService {
 
   //Aquí van los servicios HTTP
   //Servicio para registrar un nuevo usuario
-  public registrarPaciente(data: any): Observable<any> {
-    return this.http.post<any>(`${environment.url_api}/paciente/`, data, httpOptions); // TODO, le quite la s de pacientes
+  public registrarRecepcionista(data: any): Observable<any> {
+    return this.http.post<any>(`${environment.url_api}/recepcionista/`, data, httpOptions);
   }
 
-  public obtenerListaPacientes(): Observable<any> {
+  public obtenerListaRecepcionista(): Observable<any> {
     var token = this.facadeService.getSessionToken();
     var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
-    return this.http.get<any>(`${environment.url_api}/lista-pacientes/`, { headers: headers });
+    return this.http.get<any>(`${environment.url_api}/lista-recepcionista/`, { headers: headers });
   }
 
   // Función para obtener un usuario y filtrar por ID
   //Obtener un solo usuario dependiendo su ID
-  public getPacienteByID(idUser: Number) {
-    return this.http.get<any>(`${environment.url_api}/paciente/?id=${idUser}`, httpOptions);
+  public getRecepcionistaByID(idUser: Number) {
+    return this.http.get<any>(`${environment.url_api}/recepcionista/?id=${idUser}`, httpOptions);
   }
-
-
 
 }
