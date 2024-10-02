@@ -52,8 +52,20 @@ class CustomAuthToken(ObtainAuthToken):
                 paciente = PacienteSerializer(paciente).data
                 paciente["token"] = token.key
                 paciente["rol"] = "paciente" # Regresar el rol
-                return Response(paciente,200)            
-            # TODO: Demas roles
+                return Response(paciente,200)
+            if role_names == 'doctor':
+                doctor = Doctor.objects.filter(user=user).first()
+                doctor = DoctorSerializer(doctor).data
+                doctor["token"] = token.key
+                doctor["rol"] = "doctor" # Regresar el rol
+                return Response(doctor,200)
+            if role_names == 'recepcionista':
+                recepcionista = Recepcionista.objects.filter(user=user).first()
+                recepcionista = RecepcionistaSerializer(recepcionista).data
+                recepcionista["token"] = token.key
+                recepcionista["rol"] = "recepcionista" # Regresar el rol
+                return Response(recepcionista,200)                
+            # TODO: agregar el del recepcionista
             else:
                 return Response({"details":"Forbidden"},403) # En caso de que ningun rol coincida, mandar un 403
                 pass

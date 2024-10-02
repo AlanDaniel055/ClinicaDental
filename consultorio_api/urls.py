@@ -20,6 +20,9 @@ from consultorio_api.views import bootstrap
 from consultorio_api.views import users
 from consultorio_api.views import auth
 from consultorio_api.views import pacientes
+from consultorio_api.views import doctor
+from consultorio_api.views import recepcionista
+
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -28,12 +31,23 @@ urlpatterns = [
     #Version
         path('bootstrap/version', bootstrap.VersionView.as_view()),
     #Create Paciente
-         path('pacientes/', pacientes.PacientesView.as_view()),
+         path('paciente/', pacientes.PacientesView.as_view()), # TODO: cambie de pacienteS a paciente
     #Paciente Data
         path('lista-pacientes/', pacientes.PacientesAll.as_view()),
+    #Create Doctor
+        path('doctor/', doctor.DoctorView.as_view()),
+    #Doctor Data
+        path('lista-doctor/', doctor.DoctorAll.as_view()),
+    #Create Recepcionista
+        path('recepcionista/', recepcionista.RecepcionistaView.as_view()),
+    #Recepcionista Data
+        path('lista-recepcionista/', recepcionista.RecepcionistaAll.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
         path('logout/', auth.Logout.as_view())
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # TODO: imagenes
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # TODO: imagenes
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

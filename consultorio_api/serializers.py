@@ -19,3 +19,17 @@ class PacienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pacientes
         fields = '__all__' 
+
+class DoctorSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Doctor
+        fields = '__all__' 
+
+class RecepcionistaSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Recepcionista
+        fields = '__all__' 
+  
+  

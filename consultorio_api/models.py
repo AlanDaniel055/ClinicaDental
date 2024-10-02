@@ -23,3 +23,29 @@ class Pacientes(models.Model):
     def __str__(self):
         return "Perfil del paciente "+self.usuario.first_name+" "+self.usuario.last_name
 
+class Doctor(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
+    apellido_materno = models.CharField(max_length=255, null=True, blank=True)
+    fecha_nacimiento = models.DateTimeField(null=True, blank=True)
+    telefono = models.CharField(max_length=255, null=True, blank=True)
+    photoFileName = models.ImageField(upload_to='doctor/', null=True, blank=True)  # Aquí definir el campo para la imagen
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def _str_(self):
+        return "Perfil del doctor "+self.first_name+" "+self.last_name
+    
+class Recepcionista(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
+    apellido_materno = models.CharField(max_length=255, null=True, blank=True)
+    fecha_nacimiento = models.DateTimeField(null=True, blank=True)
+    telefono = models.CharField(max_length=255, null=True, blank=True)
+    photoFileName = models.ImageField(upload_to='recepcionista/', null=True, blank=True)  # Aquí definir el campo para la imagen
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def _str_(self):
+        return "Perfil del recepcionista "+self.first_name+" "+self.last_name
+
