@@ -13,8 +13,9 @@ import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-
 import { HistorialConsultasScreenComponent } from './screens/historial-consultas-screen/historial-consultas-screen.component';
 import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
-import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
-import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
+import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
+import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
+import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 
 
 const routes: Routes = [
@@ -35,11 +36,12 @@ const routes: Routes = [
   { path: 'Historial-recetas', component: HistorialRecetasScreenComponent, pathMatch: 'full' }, // Historial de Recetas, vista del paciente
 
   // Vista Doctor
+  { path: 'Doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Doctor, vista del doctor
   { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda, vista del doctor
-
-  //Vista Recepcionista
-  { path: 'Agendar-cita-recep', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Agendar cita, vista del recepcionista
-  { path: 'Citas-agendadas-recep', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Agenda, vista del recepcionista
+  { path: 'Lista-pacientes', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista de pacientes , vista del doctor
+  
+  // Vista recepcionista
+  { path: 'Recepcionista', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Vista del recepcionista , vista del doctor
 ];
 
 @NgModule({
