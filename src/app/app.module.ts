@@ -44,6 +44,7 @@ import { NavbarDoctorComponent } from './partials/navbar-doctor/navbar-doctor.co
 import { NavbarRecepcionistaComponent } from './partials/navbar-recepcionista/navbar-recepcionista.component';
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
 import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
+import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-sc
     NavbarDoctorComponent,
     NavbarRecepcionistaComponent,
     CitasAgendaRecepScreenComponent,
-    AgendarCitaRecepScreenComponent
+    AgendarCitaRecepScreenComponent,
+    InfoConsultaScreenComponent
   ],
   imports: [
     MbscModule, // Calendario
