@@ -16,6 +16,7 @@ import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc
 import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
 import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
+import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
   { path: 'Doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Doctor, vista del doctor
   { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda, vista del doctor
   { path: 'Lista-pacientes', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista de pacientes , vista del doctor
-  
+  { path: 'info-consulta', component: InfoConsultaScreenComponent, pathMatch: 'full' }, // Consulta, vista del doctor
+
   // Vista recepcionista
   { path: 'Recepcionista', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Vista del recepcionista , vista del doctor
 ];

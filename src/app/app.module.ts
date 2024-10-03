@@ -42,15 +42,12 @@ import { HistorialRecetasScreenComponent } from './screens/historial-recetas-scr
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
 import { NavbarDoctorComponent } from './partials/navbar-doctor/navbar-doctor.component';
 import { NavbarRecepcionistaComponent } from './partials/navbar-recepcionista/navbar-recepcionista.component';
-<<<<<<< HEAD
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
 import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
 import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
-=======
 import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
 import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
->>>>>>> 8be073467c21dfbe81b4e7a085ef63a222e0d56b
 
 @NgModule({
   declarations: [
@@ -72,15 +69,12 @@ import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/
     AgendaDocScreenComponent,
     NavbarDoctorComponent,
     NavbarRecepcionistaComponent,
-<<<<<<< HEAD
     CitasAgendaRecepScreenComponent,
     AgendarCitaRecepScreenComponent,
-    InfoConsultaScreenComponent
-=======
+    InfoConsultaScreenComponent,
     DoctorScreenComponent,
     RecepcionistaScreenComponent,
     ListaPacientesScreenComponent,
->>>>>>> 8be073467c21dfbe81b4e7a085ef63a222e0d56b
   ],
   imports: [
     MbscModule, // Calendario
