@@ -1,0 +1,133 @@
+<div class="header-landing">
+    <div>
+      <app-navbar-doctor></app-navbar-doctor>
+    </div>
+  </div>
+  
+  <div>
+  
+    <body>
+      <div class="container">
+  
+        <!-- Sección de bienvenida -->
+        <div class="welcome-section">
+          <h1>Bienvenido <span>Dra. Cinthya López!</span></h1>
+          <!-- TODO: hacerlo con la BD {{name_user}} -->
+        </div>
+  
+        <div class="main-content">
+          <div class="left-section">
+  
+            <div class="info-card ">
+              <div class="left-section">
+                <!-- Sección "¿Sabías qué?" -->
+                <p class="subtitulos">¿Sabías qué?</p>
+                <img src="/assets/images/cepillado1.png" alt="Cepillado dental correcto">
+                <p class="info-card1">El uso de hilo dental es fundamental para la salud bucal, ya que ayuda a eliminar la placa y los residuos de alimentos entre los dientes.</p>
+              </div>
+  
+              <div class="left-section">
+                <!-- Historial de servicios -->
+                <h3>Tareas de hoy</h3>
+                <div class="services-history ">
+  
+                  <ul>
+                    <!-- TODO: hacerlo en formato de tabla -->
+                    <li><strong>Restauración dental</strong> - 06/08/2024</li>
+
+                    <li><strong>Tratamiento de encías</strong> - 12/08/2024</li>
+                    <li><strong>Implantes</strong> - 18/08/2024</li>
+                  </ul>
+                </div>
+  
+  
+              </div>
+  
+            </div>
+  
+            <div class="agenda-perfil">
+              <!-- Próximas citas -->
+              <div class="upcoming-appointments">
+                <div class="calendar">
+                  <mbsc-eventcalendar [data]="myEvents" [options]="eventSettings"></mbsc-eventcalendar>
+                  <p><strong>Revisión y limpieza dental</strong><br>Nicol Denise<br>10:00 AM - 10:45 AM</p>
+                  <p><strong>Ajuste de ortodoncia</strong><br>Sergio Pérez<br>1:00 PM - 1:45 PM</p>
+                  <p><strong>Consulta</strong><br>Emilia Mernes</p>
+                </div>
+              </div>
+  
+              <div class="profile-section">
+                <h3>Detalles del próximo paciente</h3>
+                <div class="profile-header">
+                  <img class="profile-pic" src="assets/images/user.jpg" alt="Imagen de perfil">
+                  <div class="profile-info">
+                    <h4>Nicole Denise</h4>
+                  </div>
+                </div>
+  
+                <!-- Navegación de pestañas -->
+                <div class="profile-tabs">
+                  <button class="tab-button active">Información</button>
+                  <button class="tab-button">Datos médicos</button>
+                  <button class="tab-button">Contacto</button>
+                  <!-- <button class="tab-button">Contacto</button> -->
+                </div>
+  
+                <!-- Contenido de la pestaña Información -->
+                <div class="tab-content active">
+                  <p><strong>Nombre (s):</strong> Nicole Denise</p>
+                  <p><strong>Apellido Paterno:</strong> Cucco</p>
+                  <p><strong>Apellido Materno:</strong> Pérez</p>
+                  <p><strong>Fecha de Nacimiento:</strong> 25/08/2000</p>
+                </div>
+  
+                <!-- Contenido de la pestaña Datos médicos (aquí puedes agregar más detalles si es necesario) -->
+                <div class="tab-content">
+                  <p>Datos médicos aún no disponibles.</p>
+                </div>
+  
+                <!-- Contenido de la pestaña Contacto (aquí puedes agregar más detalles si es necesario) -->
+                <div class="tab-content">
+                  <p><strong>Correo electrónico:</strong> nicole23&#64;gmail.com</p>
+                  <p><strong>Número de teléfono:</strong> 2222222222 </p>
+                </div>
+              </div>
+  
+            </div>
+  
+          </div>
+  
+          <div class="right-section">
+            <!-- Receta reciente -->
+            <div class="prescription-section">
+              <h3>Próximas Consultas</h3>
+              <div class="appointment-list">
+                <div class="appointment-item">
+                  <img class="appointment-pic" src="assets/images/user.jpg" alt="Nicole Denise">
+                  <div class="appointment-info">
+                    <p><strong>Nicole Denise</strong><br>21 Agosto, 2024 | 10:00 AM</p>
+                  </div>
+                  <button class="expediente-button">Expediente</button>
+                </div>
+                <div class="appointment-item">
+                  <img class="appointment-pic" src="assets/images/user.jpg" alt="Sergio Pérez">
+                  <div class="appointment-info">
+                    <p><strong>Sergio Pérez</strong><br>21 Agosto, 2024 | 1:00 PM</p>
+                  </div>
+                  <button class="expediente-button">Expediente</button>
+                </div>
+                <div class="appointment-item">
+                  <img class="appointment-pic" src="assets/images/user.jpg" alt="Emilia Mernes">
+                  <div class="appointment-info">
+                    <p><strong>Emilia Mernes</strong><br>21 Agosto, 2024 | 7:00 PM</p>
+                  </div>
+                  <button class="expediente-button">Expediente</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </div>
+  
