@@ -1,0 +1,258 @@
+* {
+  font-family: Nexa !important;
+}
+
+.wrapper {
+  background-color: #F3F5F9;
+  padding: 20px;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  background-color: #F3F5F9;
+  //margin: 0 auto;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  color: #3167D9;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.appointment-inf {
+  gap: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Añadido margen inferior */
+}
+
+.profile-photo {
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.patient-info {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.info-group {
+  margin: 0 20px;
+}
+
+.info-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+label{
+  font-weight: bold;
+}
+
+.info-group p {
+  font-size: 1.1em;
+  color: #333;
+}
+
+
+.appointment-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Añadido margen inferior */
+}
+
+.appointment-left, .appointment-right {
+  width: 45%;
+}
+
+.services-section, .payment-section {
+  margin-bottom: 30px;
+}
+
+.appointment-input {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.time-slots {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.time-slot {
+  background-color: #fff;
+  border: 1px solid #3167D9;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.time-slot:hover {
+  background-color: #3167D9;
+  color: #fff;
+}
+
+.appointment-summary h3 {
+  font-size: 1.2rem;
+  color: #3167D9;
+  margin-bottom: 15px;
+}
+
+.appointment-summary p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.appointment-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-button, .save-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #fff;
+  border: 1px solid #3167D9;
+  color: #3167D9;
+}
+
+.cancel-button:hover {
+  background-color: #3167D9;
+  color: #fff;
+}
+
+.save-button {
+  background-color: #3167D9;
+  color: #fff;
+  border: none;
+}
+
+.save-button:hover {
+  background-color: #254A9B;
+}
+
+.container-2 {
+  width: 80%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.profile-header h1 {
+  color: #3167D9;
+  font-size: 2rem;
+  font-weight: bold;
+  //font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.profile-photo {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info-left, .profile-info-right {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.profile-info-left label, .profile-info-right label {
+  display: block;
+  margin-bottom: 5px;
+  //color: #666;
+  font-size: 0.9em;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input, .input-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9em;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #8D9396;
+}
+
+.input-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+.calendar-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.mat-icon {
+  cursor: pointer;
+}

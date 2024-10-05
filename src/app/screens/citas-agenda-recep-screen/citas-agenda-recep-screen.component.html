@@ -1,0 +1,37 @@
+<div>
+  <app-navbar-usuario></app-navbar-usuario>
+</div>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>Citas agendadas</h1>
+      </div>
+
+      <div class="citas-agenda">
+        <div *ngFor="let event of myEvents" class="cita" [style.border-left-color]="event.color">
+          <div class="cita-header">
+            <span class="dia-semana">{{ event.dia }}</span>
+            <span class="fecha">{{ event.fecha }}</span>
+          </div>
+          <div class="cita-detalle">
+            <p><strong>Hora:</strong> {{ event.hora }}</p>
+            <p><strong>Servicio:</strong> {{ event.motivo }}</p>
+            <!-- TODO: revisar el .servico-->
+            <p><strong>Duración estimada:</strong> {{ event.duracion }}</p>
+            <p><strong>Paciente:</strong> {{ event.paciente }}</p>
+          </div>
+          <br>
+          <span class="delete-icon"><i class="bi bi-trash"></i></span>
+          <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="anteriorSemana()" class="btn-flecha">←</button>
+
+  <button (click)="siguienteSemana()" class="btn-flecha">→</button>
+
+</body>

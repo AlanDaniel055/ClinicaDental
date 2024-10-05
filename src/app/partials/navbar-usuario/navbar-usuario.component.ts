@@ -79,18 +79,18 @@ export class NavbarUsuarioComponent implements OnInit {
 
   recepcionistaLinks = [
     { id: 'Agendar-Cita-Recep', label: 'Agendar cita', path: 'Agendar-cita-recep' },
-    { id: 'Citas-Agendadas', label: 'Citas agendadas', path: 'Agenda' },
-    { id: 'Perfil-dentista', label: 'Perfil dentista', path: 'Agenda' }
+    { id: 'Citas-Agendadas', label: 'Citas agendadas', path: 'Citas-agenda-recep' },
+    { id: 'Perfil-dentista', label: 'Perfil dentista', path: 'Agenda' } // TODO: falta el perfil
 
   ];
 
-  // Aqui te dirige al home de acuerdo su url por tipo de usuario
   getNavLinkForRole() {
     if (this.rol === 'paciente') {
       return 'Paciente';
     } else if (this.rol === 'doctor') {
       return 'Doctor';
-      // TODO :añadir recepcionista
+    } else if (this.rol === 'recepcionista') {
+      return 'Recepcionista';
     } else {
       return '';
     }

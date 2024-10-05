@@ -20,6 +20,7 @@ import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/rec
 import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
+import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'Recepcionista/:rol/:id', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Home del recepcionista por ID
   { path: 'Registro-recepcionista', component: RegistroRecepcionistaComponent, pathMatch: 'full' }, // Registro para el recepcionista
   { path: 'Agendar-cita-recep', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Registro para el recepcionista
+  { path: 'Citas-agenda-recep', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista
 
 
 ];
