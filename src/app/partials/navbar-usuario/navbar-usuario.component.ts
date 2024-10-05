@@ -63,4 +63,38 @@ export class NavbarUsuarioComponent implements OnInit {
 
   }
 
+  pacienteLinks = [
+    { id: 'Perfil', label: 'Perfil', path: 'Perfil-paciente' },
+    { id: 'Agendar-Cita', label: 'Agendar Cita', path: 'Agendar-cita' },
+    { id: 'Citas-Agendadas', label: 'Citas agendadas', path: 'Citas-agendadas' },
+    { id: 'Historial-Consultas', label: 'Historial de Consultas', path: 'Historial-consultas' },
+    { id: 'Historial-Recetas', label: 'Historial de Recetas', path: 'Historial-recetas' }
+  ];
+
+  doctorLinks = [
+    { id: 'Agenda', label: 'Agenda', path: 'Agenda' },
+    { id: 'Consulta', label: 'Consulta', path: 'Consulta' },
+    { id: 'Lista-Pacientes', label: 'Lista de pacientes', path: 'Lista-pacientes' }
+  ];
+
+  recepcionistaLinks = [
+    { id: 'Agendar-Cita-Recep', label: 'Agendar cita', path: 'Agendar-cita-recep' },
+    { id: 'Citas-Agendadas', label: 'Citas agendadas', path: 'Agenda' },
+    { id: 'Perfil-dentista', label: 'Perfil dentista', path: 'Agenda' }
+
+  ];
+
+  // Aqui te dirige al home de acuerdo su url por tipo de usuario
+  getNavLinkForRole() {
+    if (this.rol === 'paciente') {
+      return 'Paciente';
+    } else if (this.rol === 'doctor') {
+      return 'Doctor';
+      // TODO :añadir recepcionista
+    } else {
+      return '';
+    }
+  }
+
+
 }

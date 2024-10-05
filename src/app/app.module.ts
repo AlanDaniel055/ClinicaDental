@@ -43,10 +43,11 @@ import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.com
 import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
 import { RegistroDoctorComponent } from './partials/registro-doctor/registro-doctor.component';
-import { AgendaDocScreensComponent } from './screens/agenda-doc-screens/agenda-doc-screens.component';
 import { RegistroRecepcionistaComponent } from './partials/registro-recepcionista/registro-recepcionista.component';
 import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
 import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
+import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
+import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 
 @NgModule({
   declarations: [
@@ -69,10 +70,11 @@ import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/rec
     RegistroScreenComponent,
     HomeScreenComponent,
     RegistroDoctorComponent,
-    AgendaDocScreensComponent,
     RegistroRecepcionistaComponent,
     AgendarCitaRecepScreenComponent,
-    RecepcionistaScreenComponent
+    RecepcionistaScreenComponent,
+    AgendaDocScreenComponent,
+    ListaPacientesScreenComponent
   ],
   imports: [
     MbscModule, // Calendario

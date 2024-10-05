@@ -15,10 +15,11 @@ import { HistorialRecetasScreenComponent } from './screens/historial-recetas-scr
 import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
 import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
-import { AgendaDocScreensComponent } from './screens/agenda-doc-screens/agenda-doc-screens.component';
 import { RegistroRecepcionistaComponent } from './partials/registro-recepcionista/registro-recepcionista.component';
 import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
 import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
+import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
+import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'Doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Home del doctor
   { path: 'Doctor/:rol/:id', component: DoctorScreenComponent, pathMatch: 'full' }, // Home del doctor por ID
   { path: 'Registro-doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Pagina registro para el doctor
-  { path: 'Agenda', component: AgendaDocScreensComponent, pathMatch: 'full' }, // Agenda del doctor
+  { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda del doctor
+  { path: 'Lista-pacientes', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista pacientes del doctor
 
   // Vista Recepcionista
   { path: 'Recepcionista', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Home del recepcionista

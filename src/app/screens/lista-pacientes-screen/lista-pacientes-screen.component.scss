@@ -1,0 +1,63 @@
+* {
+  font-family: Nexa !important;
+}
+
+body {
+  background-color: #F3F5F9; ;
+  color: #333;
+}
+.header-landing {
+  background-color: #F3F5F9;
+  padding: 20px;
+}
+
+.container {
+  background-color: #ffffff; /* Fondo blanco para la lista */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+  padding: 20px;
+}
+
+h2 {
+  color: #3366ff; /* Color del título */
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 85px;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px; /* Más espacio para los ítems */
+  border: none; /* Sin bordes */
+  border-bottom: 1px solid #eaeaea; /* Línea separadora entre ítems */
+  transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0; /* Fondo en hover */
+}
+
+.list-group-item img {
+  margin-right: 15px; /* Espacio entre la imagen y el texto */
+}
+
+.list-group-item span {
+  font-size: 16px;
+  color: #333333; /* Color del texto */
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #6194FA;
+  border-color: #6194FA;
+  border-radius: 20px; /* Bordes redondeados para los botones */
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  background-color: #254eda; /* Color más oscuro en hover */
+  border-color: #254eda;
+}

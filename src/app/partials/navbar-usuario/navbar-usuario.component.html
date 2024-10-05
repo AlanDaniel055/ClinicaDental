@@ -2,63 +2,42 @@
   <header>
     <nav class="navbar">
       <div class="navbar-logo">
-        <img src="/assets/images/Logo.png" *ngIf="rol=='paciente'" alt="Logo-Consultorio" (click)="clickNavLink('Paciente')">
-        <img src="/assets/images/Logo.png" *ngIf="rol=='doctor'" alt="Logo-Consultorio" (click)="clickNavLink('Doctor')">
-        <img src="/assets/images/Logo.png" *ngIf="rol=='recepcionista'" alt="Logo-Consultorio" (click)="clickNavLink('')">
-        <!-- TODO: agregar recepcionista -->
+        <!-- Navega de acuerdo al tipo de usuario -->
+        <img src="/assets/images/Logo.png" alt="Logo-Consultorio" (click)="clickNavLink(getNavLinkForRole())">
       </div>
 
       <ul class="navbar-links">
+        <!-- Menú Paciente -->
+        <ng-container *ngIf="rol === 'paciente'">
+          <li class="nav-item" *ngFor="let link of pacienteLinks">
+            <a class="nav-link active" [id]="link.id" aria-current="page" (click)="clickNavLink(link.path)">
+              {{ link.label }}
+            </a>
+          </li>
+        </ng-container>
 
-        <li class="nav-item" *ngIf="rol=='paciente'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Perfil-paciente')">Perfil</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='paciente'">
-          <a class="nav-link active" id="Agendar-Cita" aria-current="page" (click)="clickNavLink('Agendar-cita')">Agendar Cita</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='paciente'">
-          <a class="nav-link active" id="Citas-Agendadas" aria-current="page" (click)="clickNavLink('Citas-agendadas')">Citas agendadas</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='paciente'">
-          <a class="nav-link active" id="Historial-Consultas" aria-current="page" (click)="clickNavLink('Historial-consultas')">Historial de Consultas</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='paciente'">
-          <a class="nav-link active" id="Historial-Recetas" aria-current="page" (click)="clickNavLink('Historial-recetas')">Historial de Recetas</a>
-        </li>
+        <!-- Menú Doctor -->
+        <ng-container *ngIf="rol === 'doctor'">
+          <li class="nav-item" *ngFor="let link of doctorLinks">
+            <a class="nav-link active" [id]="link.id" aria-current="page" (click)="clickNavLink(link.path)">
+              {{ link.label }}
+            </a>
+          </li>
+        </ng-container>
 
-        <!-- TODO: Doctor -->
-
-        <li class="nav-item" *ngIf="rol=='doctor'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Agenda')">Agenda</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='doctor'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Agenda')">Consulta</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='doctor'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Agenda')">Lista de pacientes</a>
-        </li>
-
-        <!-- TODO: Recepcionista -->
-
-        <li class="nav-item" *ngIf="rol=='recepcionista'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Agendar-cita-recep')">Agendar cita</a>
-        </li>
-        <li class="nav-item" *ngIf="rol=='recepcionista'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Agenda')">Citas agendadas</a>
-        </li>
-        <li class="nav-item" *ngIf="rol!='doctor'">
-          <a class="nav-link active" id="Perfil" aria-current="page" (click)="clickNavLink('Agenda')">Perfil dentista</a>
-          <!-- TODO: esta seccion seria la misma que el paciente (inyeccion de componentes) solo que debemos modificar los botones de editar y eliminar -->
-        </li>
-
+        <!-- Menú Recepcionista -->
+        <ng-container *ngIf="rol === 'recepcionista'">
+          <li class="nav-item" *ngFor="let link of recepcionistaLinks">
+            <a class="nav-link active" [id]="link.id" aria-current="page" (click)="clickNavLink(link.path)">
+              {{ link.label }}
+            </a>
+          </li>
+        </ng-container>
       </ul>
 
       <div class="navbar-actions">
         <a class="register" (click)="logout()">Cerrar Sesión</a>
       </div>
-
     </nav>
-
   </header>
-
 </div>
