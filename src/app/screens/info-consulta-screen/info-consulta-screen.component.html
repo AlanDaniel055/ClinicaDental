@@ -1,1 +1,51 @@
-<p>info-consulta-screen works!</p>
+<body>
+
+  <div>
+    <app-navbar-doctor></app-navbar-doctor>
+  </div>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>Consulta</h1>
+      </div>
+
+      <div class="content">
+        <div class="sidebar">
+          <h3>Perfil del paciente</h3>
+          <div class= profile-photo>
+          <img src="assets/images/user.jpg" class="profile-photo" alt="Foto de perfil" >
+          </div>
+          <p class="nombre-paciente"><strong>Nicole Denisse</strong></p>
+          <ul>
+            <li *ngFor="let dato of datos" (click)="seleccionarDato(dato)"
+            [ngClass]="{'active': dato === datoSeleccionado}">
+            {{ dato.titulo }}
+          </li>
+          </ul>
+        </div>
+
+        <div class="detalle-receta print-area">
+          <div class="button-container">
+            <button (click)="imprimirReceta()">Editar</button>
+          </div>
+          <h2>{{ datoSeleccionado.titulo }}</h2>
+          <p>{{ datoSeleccionado.linea1 }}</p>
+          <p> {{ datoSeleccionado.linea2 }}</p>
+          <p>{{ datoSeleccionado.linea3 }}</p>
+          <p>{{ datoSeleccionado.linea4 }}</p>
+
+          <p>{{ datoSeleccionado.linea6 }}</p>
+          <p> {{ datoSeleccionado.linea7 }}</p>
+          <p>{{ datoSeleccionado.linea8 }}</p>
+          <p>{{ datoSeleccionado.linea9 }}</p>
+          <p>{{ datoSeleccionado.linea10 }}</p>
+
+          <div class="button-container">
+            <button (click)="imprimirReceta()" class="btn btn-primary">Guardar</button>
+            <button (click)="imprimirReceta()"  class="btn btn-secondary">Cancelar</button>
+          </div>
+
+
+
+    </div>
+  </div>
