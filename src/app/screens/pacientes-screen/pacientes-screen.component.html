@@ -72,9 +72,9 @@
 
               <!-- Navegación de pestañas -->
               <div class="profile-tabs">
-                <button class="tab-button active">Información</button>
-                <button class="tab-button">Datos médicos</button>
-                <!-- <button class="tab-button">Contacto</button> -->
+                <button class="tab-button active">Información general</button>
+                <!-- <button class="tab-button">Datos médicos</button> -->
+                <button class="tab-button">Contacto</button>
               </div>
 
               <!-- Contenido de la pestaña Información -->
@@ -83,22 +83,17 @@
                 <p><strong>Apellido Paterno:</strong> {{lista_pacientes[0].user.last_name}}</p>
                 <p><strong>Apellido Materno:</strong> {{lista_pacientes[0].apellido_materno}}</p>
                 <p><strong>Fecha de Nacimiento:</strong> {{lista_pacientes[0].fecha_nacimiento | date: 'dd/MM/yyyy':'UTC'}}</p>
-
-                <p><strong>Correo electrónico:</strong> {{lista_pacientes[0].user.email}}</p>
-                <p><strong>Número de teléfono:</strong> {{lista_pacientes[0].telefono}}</p>
-                <!-- <button (click)="goEditar(lista_pacientes[0].id)">Editar</button> -->
-              </div>
-              <!-- Contenido de la pestaña Datos médicos (aquí puedes agregar más detalles si es necesario) -->
-              <div class="tab-content">
-                <!-- TODO: ngIf y poner datos correctos -->
-                <!-- <p>Datos médicos aún no disponibles.</p> -->
-                <p><strong>Nombre (s):</strong> {{lista_pacientes[0].user.first_name}}</p>
-                <p><strong>Apellido Paterno:</strong> {{lista_pacientes[0].user.last_name}}</p>
-                <p><strong>Apellido Materno:</strong> {{lista_pacientes[0].apellido_materno}}</p>
-
+                <button class="save-btn" (click)="goEditar(lista_pacientes[0].id)">Editar</button>
               </div>
 
               <!-- Contenido de la pestaña Contacto (aquí puedes agregar más detalles si es necesario) -->
+              <div class="tab-content">
+                <!-- <p>Datos médicos aún no disponibles.</p> -->
+                <p><strong>Correo electrónico:</strong> {{lista_pacientes[0].user.email}}</p>
+                <p><strong>Número de teléfono:</strong> {{lista_pacientes[0].telefono}}</p>
+              </div>
+
+              <!-- Contenido de la pestaña Datos médicos (aquí puedes agregar más detalles si es necesario) -->
               <div class="tab-content">
                 <!-- <p>Información de contacto adicional.</p> -->
               </div>

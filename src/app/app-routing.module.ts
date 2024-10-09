@@ -41,6 +41,8 @@ const routes: Routes = [
   { path: 'Citas-agendadas', component: CitasAgendaScreenComponent, pathMatch: 'full' }, // Citas agendadas, vista del paciente
   { path: 'Historial-consultas', component: HistorialConsultasScreenComponent, pathMatch: 'full' }, // Historial de Consultas, vista del paciente
   { path: 'Historial-recetas', component: HistorialRecetasScreenComponent, pathMatch: 'full' }, // Historial de Recetas, vista del paciente
+  { path: 'Registro/:rol/:id', component: RegistroScreenComponent, pathMatch: 'full' }, // Pagina registro para pacientes
+
 
   // Vista Doctor
   { path: 'Doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Home del doctor

@@ -69,7 +69,7 @@ export class RegistroScreenComponent implements OnInit {
           //Agregamos valores faltantes
           this.user.first_name = response.user.first_name;
           this.user.last_name = response.user.last_name;
-          //this.user.email = response.user.email;
+          this.user.email = response.user.email;
           this.user.tipo_usuario = this.rol; // llave para que obtenga el rol
           this.isPaciente = true; // Activa el formulario correspondiente de acuerdo al radiochange
           //this.user.fecha_nacimiento = response.fecha_nacimiento.split("T")[0];

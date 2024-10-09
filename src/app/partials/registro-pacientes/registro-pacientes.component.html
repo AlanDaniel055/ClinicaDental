@@ -83,6 +83,9 @@
   <!-- Botones -->
   <div class="section-buttons">
     <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
-    <button class="btn-alert" (click)="registrar()">Enviar</button>
+    <button *ngIf="!editar" class="btn-alert" (click)="registrar()">Enviar</button>
+    <button *ngIf="editar" class="btn-alert" (click)="actualizar()">Actualizar</button>
+
+
   </div>
 </div>

@@ -64,7 +64,7 @@ export class NavbarUsuarioComponent implements OnInit {
   }
 
   pacienteLinks = [
-    { id: 'Perfil', label: 'Perfil', path: 'Perfil-paciente' },
+    { id: 'Perfil-paciente', label: 'Perfil', path: 'Perfil-paciente' },
     { id: 'Agendar-Cita', label: 'Agendar Cita', path: 'Agendar-cita' },
     { id: 'Citas-Agendadas', label: 'Citas agendadas', path: 'Citas-agendadas' },
     { id: 'Historial-Consultas', label: 'Historial de Consultas', path: 'Historial-consultas' },

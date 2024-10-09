@@ -125,7 +125,7 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
 
   //Funcion para editar
   public goEditar(idUser: number) {
-    this.router.navigate(["Paciente/paciente/" + idUser]);
+    this.router.navigate(["Registro/paciente/" + idUser]);
   } // Se concatena el iduser, para obtener los datos /paciente
   // TODO: nos sirve mas adelante
 
