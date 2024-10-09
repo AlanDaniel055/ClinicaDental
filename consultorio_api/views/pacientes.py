@@ -93,3 +93,35 @@ class PacientesView(generics.CreateAPIView):
             return Response({"paciente_created_id": paciente.id }, 201)
 
         return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+    # Obtner el total de usuarios registrados
+
+class PacientesViewEdit(generics.CreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    #Editar paciente
+    def put(self, request, *args, **kwargs):
+        # iduser=request.data["id"]
+        paciente = get_object_or_404(Pacientes, id=request.data["id"])
+        paciente.apellido_materno = request.data["apellido_materno"]
+        paciente.fecha_nacimiento = request.data["fecha_nacimiento"]
+        paciente.telefono = request.data["telefono"]
+        paciente.photoFileName = request.data["photoFileName"]
+        paciente.save()
+        temp = paciente.user
+        temp.first_name = request.data["first_name"]
+        temp.last_name = request.data["last_name"]
+        temp.save()
+        user = PacienteSerializer(paciente, many=False).data
+
+        return Response(user,200)
+    
+    #Eliminar paciente
+    def delete(self, request, *args, **kwargs):
+        paciente = get_object_or_404(Pacientes, id=request.GET.get("id"))
+        try:
+            paciente.user.delete()
+            return Response({"details":"Paciente eliminado"},200)
+        except Exception as e:
+            return Response({"details":"Algo pasó al eliminar"},400)
