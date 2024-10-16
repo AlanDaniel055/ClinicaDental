@@ -87,9 +87,51 @@ class PacientesView(generics.CreateAPIView):
                                             apellido_materno= request.data["apellido_materno"],
                                             fecha_nacimiento= request.data["fecha_nacimiento"],
                                             telefono= request.data["telefono"],
+                                            alergias= request.data["alergias"],
+                                            enfermedades=request.data["enfermedades"],
+                                            tipo_sangre=request.data["tipo_sangre"],
+                                            contacto_emergencia=request.data["contacto_emergencia"],
+                                            historial=request.data["historial"],
                                             photoFileName= request.data["photoFileName"]) # TODO:  campo para la foto
             paciente.save()
 
             return Response({"paciente_created_id": paciente.id }, 201)
 
         return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+    # Obtner el total de usuarios registrados
+
+class PacientesViewEdit(generics.CreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    #Editar paciente
+    def put(self, request, *args, **kwargs):
+        # iduser=request.data["id"]
+        paciente = get_object_or_404(Pacientes, id=request.data["id"])
+        paciente.apellido_materno = request.data["apellido_materno"]
+        paciente.fecha_nacimiento = request.data["fecha_nacimiento"]
+        paciente.telefono = request.data["telefono"]
+        paciente.alergias= request.data["alergias"],
+        paciente.enfermedades=request.data["enfermedades"],
+        paciente.tipo_sangre=request.data["tipo_sangre"],
+        paciente.contacto_emergencia=request.data["contacto_emergencia"],
+        paciente.historial=request.data["historial"],
+        paciente.photoFileName = request.data["photoFileName"]
+        paciente.save()
+        temp = paciente.user
+        temp.first_name = request.data["first_name"]
+        temp.last_name = request.data["last_name"]
+        temp.save()
+        user = PacienteSerializer(paciente, many=False).data
+
+        return Response(user,200)
+    
+    #Eliminar paciente
+    def delete(self, request, *args, **kwargs):
+        paciente = get_object_or_404(Pacientes, id=request.GET.get("id"))
+        try:
+            paciente.user.delete()
+            return Response({"details":"Paciente eliminado"},200)
+        except Exception as e:
+            return Response({"details":"Algo pasó al eliminar"},400)

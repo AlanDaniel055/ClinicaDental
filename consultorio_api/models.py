@@ -16,6 +16,11 @@ class Pacientes(models.Model):
     apellido_materno = models.CharField(max_length=255, null=True, blank=True)
     fecha_nacimiento = models.DateTimeField(null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
+    alergias = models.CharField(max_length=500, null=True, blank=True)
+    enfermedades =models.CharField(max_length=500, null=True, blank=True)
+    tipo_sangre=models.CharField(max_length=255, null=True, blank=True)
+    contacto_emergencia= models.CharField(max_length=255, null=True, blank=True)
+    historial=models.CharField(max_length=1000, null=True, blank=True)
     photoFileName = models.ImageField(upload_to='pacientes/', null=True, blank=True)  # Aquí definir el campo para la imagen
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update = models.DateTimeField(null=True, blank=True)
