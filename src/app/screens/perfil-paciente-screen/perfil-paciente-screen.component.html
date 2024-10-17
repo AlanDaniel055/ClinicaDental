@@ -1,113 +1,113 @@
 <div class="header-landing">
-  <div>
+  <header>
     <app-navbar-usuario></app-navbar-usuario>
-  </div>
+  </header>
 </div>
 
-<div>
-  <body>
-    <div class="container">
-      <!-- Sección de perfil -->
-      <div class="profile-header">
-        <h1>Perfil</h1>
-      </div>
 
-      <div class="profile-content">
-        <!-- Foto de perfil -->
-        <div class="profile-photo">
-          <img src="assets/images/user.jpg" alt="Foto de perfil">
-        </div>
+<body>
+<div class="container">
+  <!-- Sección de perfil -->
+  <div class="profile-header">
+    <h1>Perfil</h1>
+  </div>
 
-        <!-- Información del perfil - Columna Izquierda -->
-        <div class="profile-info-left">
-          <label>Nombre(s)</label>
-          <div class="input-group">
-            <input type="text" value="Hola">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+  <div class="profile-content">
+    <!-- Foto de perfil -->
+    <div class="profile-photo">
+      <img src="assets/images/user.jpg" alt="Foto de perfil">
+    </div>
+
+    <!-- Información del perfil - Columna Izquierda -->
+    <div class="profile-info-left">
+      <ng-container *ngIf="lista_pacientes.length > 0">
+        <ng-container *ngIf="lista_pacientes[0] as paciente">
+
+          <div>
+            <p>
+              <strong>Nombre:</strong>
+              <span class="input-group" >{{ paciente.user.first_name }}</span>
+            </p>
           </div>
 
-          <label>Apellido Paterno</label>
-          <div class="input-group">
-            <input type="text" value="Cucco">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+          <div>
+            <p>
+              <strong>Apellido Paterno:</strong>
+              <span class="input-group">{{ paciente.user.last_name }}</span>
+            </p>
           </div>
 
-          <label>Apellido Materno</label>
-          <div class="input-group">
-            <input type="text" value="Pérez">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+          <div>
+            <p>
+              <strong>Apellido Materno:</strong>
+              <span class="input-group">{{ paciente.apellido_materno }}</span>
+            </p>
           </div>
 
-          <label>Fecha de nacimiento</label>
-          <div class="input-group">
-            <input value="2000-08-25">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+          <div >
+            <p>
+              <strong>Fecha de Nacimiento:</strong>
+              <span class="input-group">{{ paciente.fecha_nacimiento }}</span>
+            </p>
           </div>
 
-          <label>Correo electrónico</label>
-          <div class="input-group">
-            <input type="email" value="nicole23@gmail.com">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+          <div >
+            <p>
+              <strong>Correo Electrónico:</strong>
+              <span class="input-group">{{ paciente.user.email }}</span>
+            </p>
           </div>
 
-          <label>Alergias</label>
-          <div class="input-group">
-            <input type="text" value="No conocidas">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+          <div >
+            <p>
+              <strong>Alergias:</strong>
+              <span class="input-group">{{ paciente.alergias }}</span>
+            </p>
           </div>
-        </div>
+        </ng-container>
+      </ng-container>
+    </div>
 
-        <!-- Información del perfil - Columna Derecha -->
-        <div class="profile-info-right">
-          <label>Enfermedades crónicas</label>
-          <div class="input-group">
-            <input type="text" value="Hipertensión arterial">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
-          </div>
+    <!-- Información del perfil - Columna Derecha -->
+    <div class="profile-info-right">
+      <ng-container *ngIf="lista_pacientes.length > 0">
+        <ng-container *ngIf="lista_pacientes[0] as paciente">
 
-          <label>Tipo de sangre</label>
-          <div class="input-group">
-            <input type="text" value="A positivo">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
-          </div>
-
-          <label>Contacto de emergencia</label>
-          <div class="input-group">
-            <input type="tel" value="(123) 456-7890">
-            <span class="edit-icon"><i class="bi bi-pencil-square"></i></span>
+          <div >
+            <p>
+              <strong>Enfermedades Crónicas:</strong>
+              <span class="input-group">{{ paciente.enfermedades }}</span>
+            </p>
           </div>
 
-          <label>Historial odontológico</label>
-          <div class="input-group">
-            <textarea
-              readonly>Última Visita: Enero 2024
-              Tratamientos Previos:
-              • Empaste en el diente 14 (molar superior izquierdo) en 2023
-              • Extracción del diente 38 (molar inferior derecho) en 2023
-              Historial de Problemas Dentales: Sensibilidad en dientes posteriores, dolor ocasional en encías</textarea>
+          <div >
+            <p>
+              <strong>Tipo de Sangre:</strong>
+              <span class="input-group">{{ paciente.tipo_sangre }}</span>
+            </p>
+          </div>
+
+          <div >
+            <p>
+              <strong>Contacto de Emergencia:</strong>
+               <span class="input-group">{{ paciente.contacto_emergencia }}</span>
+              </p>
+          </div>
+
+          <div >
+            <p>
+              <strong>Historial Odontológico:</strong>
+               <span class="input-group">{{ paciente.historial }}</span>
+              </p>
           </div>
 
           <!-- Botones de acción -->
           <div class="action-buttons">
             <button class="save-btn">Editar</button>
-            <!-- <button class="cancel-btn">Cancelar</button> -->
-            <!-- <button class="save-btn">Guardar</button> -->
-            <!-- <button class="save-btn" (click)="goEditar(admin.id)">Editar</button> -->
-            <!-- <button class="save-btn" *matCellDef="let element"
-             (click)="goEditar(element.id)">Editar</button> -->
-
           </div>
-
-
-        </div>
-      </div>
-
-
-
+        </ng-container>
+      </ng-container>
     </div>
-
-  </body>
-
-
-
+  </div>
 </div>
+</body>

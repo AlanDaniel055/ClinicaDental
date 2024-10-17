@@ -12,6 +12,12 @@ body {
   padding: 20px;
 }
 
+span {
+  display: block; /* Esto hará que el texto se muestre en una nueva línea */
+  margin-top: 5px; /* Ajusta el margen superior como prefieras */
+
+}
+
 .profile-header {
   text-align: left;
   margin-bottom: 20px;
@@ -45,43 +51,36 @@ body {
 .profile-info-left, .profile-info-right {
   flex: 2;
   margin-left: 20px;
-}
-
-.profile-info-left label, .profile-info-right label {
   display: block;
   margin-bottom: 5px;
-  //color: #666;
-  font-size: 0.9em;
+  font-size: 1rem;
+
 }
+
 
 .input-group {
   position: relative;
   margin-bottom: 20px;
 }
 
-.input-group input, .input-group textarea {
+.input-group {
   width: 100%;
   padding: 10px;
-  font-size: 0.9em;
+  font-size: 1rem;
   border: 1px solid #FFFFFF;
   border-radius: 4px;
   background-color: #FFFFFF;
-  color: #8D9396;
+  color: #676767;
 }
 
-.input-group textarea {
-  height: 120px;
-  resize: none;
-}
 
-.edit-icon, .calendar-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  font-size: 1.2em;
-  cursor: pointer;
-  color: #007bff;
+
+strong{
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  color: #211f1f;
+  margin: 15px 0;
 }
 
 .action-buttons {

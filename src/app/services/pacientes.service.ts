@@ -2,10 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { FacadeService } from './facade.service';
-
+import { Router } from '@angular/router';
 
 //Crear una constante
 const httpOptions = {
@@ -21,7 +21,8 @@ export class PacientesService {
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
-    private facadeService: FacadeService
+    private facadeService: FacadeService,
+    private router: Router
   ) { }
 
   public esquemaPaciente() {

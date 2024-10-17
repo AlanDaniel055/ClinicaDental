@@ -41,22 +41,35 @@ export class NavbarUsuarioComponent implements OnInit {
   public logout() {
     this.facadeService.logout().subscribe(
       (response) => {
-        console.log("Entró");
+        console.log("Salió");
         this.facadeService.destroyUser(); // Destruye las cookies
         //Navega al login
-        this.router.navigate(["/"]);
+        this.router.navigate(["Login"]);
       }, (error) => {
         console.error(error);
       }
     );
   }
 
+  // public clickNavLink(link: string) {
+  //   this.router.navigate([link]);
+  //   setTimeout(() => {
+  //     this.activarLink(link);
+  //   }, 100);
+  // }
+
   public clickNavLink(link: string) {
-    this.router.navigate([link]);
+    // Asumiendo que el rol y el ID están obtenidos del servicio facadeService
+    const userId = this.facadeService.getUserId();  // Aquí obtienes el id del usuario, puede ser un método que tengas en tu servicio
+    const role = this.facadeService.getUserGroup(); // Aquí obtienes el rol del usuario
+
+    // Navegar a la ruta y añadir el rol y el id a la URL
+    this.router.navigate([link, role, userId]);  // Ahora incluimos rol y id
     setTimeout(() => {
       this.activarLink(link);
     }, 100);
   }
+
 
   // TODO: no le hagan caso a esta parte luego lo modifico
   public activarLink(link: string) {

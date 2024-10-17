@@ -105,7 +105,7 @@ export class RegistroPacientesComponent implements OnInit {
   }
 
   public actualizar() {
-    //Validación
+    // Validación
     this.errors = [];
 
     this.errors = this.pacientesService.validarPaciente(this.paciente, this.editar);
@@ -118,11 +118,10 @@ export class RegistroPacientesComponent implements OnInit {
       (response) => {
         alert("Paciente editado correctamente");
         console.log("Paciente editado: ", response);
-        //Si se editó, entonces mandar al home
-        this.router.navigate(["Paciente"]); // TODO: checar la ruta
+        // Si se editó, entonces mandar al home con rol y ID
+        this.router.navigate([`Paciente/${this.paciente.rol}/${this.paciente.id}`]); // Redirigir a la página con rol e id
       }, (error) => {
         alert("No se pudo editar al paciente");
-        //console.log("Error: ", error);
       }
     );
   }

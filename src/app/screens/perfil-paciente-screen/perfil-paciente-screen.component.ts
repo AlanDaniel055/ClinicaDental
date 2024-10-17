@@ -33,7 +33,6 @@ export class PerfilPacienteScreenComponent implements OnInit {
         this.obtenerPacientePorId(parseInt(id));
       }
     });
-
   }
 
   // Obtener un paciente por ID
@@ -62,7 +61,7 @@ export class PerfilPacienteScreenComponent implements OnInit {
 
   //Funcion para editar
   public goEditar(idUser: number) {
-    this.router.navigate(["Paciente/paciente/" + idUser]);
+    this.router.navigate(["Registro/paciente/" + idUser]);
   } // Se concatena el iduser, para obtener los datos /paciente
 
 }

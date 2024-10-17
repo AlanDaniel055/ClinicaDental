@@ -37,10 +37,17 @@ const routes: Routes = [
   { path: 'Paciente', component: PacientesScreenComponent, pathMatch: 'full' }, // Home del paciente
   { path: 'Paciente/:rol/:id', component: PacientesScreenComponent, pathMatch: 'full' }, // Home del paciente por ID
   { path: 'Perfil-paciente', component: PerfilPacienteScreenComponent, pathMatch: 'full' }, // Perfil del paciente
+  { path: 'Perfil-paciente/:rol/:id', component: PerfilPacienteScreenComponent, pathMatch: 'full' }, // Perfil del paciente por ID
   { path: 'Agendar-cita', component: AgendarCitaScreenComponent, pathMatch: 'full' }, // Agendar cita, vista del paciente
+  { path: 'Agendar-cita/:rol/:id', component: AgendarCitaScreenComponent, pathMatch: 'full' }, // Agendar cita, vista del paciente
+
   { path: 'Citas-agendadas', component: CitasAgendaScreenComponent, pathMatch: 'full' }, // Citas agendadas, vista del paciente
+  { path: 'Citas-agendadas/:rol/:id', component: CitasAgendaScreenComponent, pathMatch: 'full' }, // Citas agendadas, vista del paciente
+
   { path: 'Historial-consultas', component: HistorialConsultasScreenComponent, pathMatch: 'full' }, // Historial de Consultas, vista del paciente
+  { path: 'Historial-consultas/:rol/:id', component: HistorialConsultasScreenComponent, pathMatch: 'full' }, // Historial de Consultas, vista del paciente
   { path: 'Historial-recetas', component: HistorialRecetasScreenComponent, pathMatch: 'full' }, // Historial de Recetas, vista del paciente
+  { path: 'Historial-recetas/:rol/:id', component: HistorialRecetasScreenComponent, pathMatch: 'full' }, // Historial de Recetas, vista del paciente
   { path: 'Registro/:rol/:id', component: RegistroScreenComponent, pathMatch: 'full' }, // Pagina registro para pacientes
 
 
