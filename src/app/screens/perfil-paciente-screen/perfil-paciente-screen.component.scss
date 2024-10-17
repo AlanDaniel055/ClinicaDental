@@ -14,8 +14,12 @@ body {
 
 span {
   display: block; /* Esto hará que el texto se muestre en una nueva línea */
+<<<<<<< HEAD
   margin-top: 5px; /* Ajusta el margen superior como prefieras */
 
+=======
+  margin-top: 5px; /* Ajusta el margen superior */
+>>>>>>> 9e31b86 (Perfil modificado para el paciente)
 }
 
 .profile-header {
@@ -27,7 +31,6 @@ span {
   color: #3167D9;
   font-size: 2rem;
   font-weight: bold;
-  //font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .profile-content {

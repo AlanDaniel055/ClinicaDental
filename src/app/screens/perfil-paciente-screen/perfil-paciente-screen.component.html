@@ -47,7 +47,11 @@
           <div >
             <p>
               <strong>Fecha de Nacimiento:</strong>
+<<<<<<< HEAD
               <span class="input-group">{{ paciente.fecha_nacimiento }}</span>
+=======
+              <span class="input-group">{{ paciente.fecha_nacimiento | date: 'dd/MM/yyyy':'UTC' }}</span>
+>>>>>>> 9e31b86 (Perfil modificado para el paciente)
             </p>
           </div>
 
@@ -103,7 +107,11 @@
 
           <!-- Botones de acción -->
           <div class="action-buttons">
+<<<<<<< HEAD
             <button class="save-btn">Editar</button>
+=======
+            <button class="save-btn" (click)="goEditar(paciente.id)">Editar</button>
+>>>>>>> 9e31b86 (Perfil modificado para el paciente)
           </div>
         </ng-container>
       </ng-container>
