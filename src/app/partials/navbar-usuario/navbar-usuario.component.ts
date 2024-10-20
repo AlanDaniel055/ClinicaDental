@@ -70,7 +70,6 @@ export class NavbarUsuarioComponent implements OnInit {
     }, 100);
   }
 
-
   // TODO: no le hagan caso a esta parte luego lo modifico
   public activarLink(link: string) {
 

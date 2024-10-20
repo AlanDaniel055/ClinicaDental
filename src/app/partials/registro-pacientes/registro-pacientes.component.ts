@@ -42,14 +42,6 @@ export class RegistroPacientesComponent implements OnInit {
     private facadeService: FacadeService,
   ) { }
 
-  // ngOnInit(): void {
-  //   // Definir el esquema a mi JSON
-  //   this.paciente = this.pacientesService.esquemaPaciente();
-  //   this.paciente.rol = this.rol; // Asigna el valor de la propiedad rol del componente (this.rol) a la propiedad rol del objeto paciente
-  //   console.log("Paciente: ", this.paciente);
-
-  // }
-
   ngOnInit(): void {
     //El primer if valida si existe un parámetro en la URL
     if (this.activatedRoute.snapshot.params['id'] != undefined) {

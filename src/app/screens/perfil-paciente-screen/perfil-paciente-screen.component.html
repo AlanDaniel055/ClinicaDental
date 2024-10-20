@@ -6,116 +6,109 @@
 
 
 <body>
-<div class="container">
-  <!-- Sección de perfil -->
-  <div class="profile-header">
-    <h1>Perfil</h1>
-  </div>
-
-  <div class="profile-content">
-    <!-- Foto de perfil -->
-    <div class="profile-photo">
-      <img src="assets/images/user.jpg" alt="Foto de perfil">
+  <div class="container">
+    <!-- Sección de perfil -->
+    <div class="profile-header">
+      <h1>Perfil</h1>
     </div>
 
-    <!-- Información del perfil - Columna Izquierda -->
-    <div class="profile-info-left">
-      <ng-container *ngIf="lista_pacientes.length > 0">
-        <ng-container *ngIf="lista_pacientes[0] as paciente">
+    <div class="profile-content">
+      <!-- Foto de perfil -->
+      <div class="profile-photo">
+        <img src="assets/images/user.jpg" alt="Foto de perfil">
+      </div>
 
-          <div>
-            <p>
-              <strong>Nombre:</strong>
-              <span class="input-group" >{{ paciente.user.first_name }}</span>
-            </p>
-          </div>
+      <!-- Información del perfil - Columna Izquierda -->
+      <div class="profile-info-left">
+        <ng-container *ngIf="lista_pacientes.length > 0">
+          <ng-container *ngIf="lista_pacientes[0] as paciente">
 
-          <div>
-            <p>
-              <strong>Apellido Paterno:</strong>
-              <span class="input-group">{{ paciente.user.last_name }}</span>
-            </p>
-          </div>
-
-          <div>
-            <p>
-              <strong>Apellido Materno:</strong>
-              <span class="input-group">{{ paciente.apellido_materno }}</span>
-            </p>
-          </div>
-
-          <div >
-            <p>
-              <strong>Fecha de Nacimiento:</strong>
-<<<<<<< HEAD
-              <span class="input-group">{{ paciente.fecha_nacimiento }}</span>
-=======
-              <span class="input-group">{{ paciente.fecha_nacimiento | date: 'dd/MM/yyyy':'UTC' }}</span>
->>>>>>> 9e31b86 (Perfil modificado para el paciente)
-            </p>
-          </div>
-
-          <div >
-            <p>
-              <strong>Correo Electrónico:</strong>
-              <span class="input-group">{{ paciente.user.email }}</span>
-            </p>
-          </div>
-
-          <div >
-            <p>
-              <strong>Alergias:</strong>
-              <span class="input-group">{{ paciente.alergias }}</span>
-            </p>
-          </div>
-        </ng-container>
-      </ng-container>
-    </div>
-
-    <!-- Información del perfil - Columna Derecha -->
-    <div class="profile-info-right">
-      <ng-container *ngIf="lista_pacientes.length > 0">
-        <ng-container *ngIf="lista_pacientes[0] as paciente">
-
-          <div >
-            <p>
-              <strong>Enfermedades Crónicas:</strong>
-              <span class="input-group">{{ paciente.enfermedades }}</span>
-            </p>
-          </div>
-
-          <div >
-            <p>
-              <strong>Tipo de Sangre:</strong>
-              <span class="input-group">{{ paciente.tipo_sangre }}</span>
-            </p>
-          </div>
-
-          <div >
-            <p>
-              <strong>Contacto de Emergencia:</strong>
-               <span class="input-group">{{ paciente.contacto_emergencia }}</span>
+            <div>
+              <p>
+                <strong>Nombre:</strong>
+                <span class="input-group">{{ paciente.user.first_name }}</span>
               </p>
-          </div>
+            </div>
 
-          <div >
-            <p>
-              <strong>Historial Odontológico:</strong>
-               <span class="input-group">{{ paciente.historial }}</span>
+            <div>
+              <p>
+                <strong>Apellido Paterno:</strong>
+                <span class="input-group">{{ paciente.user.last_name }}</span>
               </p>
-          </div>
+            </div>
 
-          <!-- Botones de acción -->
-          <div class="action-buttons">
-<<<<<<< HEAD
-            <button class="save-btn">Editar</button>
-=======
-            <button class="save-btn" (click)="goEditar(paciente.id)">Editar</button>
->>>>>>> 9e31b86 (Perfil modificado para el paciente)
-          </div>
+            <div>
+              <p>
+                <strong>Apellido Materno:</strong>
+                <span class="input-group">{{ paciente.apellido_materno }}</span>
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <strong>Fecha de Nacimiento:</strong>
+                <span class="input-group">{{ paciente.fecha_nacimiento | date: 'dd/MM/yyyy':'UTC' }}</span>
+
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <strong>Correo Electrónico:</strong>
+                <span class="input-group">{{ paciente.user.email }}</span>
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <strong>Alergias:</strong>
+                <span class="input-group">{{ paciente.alergias }}</span>
+              </p>
+            </div>
+          </ng-container>
         </ng-container>
-      </ng-container>
+      </div>
+
+      <!-- Información del perfil - Columna Derecha -->
+      <div class="profile-info-right">
+        <ng-container *ngIf="lista_pacientes.length > 0">
+          <ng-container *ngIf="lista_pacientes[0] as paciente">
+
+            <div>
+              <p>
+                <strong>Enfermedades Crónicas:</strong>
+                <span class="input-group">{{ paciente.enfermedades }}</span>
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <strong>Tipo de Sangre:</strong>
+                <span class="input-group">{{ paciente.tipo_sangre }}</span>
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <strong>Contacto de Emergencia:</strong>
+                <span class="input-group">{{ paciente.contacto_emergencia }}</span>
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <strong>Historial Odontológico:</strong>
+                <span class="input-group">{{ paciente.historial }}</span>
+              </p>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="action-buttons">
+              <button class="save-btn" (click)="goEditar(paciente.id)">Editar</button>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
   </div>
-</div>
 </body>

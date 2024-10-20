@@ -37,6 +37,11 @@ export class PacientesService {
       'confirmar_password': '',
       'telefono': '',
       'photoFileName': '',
+      'alergias': '',
+      'enfermedades': '',
+      'tipo_sangre': '',
+      'contacto_emergencia': '',
+      'historial': '',
     }
   }
 
@@ -109,6 +114,47 @@ export class PacientesService {
     // Validaciones para el archivo de la foto
     if (!this.validatorService.required(data["photoFileName"])) {
       error["photoFileName"] = this.errorService.required;
+    }
+
+    // Validaciones para alergias
+    if (!this.validatorService.required(data["alergias"])) {
+      error["alergias"] = this.errorService.required;
+    } else if (!this.validatorService.onlyLetters(data["alergias"])) {
+      error["alergias"] = this.errorService.onlyLetters;
+    } else if (!this.validatorService.max(data["alergias"], 50)) {
+      error["alergias"] = this.errorService.max(50);
+    }
+
+    // Validaciones para enfermedades crónicas
+    if (!this.validatorService.required(data["enfermedades"])) {
+      error["enfermedades"] = this.errorService.required;
+    } else if (!this.validatorService.onlyLetters(data["enfermedades"])) {
+      error["enfermedades"] = this.errorService.onlyLetters;
+    } else if (!this.validatorService.max(data["enfermedades"], 50)) {
+      error["enfermedades"] = this.errorService.max(50);
+    }
+
+    // Validaciones para el tipo de sangre
+    if (!this.validatorService.required(data["tipo_sangre"])) {
+      error["tipo_sangre"] = this.errorService.required;
+    } else if (!this.validatorService.onlyLetters(data["tipo_sangre"])) {
+      error["tipo_sangre"] = this.errorService.onlyLetters;
+    } else if (!this.validatorService.max(data["tipo_sangre"], 50)) {
+      error["tipo_sangre"] = this.errorService.max(50);
+    }
+
+    // Validaciones para el contacto de emergencia
+    if (!this.validatorService.required(data["contacto_emergencia"])) {
+      error["contacto_emergencia"] = this.errorService.required;
+    } else if (!this.validatorService.phoneNumber(data["contacto_emergencia"])) {
+      error["contacto_emergencia"] = this.errorService.phoneNumber;
+    }
+
+    // Validaciones para el historial odontológico
+    if (!this.validatorService.required(data["historial"])) {
+      error["historial"] = this.errorService.required;
+    } else if (!this.validatorService.max(data["historial"], 500)) {
+      error["historial"] = this.errorService.max(500);
     }
 
     //Return arreglo de errores

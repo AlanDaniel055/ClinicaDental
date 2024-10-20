@@ -19,7 +19,6 @@
   </mat-form-field>
   <div *ngIf="errors.apellido_materno " class="invalid-feedback">{{ errors.apellido_materno }}</div>
 
-
   <label>Fecha de nacimiento</label>
   <mat-form-field class="mat-input" appearance="outline">
     <input matInput [matDatepicker]="picker" [(ngModel)]="paciente.fecha_nacimiento" (focus)="picker.open()"
@@ -29,13 +28,11 @@
   </mat-form-field>
   <div *ngIf="errors.fecha_nacimiento " class="invalid-feedback">{{ errors.fecha_nacimiento }}</div>
 
-
   <label>Correo electrónico</label>
   <mat-form-field class="mat-input" appearance="outline">
     <input matInput [(ngModel)]="paciente.email" placeholder="Ingresa tu correo electrónico" [disabled]="editar">
   </mat-form-field>
   <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
-
 
   <label>Contraseña</label>
   <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
@@ -44,7 +41,6 @@
       'visibility'}}</mat-icon>
   </mat-form-field>
   <div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div>
-
 
   <label>Confirmar Contraseña</label>
   <mat-form-field class="mat-input" appearance="outline" *ngIf="!editar">
@@ -55,13 +51,46 @@
   </mat-form-field>
   <div *ngIf="errors.confirmar_password" class="invalid-feedback">{{ errors.confirmar_password }}</div>
 
-
   <label>Número telefónico</label>
   <mat-form-field class="mat-input" appearance="outline">
     <input matInput [(ngModel)]="paciente.telefono" mask='(000) 000-0000' placeholder="Ingresa tu número telefónico">
   </mat-form-field>
   <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 
+  <!-- TODO: formulario actualizado -->
+  <label>Si no presenta ninguna de las siguientes condiciones (alergias, enfermedades crónicas) por favor escriba
+    'Ninguna'.</label>
+
+  <label>Alergias</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="paciente.alergias" name="nombre" placeholder="Ingresa tus alergias">
+  </mat-form-field>
+  <div *ngIf="errors.alergias" class="invalid-feedback">{{ errors.alergias }}</div>
+
+  <label>Enfermedades crónicas</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="paciente.enfermedades" name="nombre" placeholder="Ingresa tus enfermedades crónicas">
+  </mat-form-field>
+  <div *ngIf="errors.enfermedades" class="invalid-feedback">{{ errors.enfermedades }}</div>
+
+  <label>Tipo de sangre</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="paciente.tipo_sangre" name="nombre" placeholder="Ingresa tu tipo de sangre">
+  </mat-form-field>
+  <div *ngIf="errors.tipo_sangre" class="invalid-feedback">{{ errors.tipo_sangre }}</div>
+
+  <label>Contacto de emergencia</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="paciente.contacto_emergencia" mask='(000) 000-0000'
+      placeholder="Ingresa tu contacto de emergencia">
+  </mat-form-field>
+  <div *ngIf="errors.contacto_emergencia" class="invalid-feedback">{{ errors.contacto_emergencia }}</div>
+
+  <label>Historial Odontológico</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="paciente.historial" name="nombre" placeholder="Ingresa tu historial odontológico">
+  </mat-form-field>
+  <div *ngIf="errors.historial" class="invalid-feedback">{{ errors.historial }}</div>
 
   <div class="image-upload-container">
     <div class="image-preview">
