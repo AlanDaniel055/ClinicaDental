@@ -14,12 +14,7 @@ body {
 
 span {
   display: block; /* Esto hará que el texto se muestre en una nueva línea */
-<<<<<<< HEAD
   margin-top: 5px; /* Ajusta el margen superior como prefieras */
-
-=======
-  margin-top: 5px; /* Ajusta el margen superior */
->>>>>>> 9e31b86 (Perfil modificado para el paciente)
 }
 
 .profile-header {
@@ -51,7 +46,8 @@ span {
   object-fit: cover;
 }
 
-.profile-info-left, .profile-info-right {
+.profile-info-left,
+.profile-info-right {
   flex: 2;
   margin-left: 20px;
   display: block;
@@ -78,7 +74,7 @@ span {
 
 
 
-strong{
+strong {
   padding: 10px;
   font-size: 1rem;
   border-radius: 4px;
@@ -92,7 +88,8 @@ strong{
   margin-top: 30px;
 }
 
-.cancel-btn, .save-btn {
+.cancel-btn,
+.save-btn {
   padding: 10px 20px;
   font-size: 1em;
   border: solid;
