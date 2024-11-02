@@ -98,16 +98,6 @@ export class AgendarCitaScreenComponent implements OnInit {
     this.cita.horario_cita = hora;
   }
 
-
-  // public guardar() {
-  //   // Validar
-  //   this.errors = [];
-  //   this.errors = this.citasService.validarCita(this.cita, this.editar)
-  //   if (!$.isEmptyObject(this.errors)) {
-  //     //return false;
-  //   }
-  // }
-
   public guardar() {
     // Validar
     this.errors = [];
@@ -120,7 +110,8 @@ export class AgendarCitaScreenComponent implements OnInit {
       (response) => {
         alert("Cita registrada correctamente");
         console.log("Cita registrada:", response);
-        //this.router.navigate(['/lista-citas']); // Navegar a la lista de citas u otra acción
+        this.router.navigate(['/Citas-agendadas']); // Navegar a la lista de citas u otra acción
+        // TODO : revisar que te lleve de acuerdo al URL
       }, (error) => {
         alert("No se pudo registrar la cita");
         console.log("Error al registrar la cita", error);

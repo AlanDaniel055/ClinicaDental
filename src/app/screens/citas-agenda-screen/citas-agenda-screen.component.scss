@@ -2,8 +2,9 @@
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
+  /* color */
 }
 
 .wrapper {
@@ -34,7 +35,8 @@ body{
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  border-left: 5px solid #6A5ACD; /* Cambia este color según la categoría */
+  border-left: 5px solid #6A5ACD;
+  /* Cambia este color según la categoría */
 }
 
 .cita-header {
@@ -61,4 +63,37 @@ body{
 
 .cita-detalle p strong {
   color: #555;
+}
+
+.btn-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 45px;
+  cursor: pointer;
+  border: #F3F5F9;
+  background-color: #F3F5F9;
+}
+
+.btn-flecha:first-child {
+  left: 10px;
+}
+
+.btn-flecha:last-child {
+  right: 10px;
+}
+
+button {
+  margin: 30px;
+  padding: 5px;
+}
+
+.edit-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-icon {
+  cursor: pointer;
+  margin-left: 190px;
 }

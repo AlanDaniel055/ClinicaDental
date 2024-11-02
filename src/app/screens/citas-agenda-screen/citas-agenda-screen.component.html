@@ -13,17 +13,22 @@
         <div *ngFor="let event of myEvents" class="cita" [style.border-left-color]="event.color">
           <div class="cita-header">
             <span class="dia-semana">{{ event.dia }}</span>
-            <span class="fecha">{{ event.fecha }}</span>
+            <span class="fecha">{{ event.fecha | date: 'dd/MM/yyyy':'UTC'  }}</span>
           </div>
           <div class="cita-detalle">
             <p><strong>Hora:</strong> {{ event.hora }}</p>
             <p><strong>Servicio:</strong> {{ event.motivo }}</p>
-            <!-- TODO: revisar el .servico-->
+            <!-- TODO: revisar datos para el recepcionista-->
             <p><strong>Duración estimada:</strong> {{ event.duracion }}</p>
-            <p><strong>Odontólogo:</strong> {{ event.odontologo }}</p>
           </div>
+          <br>
         </div>
       </div>
     </div>
   </div>
+
+  <button (click)="anteriorSemana()" class="btn-flecha">←</button>
+
+  <button (click)="siguienteSemana()" class="btn-flecha">→</button>
+
 </body>
