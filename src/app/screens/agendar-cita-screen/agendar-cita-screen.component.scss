@@ -120,6 +120,12 @@ label{
   transition: background-color 0.3s;
 }
 
+.time-slot.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
 .time-slot:hover {
   background-color: #3167D9;
   color: #fff;

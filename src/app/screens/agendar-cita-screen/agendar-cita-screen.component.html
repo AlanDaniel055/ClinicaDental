@@ -12,34 +12,40 @@
     </div>
 
     <div class="appointment-inf">
-      <!-- Foto de perfil -->
-      <div class="profile-photo">
-        <img src="assets/images/user.jpg" alt="Foto de perfil">
-      </div>
 
-      <!-- Información del paciente -->
-      <div class="patient-info">
-        <div class="info-group">
-          <label>Nombre (s)</label>
-          <p>Nicole Denise</p>
-          <!-- TODO: bd -->
-        </div>
+      <ng-container *ngIf="lista_pacientes.length > 0">
+        <ng-container *ngIf="lista_pacientes[0] as paciente">
+          <!-- Foto de perfil -->
+          <div class="profile-photo">
+            <img src="assets/images/user.jpg" alt="Foto de perfil">
+          </div>
 
-        <div class="info-group">
-          <label>Apellido Materno</label>
-          <p>Pérez</p>
-        </div>
+          <!-- Información del paciente -->
+          <div class="patient-info">
+            <div class="info-group">
+              <label>Nombre (s)</label>
+              <p>{{ paciente.user.first_name }}</p>
+            </div>
 
-        <div class="info-group">
-          <label>Apellido Paterno</label>
-          <p>Cucco</p>
-        </div>
+            <div class="info-group">
+              <label>Apellido Paterno</label>
+              <p>{{ paciente.user.last_name }}</p>
+            </div>
 
-        <div class="info-group">
-          <label>Correo electrónico</label>
-          <p>nicole23&#64;gmail.com</p>
-        </div>
-      </div>
+            <div class="info-group">
+              <label>Apellido Materno</label>
+              <p>{{ paciente.apellido_materno }}</p>
+            </div>
+
+            <div class="info-group">
+              <label>Correo electrónico</label>
+              <p>{{ paciente.user.email }}</p>
+            </div>
+          </div>
+
+        </ng-container>
+      </ng-container>
+
     </div>
 
     <div class="appointment-section">
@@ -62,26 +68,27 @@
 
           <h3>Mañana</h3>
           <div class="time-row">
-            <button class="time-slot">09:00</button>
-            <button class="time-slot">10:00</button>
-            <button class="time-slot">11:00</button>
-            <button class="time-slot">12:00</button>
+            <button class="time-slot" (click)="seleccionarHora('09:00')">09:00</button>
+            <button class="time-slot" (click)="seleccionarHora('10:00')">10:00</button>
+            <button class="time-slot" (click)="seleccionarHora('11:00')">11:00</button>
+            <button class="time-slot" (click)="seleccionarHora('12:00')">12:00</button>
           </div>
           <h3>Tarde</h3>
           <div class="time-row">
-            <button class="time-slot">13:00</button>
-            <button class="time-slot">14:00</button>
-            <button class="time-slot">15:00</button>
-            <button class="time-slot">16:00</button>
-            <button class="time-slot">17:00</button>
+            <button class="time-slot" (click)="seleccionarHora('13:00')">13:00</button>
+            <button class="time-slot" (click)="seleccionarHora('14:00')">14:00</button>
+            <button class="time-slot" (click)="seleccionarHora('15:00')">15:00</button>
+            <button class="time-slot" (click)="seleccionarHora('16:00')">16:00</button>
+            <button class="time-slot" (click)="seleccionarHora('17:00')">17:00</button>
           </div>
           <h3>Noche</h3>
           <div class="time-row">
-            <button class="time-slot">19:00</button>
-            <button class="time-slot">20:00</button>
-            <button class="time-slot">21:00</button>
+            <button class="time-slot" (click)="seleccionarHora('19:00')">19:00</button>
+            <button class="time-slot" (click)="seleccionarHora('20:00')">20:00</button>
+            <button class="time-slot" (click)="seleccionarHora('21:00')">21:00</button>
           </div>
         </div>
+        <div *ngIf="errors.horario_cita" class="invalid-feedback">{{ errors.horario_cita }}</div>
 
         <div class="services-section">
           <label for="service-select">Servicios</label>
@@ -116,17 +123,18 @@
         <div class="appointment-summary">
           <h3>Resumen</h3>
           <p><strong>Fecha:</strong> {{ cita.fecha_cita }}</p>
-          <p><strong>Hora:</strong> 20:00 <!-- TODO: Aquí agregar un valor dinámico más adelante -->
-          </p>
+          <p><strong>Hora:</strong> {{ cita.horario_cita }}</p>
           <p><strong>Servicio:</strong> {{ cita.servicios }}</p>
+          <p><strong>Duración estimada:</strong> {{ cita.duracion_cita }} minutos</p>
           <p><strong>Forma de pago:</strong> {{ cita.forma_pago }}</p>
           <p><strong>Total:</strong> ${{ total }}
-            <!-- TODO: Si el precio es fijo, calcularlo con base en el servicio seleccionado --></p>
+            <!-- TODO: Si el precio es fijo, calcularlo con base en el servicio seleccionado -->
+          </p>
         </div>
 
 
         <div class="appointment-buttons">
-          <button class="cancel-button">Cancelar</button>
+          <button class="cancel-button" (click)="cancelar()">Cancelar</button>
           <button class="save-button" (click)="guardar()">Guardar</button>
         </div>
 
