@@ -17,20 +17,16 @@
               <th scope="col">Fecha</th>
               <th scope="col">Horario</th>
               <th scope="col">Motivo de la consulta</th>
-              <!-- TODO: cambiarlo a servicio -->
               <th scope="col">Conclusiones resultantes</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cita of lista_citas; let i=index">
-              <td>{{cita.ID}}</td>
-              <td>{{cita.fecha_cita}}</td>
-              <td>{{cita.horario_cita}}</td>
-              <!-- TODO: Revisar lo del horario -->
-              <td>{{cita.servicios}}</td>
+            <tr *ngFor="let cita of lista_recetas; let i=index">
+              <td>{{cita.id}}</td>
+              <td>{{cita.fecha_receta | date: 'dd/MM/yyyy':'UTC' }}</td>
+              <td>{{cita.horario_receta}}</td>
+              <td>{{cita.diagnostico}}</td>
               <td>{{cita.conclusiones}}</td>
-              <!-- TODO: Revisar esta columna pq en el esquema de citas no tenemos esto -->
-
             </tr>
 
           </tbody>

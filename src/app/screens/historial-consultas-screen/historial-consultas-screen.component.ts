@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-//import { FacadeService } from 'src/app/services/facade.service';
-// TODO : revisar las cookies
+import { FacadeService } from 'src/app/services/facade.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { CitasService } from 'src/app/services/citas.service';
+import { RecetasService } from './../../services/recetas.service';
 
 @Component({
   selector: 'app-historial-consultas-screen',
@@ -12,24 +11,37 @@ import { CitasService } from 'src/app/services/citas.service';
 })
 export class HistorialConsultasScreenComponent implements OnInit {
 
-  // Arreglo que va obtener el array de admins
-  public name_user: string = "";
-  public lista_citas: any[] = [];
+  // Arreglo que va obtener el array de las recetas
+  public receta: string = "";
+  public lista_recetas: any[] = [];
 
   constructor(
-    //public facadeService: FacadeService, // Lo vamos a usar en las funciones: las cookies
-    private citasService : CitasService,
+    public facadeService: FacadeService, // Lo vamos a usar en las funciones: las cookies
+    private recetasService: RecetasService,
     private router: Router,
     public dialog: MatDialog
-
   ) { }
 
   ngOnInit(): void {
-
+    // Lista de recetas
+    this.obtenerRecetas();
   }
 
-  public obtenerCitas(){
-
+  // Obtener lista de recetas que pasaran como consultas
+  public obtenerRecetas() {
+    this.recetasService.obtenerListaRecetas().subscribe(
+      (response) => {
+        this.lista_recetas = response;
+        console.log("Lista recetas: ", this.lista_recetas);
+      }, (error) => {
+        alert("No se pudo obtener la lista de recetas");
+      }
+    );
   }
+
+  //Funcion para editar
+  // TODO: para el recepcionista creo
+
+
 
 }
