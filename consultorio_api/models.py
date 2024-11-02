@@ -16,12 +16,17 @@ class Pacientes(models.Model):
     apellido_materno = models.CharField(max_length=255, null=True, blank=True)
     fecha_nacimiento = models.DateTimeField(null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
+    alergias = models.CharField(max_length=500, null=True, blank=True)
+    enfermedades = models.CharField(max_length=500, null=True, blank=True)
+    tipo_sangre = models.CharField(max_length=255, null=True, blank=True)
+    contacto_emergencia = models.CharField(max_length=255, null=True, blank=True)
+    historial = models.CharField(max_length=1000, null=True, blank=True)
     photoFileName = models.ImageField(upload_to='pacientes/', null=True, blank=True)  # Aquí definir el campo para la imagen
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return "Perfil del paciente "+self.usuario.first_name+" "+self.usuario.last_name
+        return "Perfil del paciente "+self.first_name+" "+self.last_name # TODO le quite le .usuario
 
 class Doctor(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -33,7 +38,7 @@ class Doctor(models.Model):
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update = models.DateTimeField(null=True, blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return "Perfil del doctor "+self.first_name+" "+self.last_name
     
 class Recepcionista(models.Model):
@@ -46,6 +51,23 @@ class Recepcionista(models.Model):
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update = models.DateTimeField(null=True, blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return "Perfil del recepcionista "+self.first_name+" "+self.last_name
 
+class Cita(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    cita = models.CharField(max_length=255, null=True, blank=True)
+    # paciente_nombre = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
+    # paciente_apellido_paterno = models.CharField(max_length=255, null=True, blank=True)
+    # paciente_apellido_materno = models.CharField(max_length=255, null=True, blank=True)
+    # paciente_email = models.CharField(max_length=255, null=True, blank=True)
+    fecha_cita = models.DateTimeField(null=True, blank=True)
+    horario_cita = models.CharField(max_length=255, null=True, blank=True)
+    servicios = models.CharField(max_length=255, null=True, blank=True)
+    duracion_cita = models.CharField(max_length=255, null=True, blank=True)
+    forma_pago = models.CharField(max_length=255, null=True, blank=True)
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return "Cita: "+self.id_cita+" "+self.fecha_cita

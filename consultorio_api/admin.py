@@ -5,3 +5,4 @@ from consultorio_api.models import *
 admin.site.register(Pacientes)
 admin.site.register(Doctor)
 admin.site.register(Recepcionista)
+admin.site.register(Cita)

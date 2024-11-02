@@ -87,6 +87,11 @@ class PacientesView(generics.CreateAPIView):
                                             apellido_materno= request.data["apellido_materno"],
                                             fecha_nacimiento= request.data["fecha_nacimiento"],
                                             telefono= request.data["telefono"],
+                                            alergias= request.data["alergias"],
+                                            enfermedades=request.data["enfermedades"],
+                                            tipo_sangre=request.data["tipo_sangre"],
+                                            contacto_emergencia=request.data["contacto_emergencia"],
+                                            historial=request.data["historial"],
                                             photoFileName= request.data["photoFileName"]) # TODO:  campo para la foto
             paciente.save()
 
@@ -107,6 +112,11 @@ class PacientesViewEdit(generics.CreateAPIView):
         paciente.apellido_materno = request.data["apellido_materno"]
         paciente.fecha_nacimiento = request.data["fecha_nacimiento"]
         paciente.telefono = request.data["telefono"]
+        paciente.alergias= request.data["alergias"],
+        paciente.enfermedades=request.data["enfermedades"],
+        paciente.tipo_sangre=request.data["tipo_sangre"],
+        paciente.contacto_emergencia=request.data["contacto_emergencia"],
+        paciente.historial=request.data["historial"],
         paciente.photoFileName = request.data["photoFileName"]
         paciente.save()
         temp = paciente.user

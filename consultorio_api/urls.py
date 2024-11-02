@@ -23,6 +23,8 @@ from consultorio_api.views import pacientes
 from consultorio_api.views import doctor
 from consultorio_api.views import recepcionista
 
+from consultorio_api.views import cita
+
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -44,6 +46,8 @@ urlpatterns = [
         path('recepcionista/', recepcionista.RecepcionistaView.as_view()),
     #Recepcionista Data
         path('lista-recepcionista/', recepcionista.RecepcionistaAll.as_view()),
+    #Create Cita
+        path('citas/', cita.CitasView.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout

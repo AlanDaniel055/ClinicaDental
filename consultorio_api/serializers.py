@@ -31,5 +31,11 @@ class RecepcionistaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recepcionista
         fields = '__all__' 
+
+class CitaSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Cita
+        fields = '__all__' 
   
   
