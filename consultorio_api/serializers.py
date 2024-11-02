@@ -38,4 +38,10 @@ class CitaSerializer(serializers.ModelSerializer):
         model = Cita
         fields = '__all__' 
   
+class RecetaSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Receta
+        fields = '__all__' 
+  
   

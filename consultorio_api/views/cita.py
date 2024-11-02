@@ -88,7 +88,7 @@ class CitasViewEdit(generics.CreateAPIView):
         # cita.paciente_apellido_paterno = request.data["paciente_apellido_paterno"]
         # cita.paciente_apellido_materno = request.data["paciente_apellido_materno"]
         # cita.paciente_email = request.data["paciente_email"]
-        cita.horario_cita = request.data["horario_cita"]
+
         cita.horario_cita = request.data["horario_cita"]
         cita.servicios = request.data["servicios"]
         cita.duracion_cita = request.data["duracion_cita"]

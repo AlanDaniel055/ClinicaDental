@@ -71,3 +71,21 @@ class Cita(models.Model):
 
     def __str__(self):
         return "Cita: "+self.id_cita+" "+self.fecha_cita
+    
+
+class Receta(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    paciente = models.CharField(max_length=255, null=True, blank=True)
+    fecha_receta = models.DateTimeField(null=True, blank=True)
+    horario_receta = models.CharField(max_length=255, null=True, blank=True)
+    diagnostico = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    medicamento = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    indicaciones = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    nota = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    conclusiones = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return "Receta: " + str(self.id) + " " + self.paciente
+
