@@ -1,56 +1,59 @@
-<div class="header-landing">
-  <div>
-    <app-navbar></app-navbar>
-  </div>
-  <div class="wrapper">
-    <div class="services-section">
-      <h2>Servicios</h2>
-      <div class="services-carousel">
-        <!-- Tarjeta 1 -->
-        <div class="service-card">
-          <div class="service-icon">
-            <img src="assets/images/Diente.png" alt="Restauración dental icono">
-          </div>
-          <h3>Restauración dental</h3>
-          <p>La restauración dental consiste en reparar y devolver la función y apariencia natural a los dientes dañados
-            o deteriorados, utilizando tratamientos como empastes, coronas y puentes.</p>
-          <a class="btn-appointment" (click)="clickNavLink('Login')">
-            Agendar cita
-            <i class="bi bi-chevron-right"></i>
-          </a>
+<body>
+  <div class="header-landing">
+    <div>
+      <app-navbar></app-navbar>
+    </div>
+    <div class="wrapper">
+      <div class="services-section">
+        <h2>Servicios</h2>
+        <div class="services-carousel">
+          <!-- Tarjeta 1 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="assets/images/Diente.png" alt="Restauración dental icono">
+            </div>
+            <h3>Restauración dental</h3>
+            <p>La restauración dental consiste en reparar y devolver la función y apariencia natural a los dientes
+              dañados
+              o deteriorados, utilizando tratamientos como empastes, coronas y puentes.</p>
+            <a class="btn-appointment" (click)="clickNavLink('Login')">
+              Agendar cita
+              <i class="bi bi-chevron-right"></i>
+            </a>
 
+          </div>
+
+          <!-- Tarjeta 2 -->
+          <div class="service-card two">
+            <div class="service-icon">
+              <img src="assets/images/Diente1.png" alt="Tratamiento de encías icono">
+            </div>
+            <h3>Tratamiento de Encías</h3>
+            <p>El tratamiento de encías previene y trata enfermedades gingivales, manteniendo las encías saludables y
+              protegiendo los dientes.</p>
+            <a class="btn-appointment" (click)="clickNavLink('Login')">
+              Agendar cita
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+
+          <!-- Tarjeta 3 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="assets/images/Diente2.png" alt="Implantes icono">
+            </div>
+            <h3>Implantes</h3>
+            <p>Los implantes dentales son raíces artificiales de titanio que se colocan en el hueso maxilar para
+              reemplazar dientes perdidos, proporcionando una base sólida para coronas, puentes o prótesis dentales.</p>
+            <a class="btn-appointment" (click)="clickNavLink('Login')">
+              Agendar cita
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Tarjeta 2 -->
-        <div class="service-card two">
-          <div class="service-icon">
-            <img src="assets/images/Diente1.png" alt="Tratamiento de encías icono">
-          </div>
-          <h3>Tratamiento de Encías</h3>
-          <p>El tratamiento de encías previene y trata enfermedades gingivales, manteniendo las encías saludables y
-            protegiendo los dientes.</p>
-          <a class="btn-appointment" (click)="clickNavLink('Login')">
-            Agendar cita
-            <i class="bi bi-chevron-right"></i>
-          </a>
-        </div>
-
-        <!-- Tarjeta 3 -->
-        <div class="service-card">
-          <div class="service-icon">
-            <img src="assets/images/Diente2.png" alt="Implantes icono">
-          </div>
-          <h3>Implantes</h3>
-          <p>Los implantes dentales son raíces artificiales de titanio que se colocan en el hueso maxilar para
-            reemplazar dientes perdidos, proporcionando una base sólida para coronas, puentes o prótesis dentales.</p>
-          <a class="btn-appointment" (click)="clickNavLink('Login')">
-            Agendar cita
-            <i class="bi bi-chevron-right"></i>
-          </a>
-        </div>
       </div>
 
     </div>
-
   </div>
-</div>
+</body>

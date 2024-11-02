@@ -48,19 +48,7 @@ export class AgendarCitaScreenComponent implements OnInit {
       }
     });
   }
-
-  // // Obtener un paciente por ID
-  // public obtenerPacientePorId(id: number) {
-  //   this.pacientesService.getPacienteByID(id).subscribe(
-  //     (response) => {
-  //       this.lista_pacientes = [response]; // Asumimos que el backend devuelve un solo paciente
-  //       console.log("Datos del usuario: ", this.lista_pacientes);
-  //     }, (error) => {
-  //       alert("No se pudo obtener la información del paciente");
-  //     }
-  //   );
-  // }
-
+  
   public obtenerPacientePorId(id: number) {
     this.pacientesService.getPacienteByID(id).subscribe(
       (response) => {

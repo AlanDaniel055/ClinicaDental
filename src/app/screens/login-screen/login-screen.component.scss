@@ -1,18 +1,25 @@
 /*Todos los estilos para desktop*/
 //Horizontal full pantalla
-@media (min-width: 960px) and (orientation: landscape) {
 
+* {
+  font-family: Nexa !important;
 }
+
+body {
+  background-color: #F3F5F9;
+  /* color */
+}
+
+@media (min-width: 960px) and (orientation: landscape) {}
 
 // Vertical full pantalla
-@media (max-width: 961px) and (orientation: portrait) {
-
-}
+@media (max-width: 961px) and (orientation: portrait) {}
 
 /* landing */
 
 .header-landing {
- background-color: #F3F5F9; /* color */
+  background-color: #F3F5F9;
+  /* color */
 }
 
 .wrapper {

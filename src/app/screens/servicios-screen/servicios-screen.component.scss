@@ -1,7 +1,17 @@
-/* landing */
+/* Servicios */
+
+* {
+  font-family: Nexa !important;
+}
+
+body {
+  background-color: #F3F5F9;
+  /* color */
+}
 
 .header-landing {
-  background-color: #F3F5F9; /* color */
+  background-color: #F3F5F9;
+  /* color */
 }
 
 .wrapper {
@@ -92,7 +102,8 @@
 .btn-appointment {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Alinea el texto a la izquierda y el icono a la derecha */
+  justify-content: space-between;
+  /* Alinea el texto a la izquierda y el icono a la derecha */
   color: #3167D9;
   padding: 10px 20px;
   border-radius: 25px;
@@ -102,7 +113,8 @@
 }
 
 .btn-appointment i {
-  margin-left: 10px; /* Espacio entre el texto y el icono */
+  margin-left: 10px;
+  /* Espacio entre el texto y el icono */
 }
 
 .btn-appointment:hover {

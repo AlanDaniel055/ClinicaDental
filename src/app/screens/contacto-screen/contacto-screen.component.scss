@@ -1,4 +1,13 @@
-*{
+* {
+  font-family: Nexa !important;
+}
+
+body {
+  background-color: #F3F5F9;
+  /* color */
+}
+
+* {
   font-family: Nexa !important;
 }
 
@@ -6,7 +15,7 @@
   background-color: #F3F5F9;
 }
 
-.todo{
+.todo {
   width: 100%;
   padding: 1%;
 }
@@ -23,11 +32,11 @@
 
 }
 
-.contacto{
+.contacto {
   padding-left: 100px;
 }
 
-.encabezado{
+.encabezado {
   font-size: 2.3rem;
   color: #2463EB;
   margin-bottom: 20px;
@@ -35,17 +44,17 @@
   font-family: Nexa !important;
 }
 
-.container{
+.container {
   width: 500px;
   height: 350px;
- // max-width: 1100px;
+  // max-width: 1100px;
   background-color: #ffffff;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1{
+h1 {
   font-size: 20px;
   color: #2463EB;
   margin: 10px;
@@ -53,13 +62,13 @@ h1{
 
 }
 
-h4{
+h4 {
   font-size: 16px;
   color: #2463EB;
   margin-bottom: 15px;
 }
 
-.dato{
+.dato {
   font-size: 14px;
   color: #747070;
   margin: 15px 0;
@@ -73,7 +82,8 @@ h4{
   display: block;
   flex-direction: column;
   align-items: center;
-  width: 88px !important; /* Ancho de 300px */
+  width: 88px !important;
+  /* Ancho de 300px */
   height: auto;
   margin-left: 180px;
   margin-right: 80px;
@@ -85,7 +95,8 @@ h4{
   display: block;
   flex-direction: column;
   align-items: center;
-  width: 100px !important; /* Ancho de 300px */
+  width: 100px !important;
+  /* Ancho de 300px */
   height: auto;
   margin-left: 40px;
   margin-right: 80px;
@@ -93,10 +104,10 @@ h4{
 
 .doctor-image img {
   max-width: 100%;
-   /* La altura se ajustará automáticamente */
+  /* La altura se ajustará automáticamente */
 }
 
-.pie2{
+.pie2 {
   padding-left: 100px;
 
 }
@@ -114,9 +125,9 @@ h4{
 .info-item {
   display: flex;
   flex-direction: column;
-  align-items:last baseline;
+  align-items: last baseline;
   width: 15%;
-  text-align:left;
+  text-align: left;
   align-self: center;
 }
 
@@ -132,13 +143,13 @@ h4{
   line-height: 1.5;
 }
 
-.icons{
+.icons {
   width: 50px;
   height: auto;
   align-self: center;
 }
 
-.pie{
+.pie {
   justify-content: space-between;
   align-items: center;
   padding: 50px;
@@ -148,12 +159,14 @@ h4{
   line-height: 5;
 }
 
-.wrapper, .pie{
+.wrapper,
+.pie {
   margin: 20px;
   padding: 0;
 }
 
-.icons, .info-item{
+.icons,
+.info-item {
   display: grid;
   grid-row-gap: 0;
 }
@@ -161,13 +174,17 @@ h4{
 /* Estilos para el contenedor del mapa */
 .mapa {
   display: flex;
-  justify-content: center; /* Centra el mapa horizontalmente */
+  justify-content: center;
+  /* Centra el mapa horizontalmente */
 }
 
 .map-frame {
-  border: 0; /* Elimina el borde predeterminado */
-  border-radius: 15px; /* Esquinas redondeadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  overflow: hidden; /* Asegura que el contenido respete el borde redondeado */
+  border: 0;
+  /* Elimina el borde predeterminado */
+  border-radius: 15px;
+  /* Esquinas redondeadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Sombra */
+  overflow: hidden;
+  /* Asegura que el contenido respete el borde redondeado */
 }
-

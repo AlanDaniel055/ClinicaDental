@@ -18,39 +18,6 @@ export class HomeScreenComponent implements OnInit {
     private router: Router
   ) { }
 
-  // ngOnInit(): void { // A la variable rol automaticamente entra a las cookies y regresa el userGroup
-  //   //Validar que haya inicio de sesión
-  //   //Obtengo el token del login
-  //   this.token = this.facadeService.getSessionToken();
-  //   console.log("Token: ", this.token);
-
-  //   if (this.token == "") {
-  //     this.router.navigate([""]);
-  //   }
-
-  //   this.rol = this.facadeService.getUserGroup();
-  //   console.log("Rol: ", this.rol);
-  // }
-
-  // ngOnInit(): void {
-  //   // Validar que haya inicio de sesión
-  //   // Obtengo el token del login
-  //   this.token = this.facadeService.getSessionToken();
-  //   console.log("Token: ", this.token);
-
-  //   if (this.token === "") {
-  //     this.router.navigate([""]);
-  //   } else {
-  //     // Obtener el rol y el ID del usuario
-  //     this.rol = this.facadeService.getUserGroup();
-  //     const userId = this.facadeService.getUserId(); // Supongamos que puedes obtener el ID del usuario de esta forma
-  //     console.log("Rol: ", this.rol);
-
-  //     // Redirigir a la URL con el rol e ID
-  //     this.router.navigate([`Paciente/${this.rol}/${userId}`]);
-  //   }
-  // }
-
   ngOnInit(): void {
     // Validar que haya inicio de sesión
     // Obtengo el token del login
@@ -83,8 +50,5 @@ export class HomeScreenComponent implements OnInit {
       }
     }
   }
-
-
-
 
 }
