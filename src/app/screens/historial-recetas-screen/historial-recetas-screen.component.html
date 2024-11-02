@@ -12,19 +12,18 @@
         <div class="sidebar">
           <ul>
             <li *ngFor="let receta of recetas" (click)="seleccionarReceta(receta)"
-              [ngClass]="{'active': receta === recetaSeleccionada}">
-              {{ receta.titulo }}
+                [ngClass]="{'active': receta === recetaSeleccionada}">
+              {{ receta.diagnostico }}
             </li>
           </ul>
         </div>
 
         <div class="detalle-receta print-area">
-          <h2>{{ recetaSeleccionada.titulo }}</h2>
+          <h2>{{ recetaSeleccionada.diagnostico }}</h2>
           <p><strong>Paciente:</strong> {{ recetaSeleccionada.paciente }}</p>
-          <p><strong>Fecha:</strong> {{ recetaSeleccionada.fecha }}</p>
+          <p><strong>Fecha:</strong> {{ recetaSeleccionada.fecha_receta  | date: 'dd/MM/yyyy':'UTC' }}</p>
           <p><strong>Diagnóstico:</strong> {{ recetaSeleccionada.diagnostico }}</p>
           <p><strong>Medicamento:</strong> {{ recetaSeleccionada.medicamento }}</p>
-          <p><strong>Dosis:</strong> {{ recetaSeleccionada.dosis }}</p>
           <p><strong>Indicaciones:</strong> {{ recetaSeleccionada.indicaciones }}</p>
           <p><strong>Nota:</strong> {{ recetaSeleccionada.nota }}</p>
           <p><strong>Firma y sello del odontólogo:</strong>
@@ -35,9 +34,6 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </div>
 </body>
