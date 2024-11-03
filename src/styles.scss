@@ -39,7 +39,7 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Nexa; }
+body { margin: 0; font-family: Nexa!important; }
 
 .invalid-feedback {
   display: block!important;

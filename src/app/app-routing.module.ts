@@ -54,15 +54,20 @@ const routes: Routes = [
   { path: 'Doctor/:rol/:id', component: DoctorScreenComponent, pathMatch: 'full' }, // Home del doctor por ID
   { path: 'Registro-doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Pagina registro para el doctor
   { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda del doctor
+  { path: 'Agenda/:rol/:id', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda del doctor por ID
+  // Falta consulta
   { path: 'Lista-pacientes', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista pacientes del doctor
+  { path: 'Lista-pacientes/:rol/:id', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista pacientes del doctor por ID
 
   // Vista Recepcionista
   { path: 'Recepcionista', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Home del recepcionista
   { path: 'Recepcionista/:rol/:id', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Home del recepcionista por ID
   { path: 'Registro-recepcionista', component: RegistroRecepcionistaComponent, pathMatch: 'full' }, // Registro para el recepcionista
   { path: 'Agendar-cita-recep', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Registro para el recepcionista
+  { path: 'Agendar-cita-recep/:rol/:id', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Registro para el recepcionista por ID
   { path: 'Citas-agenda-recep', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista
-
+  { path: 'Citas-agenda-recep/:rol/:id', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista por ID
+  // Falta Perfil dentista
 
 ];
 
