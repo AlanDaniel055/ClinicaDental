@@ -12,7 +12,11 @@ declare var $: any;
   templateUrl: './agendar-cita-recep-screen.component.html',
   styleUrls: ['./agendar-cita-recep-screen.component.scss']
 })
+<<<<<<< HEAD
 export class AgendarCitaRecepScreenComponent implements OnInit{
+=======
+export class AgendarCitaRecepScreenComponent implements OnInit {
+>>>>>>> recuperacion-cambios
   @Input() rol: string = "Recepcionista";
   @Input() datos_user: any = {};
 
@@ -88,5 +92,8 @@ export class AgendarCitaRecepScreenComponent implements OnInit{
       this.total = 0; // Por si no se selecciona ningún servicio
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> recuperacion-cambios
 }

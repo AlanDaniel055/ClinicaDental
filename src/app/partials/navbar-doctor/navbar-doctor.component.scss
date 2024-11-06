@@ -1,0 +1,96 @@
+/* Navbar */
+
+.wrapper{
+  //width: 100vw;
+  font-family: Nexa !important;
+  font-size: medium;
+  //height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background-color: #F3F5F9; // color
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-logo img {
+  height: 40px;  /* Ajusta la altura */
+  width: auto;   /* Mantén el ancho proporcional */
+  margin-right: 10px;
+}
+
+.navbar-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+}
+
+.active {
+  //background-color: #03aed8;
+  color: #3167D9;
+
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+// .navbar-links a.inicio { // Modificar despues con los activate
+//   text-decoration: none;
+//   color: #3167D9;
+// }
+
+.navbar-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.navbar-actions { // Botones de registrar/iniciar
+  display: flex;
+  align-items: center;
+  gap: 20px; // espacio botones
+}
+
+.navbar-actions a {
+  text-decoration: none;
+  padding: 8px 25px;
+  border-radius: 25px;
+  color: #3167D9 ;
+  margin-left: 10px;
+  border: 1px solid #3167D9;
+}
+
+.navbar-actions a.register {
+  //background-color: #1a1a1a;
+  color: #3167D9;
+  cursor: pointer;
+}
+
+/* Hover Effects */
+.navbar-links a:hover {
+  color: #3167D9;
+}
+
+.navbar-actions a:hover {
+  color: #F3F5F9;
+}
+
+.navbar-actions a.register:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+
+

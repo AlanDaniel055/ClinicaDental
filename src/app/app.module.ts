@@ -39,6 +39,7 @@ import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agenda
 import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-agenda-screen.component';
 import { HistorialConsultasScreenComponent } from './screens/historial-consultas-screen/historial-consultas-screen.component';
 import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
+<<<<<<< HEAD
 import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
 import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
@@ -49,6 +50,17 @@ import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/rec
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
+=======
+import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
+import { NavbarDoctorComponent } from './partials/navbar-doctor/navbar-doctor.component';
+import { NavbarRecepcionistaComponent } from './partials/navbar-recepcionista/navbar-recepcionista.component';
+import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
+import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-screen/agendar-cita-recep-screen.component';
+import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
+import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
+import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
+import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
+>>>>>>> recuperacion-cambios
 
 @NgModule({
   declarations: [
@@ -67,6 +79,7 @@ import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-sc
     CitasAgendaScreenComponent,
     HistorialConsultasScreenComponent,
     HistorialRecetasScreenComponent,
+<<<<<<< HEAD
     DoctorScreenComponent,
     RegistroScreenComponent,
     HomeScreenComponent,
@@ -77,6 +90,17 @@ import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-sc
     AgendaDocScreenComponent,
     ListaPacientesScreenComponent,
     CitasAgendaRecepScreenComponent
+=======
+    AgendaDocScreenComponent,
+    NavbarDoctorComponent,
+    NavbarRecepcionistaComponent,
+    CitasAgendaRecepScreenComponent,
+    AgendarCitaRecepScreenComponent,
+    InfoConsultaScreenComponent,
+    DoctorScreenComponent,
+    RecepcionistaScreenComponent,
+    ListaPacientesScreenComponent,
+>>>>>>> recuperacion-cambios
   ],
   imports: [
     MbscModule, // Calendario
