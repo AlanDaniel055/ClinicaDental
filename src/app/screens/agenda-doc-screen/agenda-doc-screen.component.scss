@@ -2,8 +2,13 @@
   font-family: Nexa !important;
 }
 
+<<<<<<< HEAD
 body {
   background-color: #F3F5F9;
+=======
+body{
+  background-color: #F3F5F9; /* color */
+>>>>>>> recuperacion-desde-pruebas3
 }
 
 .wrapper {
@@ -12,7 +17,11 @@ body {
 }
 
 .container {
+<<<<<<< HEAD
   width: 90%;
+=======
+  width: 80%;
+>>>>>>> recuperacion-desde-pruebas3
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -34,7 +43,11 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
+<<<<<<< HEAD
   border-left: 5px solid #6A5ACD;
+=======
+  border-left: 5px solid #6A5ACD; /* Cambia este color según la categoría */
+>>>>>>> recuperacion-desde-pruebas3
 }
 
 .cita-header {
@@ -85,6 +98,7 @@ button {
   margin: 30px;
   padding: 5px;
 }
+<<<<<<< HEAD
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -123,3 +137,5 @@ button {
     padding: 10px;
   }
 }
+=======
+>>>>>>> recuperacion-desde-pruebas3

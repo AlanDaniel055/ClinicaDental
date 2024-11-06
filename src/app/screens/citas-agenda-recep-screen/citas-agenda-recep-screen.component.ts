@@ -4,6 +4,10 @@ import { MbscCalendarEvent, MbscEventcalendarView, setOptions, localeEs } from '
 
 declare var $: any;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> recuperacion-desde-pruebas3
 setOptions({
   locale: localeEs,
   theme: 'ios',
@@ -16,7 +20,11 @@ setOptions({
   styleUrls: ['./citas-agenda-recep-screen.component.scss']
 })
 export class CitasAgendaRecepScreenComponent implements OnInit {
+<<<<<<< HEAD
   // Para la agenda
+=======
+// Para la agenda
+>>>>>>> recuperacion-desde-pruebas3
 
   //myEvents: MbscCalendarEvent[] = [];
   myView: MbscEventcalendarView = { agenda: { type: 'week', size: 1 } };

@@ -12,6 +12,7 @@ import { AgendarCitaScreenComponent } from './screens/agendar-cita-screen/agenda
 import { CitasAgendaScreenComponent } from './screens/citas-agenda-screen/citas-agenda-screen.component';
 import { HistorialConsultasScreenComponent } from './screens/historial-consultas-screen/historial-consultas-screen.component';
 import { HistorialRecetasScreenComponent } from './screens/historial-recetas-screen/historial-recetas-screen.component';
+<<<<<<< HEAD
 import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
 import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
@@ -21,6 +22,14 @@ import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-sc
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
+=======
+import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
+import { DoctorScreenComponent } from './screens/doctor-screen/doctor-screen.component';
+import { RecepcionistaScreenComponent } from './screens/recepcionista-screen/recepcionista-screen.component';
+import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
+import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
+
+>>>>>>> recuperacion-desde-pruebas3
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -69,6 +78,14 @@ const routes: Routes = [
   { path: 'Citas-agenda-recep/:rol/:id', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista por ID
   // Falta Perfil dentista
 
+  // Vista Doctor
+  { path: 'Doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Doctor, vista del doctor
+  { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda, vista del doctor
+  { path: 'Lista-pacientes', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista de pacientes , vista del doctor
+  { path: 'info-consulta', component: InfoConsultaScreenComponent, pathMatch: 'full' }, // Consulta, vista del doctor
+
+  // Vista recepcionista
+  { path: 'Recepcionista', component: RecepcionistaScreenComponent, pathMatch: 'full' }, // Vista del recepcionista , vista del doctor
 ];
 
 @NgModule({
