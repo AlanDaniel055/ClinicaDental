@@ -2,8 +2,8 @@
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
 }
 
 .wrapper {
@@ -12,7 +12,7 @@ body{
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -34,7 +34,7 @@ body{
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  border-left: 5px solid #6A5ACD; /* Cambia este color según la categoría */
+  border-left: 5px solid #6A5ACD;
 }
 
 .cita-header {
@@ -84,4 +84,42 @@ body{
 button {
   margin: 30px;
   padding: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .citas-agenda {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .cita {
+    padding: 10px;
+  }
+
+  .cita-header .fecha {
+    font-size: 0.8rem;
+  }
+
+  .btn-flecha {
+    font-size: 30px;
+  }
+
+  button {
+    margin: 20px;
+    padding: 10px;
+  }
 }

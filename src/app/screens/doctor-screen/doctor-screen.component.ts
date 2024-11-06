@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,10 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FacadeService } from 'src/app/services/facade.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { DoctorService } from 'src/app/services/doctor.service';
-=======
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
->>>>>>> recuperacion-cambios
 import { MbscCalendarEvent, MbscEventcalendarOptions, localeEs } from '@mobiscroll/angular';
 
 @Component({
@@ -17,7 +12,6 @@ import { MbscCalendarEvent, MbscEventcalendarOptions, localeEs } from '@mobiscro
   templateUrl: './doctor-screen.component.html',
   styleUrls: ['./doctor-screen.component.scss']
 })
-<<<<<<< HEAD
 export class DoctorScreenComponent implements OnInit {
 
   // Arreglo que va obtener el array del doctor
@@ -33,11 +27,6 @@ export class DoctorScreenComponent implements OnInit {
     public activatedRoute: ActivatedRoute
 
   ) { }
-=======
-export class DoctorScreenComponent  implements OnInit, AfterViewInit {
-
-  constructor(private http: HttpClient) { }
->>>>>>> recuperacion-cambios
 
   myEvents: MbscCalendarEvent[] = [];
 
@@ -74,7 +63,6 @@ export class DoctorScreenComponent  implements OnInit, AfterViewInit {
   };
 
   ngOnInit(): void {
-<<<<<<< HEAD
     // Extraer los parámetros de la URL
     this.activatedRoute.paramMap.subscribe(params => {
       const id = params.get('id'); // Obtener el id del usuario desde la URL
@@ -86,13 +74,10 @@ export class DoctorScreenComponent  implements OnInit, AfterViewInit {
     // Obtener nombre completo del usuario
     this.name_user = this.facadeService.getUserCompleteName();
 
-=======
->>>>>>> recuperacion-cambios
     // Carga de eventos de ejemplo
     this.http.jsonp<MbscCalendarEvent[]>('https://trial.mobiscroll.com/events/?vers=5', 'callback').subscribe((resp) => {
       this.myEvents = resp;
     });
-<<<<<<< HEAD
 
   }
 
@@ -126,10 +111,6 @@ export class DoctorScreenComponent  implements OnInit, AfterViewInit {
   } // Se concatena el iduser, para obtener los datos /doctor
   // TODO: nos sirve mas adelante
 
-=======
-  }
-
->>>>>>> recuperacion-cambios
   // Método para gestionar las pestañas
   ngAfterViewInit(): void {
     const tabButtons = document.querySelectorAll('.tab-button');
@@ -147,10 +128,5 @@ export class DoctorScreenComponent  implements OnInit, AfterViewInit {
       });
     });
   }
-<<<<<<< HEAD
 
 }
-=======
-}
-
->>>>>>> recuperacion-cambios

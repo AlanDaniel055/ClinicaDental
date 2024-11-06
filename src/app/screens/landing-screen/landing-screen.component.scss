@@ -1,22 +1,20 @@
-/* landing */
-
 * {
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
 }
 
 .header-landing {
-  background-color: #F3F5F9; /* color */
+  background-color: #F3F5F9;
 }
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column-reverse;
   align-items: center;
-  padding: 50px;
+  padding: 30px;
   max-width: 1200px;
   margin: auto;
   font-family: Nexa !important;
@@ -24,30 +22,30 @@ body{
 
 .text-section {
   max-width: 500px;
+  text-align: center;
 }
 
 .text-section h1 {
   color: #2463EB;
-  font-size: 68px;
+  font-size: 48px;
   margin-bottom: 20px;
   font-family: Nexa !important;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .text-section p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #666666;
 }
 
 /* Botones */
-
 .buttons {
   display: flex;
-  flex-direction: column; /* Disposición vertical */
-  gap: 20px; /* Espacio entre botones */
+  flex-direction: column;
+  gap: 15px;
 }
 
 .buttons a {
@@ -73,21 +71,69 @@ body{
 }
 
 .buttons .contacto i {
-  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  margin-right: 10px;
 }
 
-.buttons .ubicacion, .buttons .contacto {
-  min-width: 50px; /* Ancho mínimo */
-  width: 90%; /* Ancho adaptable al contenedor */
+.buttons .ubicacion,
+.buttons .contacto {
+  min-width: 50px;
+  width: 100%;
   cursor: pointer;
 }
 
 .doctor-image {
-  max-width: 500px;
+  max-width: 100%;
+  margin-bottom: 20px;
 }
 
 .doctor-image img {
   max-width: 100%;
   height: auto;
   border-radius: 20px;
+}
+
+/* Media Queries para Responsividad */
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    padding: 50px;
+  }
+  
+  .text-section h1 {
+    font-size: 60px;
+  }
+
+  .text-section p {
+    font-size: 15px;
+  }
+  
+  .buttons {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .doctor-image {
+    max-width: 500px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-section h1 {
+    font-size: 68px;
+  }
+
+  .wrapper {
+    justify-content: space-between;
+  }
+
+  .text-section p {
+    font-size: 16px;
+  }
+
+  .buttons a {
+    padding: 12px 40px;
+    font-size: 18px;
+  }
 }
