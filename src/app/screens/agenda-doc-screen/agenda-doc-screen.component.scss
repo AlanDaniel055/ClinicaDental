@@ -2,13 +2,8 @@
   font-family: Nexa !important;
 }
 
-<<<<<<< HEAD
 body {
   background-color: #F3F5F9;
-=======
-body{
-  background-color: #F3F5F9; /* color */
->>>>>>> recuperacion-desde-pruebas3
 }
 
 .wrapper {
@@ -17,11 +12,7 @@ body{
 }
 
 .container {
-<<<<<<< HEAD
-  width: 90%;
-=======
   width: 80%;
->>>>>>> recuperacion-desde-pruebas3
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -43,11 +34,7 @@ body{
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
-<<<<<<< HEAD
-  border-left: 5px solid #6A5ACD;
-=======
   border-left: 5px solid #6A5ACD; /* Cambia este color según la categoría */
->>>>>>> recuperacion-desde-pruebas3
 }
 
 .cita-header {
@@ -82,7 +69,7 @@ body{
   transform: translateY(-50%);
   font-size: 45px;
   cursor: pointer;
-  border: #F3F5F9;
+  border: none;
   background-color: #F3F5F9;
 }
 
@@ -98,44 +85,45 @@ button {
   margin: 30px;
   padding: 5px;
 }
-<<<<<<< HEAD
 
-/* Media Queries */
+.edit-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-icon {
+  cursor: pointer;
+  margin-left: 190px;
+}
+
+/* Estilos responsivos */
 @media (max-width: 768px) {
   .container {
-    width: 95%;
+    width: 90%;
   }
-  
+
   .header h1 {
     font-size: 1.5rem;
+    text-align: center;
   }
 
   .citas-agenda {
-    grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
-  }
-}
-
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.2rem;
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
   }
 
   .cita {
-    padding: 10px;
-  }
-
-  .cita-header .fecha {
-    font-size: 0.8rem;
+    padding: 15px;
+    margin-bottom: 20px;
   }
 
   .btn-flecha {
-    font-size: 30px;
+    display: none; /* Ocultar flechas en pantallas pequeñas */
   }
 
-  button {
-    margin: 20px;
-    padding: 10px;
+  .edit-icon,
+  .delete-icon {
+    margin-left: 0;
+    display: inline-block;
+    margin-right: 10px;
   }
 }
-=======
->>>>>>> recuperacion-desde-pruebas3

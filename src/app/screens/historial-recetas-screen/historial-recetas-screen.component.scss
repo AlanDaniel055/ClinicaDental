@@ -2,8 +2,8 @@
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
 }
 
 .wrapper {
@@ -44,7 +44,6 @@ body{
 .sidebar ul li {
   padding: 10px;
   margin-bottom: 10px;
-  //background-color: #E0E7FF;
   color: #333;
   cursor: pointer;
   border-radius: 8px;
@@ -84,15 +83,15 @@ body{
 .Firma {
   max-width: 35%;
   border-radius: 10px;
-  margin: 0 auto; /* Esto centrará la imagen horizontalmente */
-  display: block; /* Necesario para que funcione el margin auto */
+  margin: 0 auto;
+  display: block;
   margin-bottom: 10px;
   padding: 20px;
 }
 
 .button-container {
   display: flex;
-  justify-content: flex-end; /* Esto alinea el botón a la derecha */
+  justify-content: flex-end;
 }
 
 button {
@@ -105,13 +104,41 @@ button {
   cursor: pointer;
 }
 
-
 button:hover {
   background-color: #1B4E9B;
 }
 
-// Para imprimir la receta
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
 
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar, .detalle-receta {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .detalle-receta h2 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 8px 20px;
+    margin-top: 10px;
+  }
+}
+
+/* Para imprimir la receta */
 @media print {
   /* Oculta todos los elementos en la impresión */
   body * {

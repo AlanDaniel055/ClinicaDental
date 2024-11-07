@@ -4,10 +4,6 @@ import { MbscCalendarEvent, MbscEventcalendarView, setOptions, localeEs } from '
 
 declare var $: any;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> recuperacion-desde-pruebas3
 setOptions({
   locale: localeEs,
   theme: 'ios',
@@ -20,10 +16,7 @@ setOptions({
   styleUrls: ['./agenda-doc-screen.component.scss']
 })
 export class AgendaDocScreenComponent implements OnInit {
-<<<<<<< HEAD
 
-=======
->>>>>>> recuperacion-desde-pruebas3
   // Para la agenda
 
   //myEvents: MbscCalendarEvent[] = [];

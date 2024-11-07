@@ -17,7 +17,7 @@ export class NavbarUsuarioComponent implements OnInit {
 
   public token: string = "";
   public editar: boolean = false;
-
+  public isMenuOpen: boolean = false;
   constructor(
     private router: Router,
     private facadeService: FacadeService,

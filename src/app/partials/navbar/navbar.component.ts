@@ -9,7 +9,7 @@ declare var $: any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  public isMenuOpen: boolean = false;
   constructor(
     private router: Router,
     public activatedRoute: ActivatedRoute,

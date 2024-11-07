@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
@@ -27,20 +26,6 @@ export class RecepcionistaScreenComponent implements OnInit {
     public dialog: MatDialog,
     public activatedRoute: ActivatedRoute
   ) { }
-=======
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { MbscCalendarEvent, MbscEventcalendarOptions, localeEs } from '@mobiscroll/angular';
-
-@Component({
-  selector: 'app-doctor-screen',
-  templateUrl: './recepcionista-screen.component.html',
-  styleUrls: ['./recepcionista-screen.component.scss']
-})
-export class  RecepcionistaScreenComponent  implements OnInit, AfterViewInit {
-
-  constructor(private http: HttpClient) { }
->>>>>>> recuperacion-desde-pruebas3
 
   myEvents: MbscCalendarEvent[] = [];
 
@@ -76,7 +61,6 @@ export class  RecepcionistaScreenComponent  implements OnInit, AfterViewInit {
     },
   };
 
-<<<<<<< HEAD
 
   ngOnInit(): void {
     // Extraer los parámetros de la URL
@@ -90,14 +74,10 @@ export class  RecepcionistaScreenComponent  implements OnInit, AfterViewInit {
     // Obtener nombre completo del usuario
     this.name_user = this.facadeService.getUserCompleteName();
 
-=======
-  ngOnInit(): void {
->>>>>>> recuperacion-desde-pruebas3
     // Carga de eventos de ejemplo
     this.http.jsonp<MbscCalendarEvent[]>('https://trial.mobiscroll.com/events/?vers=5', 'callback').subscribe((resp) => {
       this.myEvents = resp;
     });
-<<<<<<< HEAD
 
   }
 
@@ -131,10 +111,6 @@ export class  RecepcionistaScreenComponent  implements OnInit, AfterViewInit {
   } // Se concatena el iduser, para obtener los datos /recepcionista
   // TODO: nos sirve mas adelante
 
-=======
-  }
-
->>>>>>> recuperacion-desde-pruebas3
   // Método para gestionar las pestañas
   ngAfterViewInit(): void {
     const tabButtons = document.querySelectorAll('.tab-button');
@@ -152,10 +128,5 @@ export class  RecepcionistaScreenComponent  implements OnInit, AfterViewInit {
       });
     });
   }
-<<<<<<< HEAD
 
 }
-=======
-}
-
->>>>>>> recuperacion-desde-pruebas3

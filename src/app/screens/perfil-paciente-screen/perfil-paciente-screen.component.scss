@@ -1,5 +1,5 @@
 * {
-  font-family: Nexa !important;
+  font-family: Nexa, sans-serif !important;
 }
 
 body {
@@ -10,11 +10,7 @@ body {
   width: 80%;
   max-width: 1200px;
   padding: 20px;
-}
-
-span {
-  display: block; /* Esto hará que el texto se muestre en una nueva línea */
-  margin-top: 5px; /* Ajusta el margen superior como prefieras */
+  margin: 0 auto;
 }
 
 .profile-header {
@@ -51,28 +47,19 @@ span {
   flex: 2;
   margin-left: 20px;
   display: block;
-  margin-bottom: 5px;
-  font-size: 1rem;
-
-}
-
-
-.input-group {
-  position: relative;
-  margin-bottom: 20px;
 }
 
 .input-group {
+  display: block;
   width: 100%;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #CCCCCC; /* Color de borde visible */
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF; /* Fondo blanco */
   color: #676767;
+  margin-bottom: 10px;
 }
-
-
 
 strong {
   padding: 10px;
@@ -92,13 +79,11 @@ strong {
 .save-btn {
   padding: 10px 20px;
   font-size: 1em;
-  border: solid;
-  //border: none;
-  border-width: 1px;
+  border: solid 1px;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 40px;
-
+  margin: 0 10px;
+  min-width: 100px;
 }
 
 .cancel-btn {
@@ -109,5 +94,48 @@ strong {
 
 .save-btn {
   background-color: #3167D9;
-  color: #fff;
+  color: #FFFFFF;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .profile-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-photo {
+    margin-bottom: 20px;
+  }
+
+  .profile-info-left,
+  .profile-info-right {
+    margin-left: 0;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+  }
+
+  .profile-header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .profile-photo img {
+    width: 100px;
+    height: 100px;
+  }
 }

@@ -1,4 +1,5 @@
-.todo{
+/* Estilos generales */
+.todo {
   background-color: #F3F5F9;
   font-family: Nexa !important;
 }
@@ -8,27 +9,23 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Nexa !important;
 }
 
 /* Estilos del Encabezado */
 .encabezado {
   text-align: center;
   margin-bottom: 20px;
-  font-family: Nexa !important;
 }
 
 .titulo h1 {
   font-size: 2.5rem;
   color: #2962ff;
   font-weight: bold;
-  font-family: Nexa !important;
 }
 
 h2 {
   color: #111;
   font-weight: 400;
-  font-family: Nexa !important;
 }
 
 /* Estilos del Formulario */
@@ -38,15 +35,13 @@ h2 {
   gap: 15px;
   color: #2962ff;
   justify-content: center;
-  font-family: Nexa !important;
 }
 
-h3{
+h3 {
   font-size: 20px;
-  font-family: Nexa !important;
 }
 
-.registro label{
+.registro label {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
@@ -56,15 +51,8 @@ h3{
 .mat-input {
   background: #f7f9fc;
   border-radius: 8px;
-  height: 57px ;
-  font-family: Nexa !important;
+  height: 57px;
 }
-
-
-.mat-icon {
-  cursor: pointer;
-}
-
 
 /* Estilos para la Subida de Imágenes */
 .image-upload-container {
@@ -86,7 +74,6 @@ h3{
   height: 100%;
   object-fit: cover;
 }
-
 
 .upload-input label {
   display: grid;
@@ -127,21 +114,100 @@ h3{
   color: #fff;
 }
 
-.foto{
+/* Estilos para campos adicionales */
+.foto {
   background: #f7f9fc;
   border-radius: 8px;
-  height: 50px ;
-  width: 800px;
+  height: 50px;
+  width: 100%;
   border: none;
 }
 
-.texto, .foto{
+.texto, .foto {
   padding: 10px;
 }
 
-.seleccion{
-justify-content: left;
-justify-items: left ;
-cursor: pointer;
-color: #6d6a6a !important;
+.seleccion {
+  justify-content: left;
+  justify-items: left;
+  cursor: pointer;
+  color: #6d6a6a !important;
+}
+
+/* Estilos responsivos */
+
+/* Tablets */
+@media (min-width: 600px) and (max-width: 959px) {
+  .wrapper {
+    max-width: 90%;
+  }
+
+  .titulo h1 {
+    font-size: 2rem;
+  }
+
+  .registro {
+    gap: 10px;
+  }
+
+  .section-buttons {
+    gap: 40px;
+  }
+
+  .section-buttons button {
+    width: 130px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+
+  .foto {
+    height: 45px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 599px) {
+  .wrapper {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .titulo h1 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .registro {
+    gap: 8px;
+  }
+
+  .section-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .section-buttons button {
+    width: 100%;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+
+  .image-upload-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-preview {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .foto {
+    width: 100%;
+    height: 45px;
+  }
 }

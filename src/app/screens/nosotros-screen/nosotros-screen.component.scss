@@ -4,7 +4,6 @@
 
 body {
   background-color: #F3F5F9;
-  /* color */
 }
 
 .header-landing {
@@ -19,6 +18,7 @@ body {
   max-width: 1200px;
   margin: auto;
   font-family: Nexa !important;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
 }
 
 /* Estilos para el encabezado */
@@ -38,14 +38,11 @@ body {
   align-items: center;
   margin-right: 30px;
   width: 435px !important;
-  /* Ancho de 300px */
   height: auto;
-
 }
 
 .doctor-image img {
   max-width: 100%;
-  /* La altura se ajustará automáticamente */
 }
 
 /* Estilos para la sección de texto */
@@ -55,16 +52,82 @@ body {
 
 .text-section p {
   font-size: 1.1rem;
-  line-height: 1.4; // Espaciado entre el texto
+  line-height: 1.4;
   margin-bottom: 20px;
 }
 
 .text-section p:last-child {
   margin-bottom: 0;
-}
-
-/* Estilo para el último párrafo */
-.text-section p:last-child {
   font-weight: bold;
   color: #2463EB;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 30px;
+  }
+
+  .image-title {
+    font-size: 2rem;
+  }
+
+  .doctor-image {
+    width: 350px !important;
+  }
+
+  .text-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .doctor-image {
+    width: 80%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .text-section {
+    max-width: 90%;
+  }
+
+  .image-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-title {
+    font-size: 1.6rem;
+  }
+
+  .text-section p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .image-title {
+    font-size: 1.4rem;
+  }
+
+  .doctor-image {
+    width: 100%;
+  }
+
+  .text-section p {
+    font-size: 0.9rem;
+  }
 }

@@ -1,104 +1,157 @@
-/*Todos los estilos para desktop*/
-//Horizontal full pantalla
-
+/* Estilos generales */
 * {
   font-family: Nexa !important;
 }
 
 body {
   background-color: #F3F5F9;
-  /* color */
 }
 
-@media (min-width: 960px) and (orientation: landscape) {}
+/* Estilos de Desktop */
+@media (min-width: 960px) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 950px;
+    margin: auto;
+  }
 
-// Vertical full pantalla
-@media (max-width: 961px) and (orientation: portrait) {}
+  .login-container {
+    height: 60vh;
+  }
 
-/* landing */
+  .login-content {
+    width: 100%;
+    margin-right: 90px;
+  }
 
-.header-landing {
-  background-color: #F3F5F9;
-  /* color */
+  .login-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3167D9;
+  }
+
+  .login-button {
+    width: 60%;
+    padding: 15px;
+    background-color: #3167D9;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-button:hover {
+    background-color: #1e54b7;
+  }
+
+  .login-image {
+    position: relative;
+    margin-left: 55px;
+  }
+
+  .login-image img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 950px;
-  margin: auto;
-  font-family: Nexa !important;
+/* Estilos para tablets y pantallas medianas */
+@media (min-width: 600px) and (max-width: 959px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .login-container {
+    height: auto;
+    width: 80%;
+  }
+
+  .login-content {
+    margin: 0;
+    text-align: center;
+  }
+
+  .login-title {
+    font-size: 28px;
+  }
+
+  .login-button {
+    width: 80%;
+  }
+
+  .login-image {
+    margin-left: 0;
+    margin-top: 20px;
+  }
 }
 
-.login-container {
-  background-color: #F3F5F9;
-  height: 60vh;
+/* Estilos para móviles */
+@media (max-width: 599px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    margin: auto;
+  }
 
-}
+  .login-container {
+    height: auto;
+    width: 100%;
+    padding: 20px;
+  }
 
-.login-content {
-  width: 100%;
-  margin-right: 90px;
-}
+  .login-content {
+    margin: 0;
+    text-align: center;
+  }
 
-.login-title {
-  font-size: 36px;
-  font-weight: bold;
-  color: #3167D9;
-  font-family: Nexa !important;
-}
+  .login-title {
+    font-size: 24px;
+  }
 
-.form-group {
-  margin-bottom: 20px;
-}
+  .form-group input {
+    font-size: 14px;
+    padding: 8px;
+  }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+  .login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #3167D9; /* Asegúrate de que el color se mantenga en pantallas pequeñas */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
 
-.form-group input {
-  padding: 10px;
-  border: 1px solid #E8F0FE;
-  border-radius: 5px;
-  font-size: 16px;
-}
+  .login-button:hover {
+    background-color: #1e54b7;
+  }
 
-.input-group-text {
-  background: #E8F0FE 0% 0% no-repeat padding-box;
-  border: 1px solid #E8F0FE;
-  opacity: 1;
-  border-left: none !important;
-}
+  .login-image {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%; /* Ajusta el ancho de la imagen en pantallas pequeñas */
+    text-align: center;
+  }
 
-.login-button {
-  width: 60%;
-  padding: 15px;
-  background-color: #3167D9;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 40px auto;
-  display: flex;
-  justify-content: center;
-
-}
-
-.login-button:hover {
-  background-color: #1e54b7;
-}
-
-.login-image {
-  position: relative;
-  margin-left: 55px;
-}
-
-.login-image img {
-  max-width: 100%;
-  height: auto;
+  .login-image img {
+    max-width: 80%; /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+    height: auto;
+  }
 }
