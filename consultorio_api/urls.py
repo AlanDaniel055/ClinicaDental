@@ -55,6 +55,8 @@ urlpatterns = [
         path('recetas/', receta.RecetasView.as_view()),
     #Receta Data
         path('lista-recetas/', receta.RecetasAll.as_view()),
+    #Ultima Receta
+    path('ultima-receta/', receta.UltimaRecetaView.as_view()),
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
