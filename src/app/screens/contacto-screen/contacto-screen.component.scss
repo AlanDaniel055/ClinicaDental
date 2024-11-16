@@ -4,11 +4,6 @@
 
 body {
   background-color: #F3F5F9;
-  /* color */
-}
-
-* {
-  font-family: Nexa !important;
 }
 
 .header-landing {
@@ -20,20 +15,20 @@ body {
   padding: 1%;
 }
 
-
 .wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 50px;
   max-width: 1400px;
   margin: auto;
-  font-family: Nexa !important;
-
+  flex-wrap: wrap; /* Permite el ajuste en pantallas pequeñas */
+  gap: 20px;
 }
 
 .contacto {
-  padding-left: 100px;
+  max-width: 600px;
+  margin: auto;
 }
 
 .encabezado {
@@ -41,25 +36,24 @@ body {
   color: #2463EB;
   margin-bottom: 20px;
   font-weight: bold;
-  font-family: Nexa !important;
 }
 
 .container {
-  width: 500px;
-  height: 350px;
-  // max-width: 1100px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
   background-color: #ffffff;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  text-align: center;
 }
 
 h1 {
   font-size: 20px;
   color: #2463EB;
   margin: 10px;
-  padding-left: 200px;
-
 }
 
 h4 {
@@ -78,38 +72,33 @@ h4 {
 }
 
 .doctor-image {
-  flex: 1;
-  display: block;
-  flex-direction: column;
-  align-items: center;
-  width: 88px !important;
-  /* Ancho de 300px */
+  width: 88px;
   height: auto;
-  margin-left: 180px;
-  margin-right: 80px;
-
+  margin: 0 auto 20px; /* Centra la imagen y añade margen inferior */
+  border-radius: 50%;
 }
 
-.doctor-imag {
-  flex: 1;
-  display: block;
-  flex-direction: column;
-  align-items: center;
-  width: 100px !important;
-  /* Ancho de 300px */
-  height: auto;
-  margin-left: 40px;
-  margin-right: 80px;
+.mapa {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
-.doctor-image img {
-  max-width: 100%;
-  /* La altura se ajustará automáticamente */
+.map-frame {
+  border: 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  height: 380px;
 }
 
 .pie2 {
-  padding-left: 100px;
-
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 50px;
 }
 
 .info-extra {
@@ -118,73 +107,111 @@ h4 {
   padding: 15px;
   border-radius: 15px;
   background-color: #ffffff;
-  border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  text-align: center;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
-  align-items: last baseline;
-  width: 15%;
-  text-align: left;
-  align-self: center;
-}
-
-.info-item p:first-child {
-  font-size: 15px;
-  margin-bottom: 10px;
+  align-items: center;
+  width: 20%; /* Ajusta el ancho para que cada item tenga el mismo espacio */
+  text-align: center;
 }
 
 .info-item p {
-  font-size: 16px;
+  font-size: 15px;
   color: #2463EB;
-  margin: 0;
-  line-height: 1.5;
+  margin: 5px 0;
 }
 
 .icons {
-  width: 50px;
+  width: 30px;
   height: auto;
-  align-self: center;
+  margin-bottom: 10px;
 }
 
-.pie {
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
-  max-width: 1400px;
-  margin: auto;
-  font-family: Nexa !important;
-  line-height: 5;
+/* Ajustes Responsivos */
+
+@media (max-width: 992px) {
+  .wrapper {
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+  }
+
+  .contacto {
+    max-width: 100%;
+  }
+
+  .mapa {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .info-extra {
+    justify-content: center;
+  }
+
+  .info-item {
+    width: 48%;
+  }
 }
 
-.wrapper,
-.pie {
-  margin: 20px;
-  padding: 0;
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .encabezado {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 15px;
+  }
+
+  .map-frame {
+    height: 300px;
+  }
+
+  .info-extra {
+    flex-direction: column; /* Cambia a una columna en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .info-item {
+    width: 100%; /* Cada item ocupa todo el ancho */
+    margin-bottom: 15px; /* Espacio entre cada item */
+  }
 }
 
-.icons,
-.info-item {
-  display: grid;
-  grid-row-gap: 0;
-}
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 20px;
+  }
 
-/* Estilos para el contenedor del mapa */
-.mapa {
-  display: flex;
-  justify-content: center;
-  /* Centra el mapa horizontalmente */
-}
+  .encabezado {
+    font-size: 1.5rem;
+  }
 
-.map-frame {
-  border: 0;
-  /* Elimina el borde predeterminado */
-  border-radius: 15px;
-  /* Esquinas redondeadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Sombra */
-  overflow: hidden;
-  /* Asegura que el contenido respete el borde redondeado */
+  .doctor-image {
+    width: 70px;
+  }
+
+  .map-frame {
+    height: 250px;
+  }
+  .info-item p {
+    font-size: 14px; /* Tamaño de texto más pequeño en pantallas muy pequeñas */
+  }
+
+  .icons {
+    width: 25px; /* Ajuste del tamaño del ícono para pantallas pequeñas */
+  }
 }

@@ -114,6 +114,15 @@ export class RecetasService {
     return this.http.put<any>(`${environment.url_api}/receta-edit/`, data, { headers: headers });
   }
 
+  // Servicio para obtener la última receta de un paciente
+  public obtenerUltimaRecetaGeneral(): Observable<any> {
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
+    return this.http.get<any>(`${environment.url_api}/ultima-receta/`, { headers });
+  }
+
+
+
 
 
 

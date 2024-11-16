@@ -1,15 +1,13 @@
-/* landing */
-
 * {
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
 }
 
 .header-landing {
-  background-color: #F3F5F9; /* color */
+  background-color: #F3F5F9;
 }
 
 .wrapper {
@@ -20,6 +18,7 @@ body{
   max-width: 1200px;
   margin: auto;
   font-family: Nexa !important;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .text-section {
@@ -46,8 +45,8 @@ body{
 
 .buttons {
   display: flex;
-  flex-direction: column; /* Disposición vertical */
-  gap: 20px; /* Espacio entre botones */
+  flex-direction: column;
+  gap: 20px;
 }
 
 .buttons a {
@@ -73,12 +72,12 @@ body{
 }
 
 .buttons .contacto i {
-  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  margin-right: 10px;
 }
 
 .buttons .ubicacion, .buttons .contacto {
-  min-width: 50px; /* Ancho mínimo */
-  width: 90%; /* Ancho adaptable al contenedor */
+  min-width: 50px;
+  width: 90%;
   cursor: pointer;
 }
 
@@ -90,4 +89,78 @@ body{
   max-width: 100%;
   height: auto;
   border-radius: 20px;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 30px;
+  }
+
+  .text-section h1 {
+    font-size: 56px;
+  }
+
+  .text-section p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-section {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .doctor-image {
+    max-width: 80%;
+  }
+
+  .text-section h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-section h1 {
+    font-size: 36px;
+  }
+
+  .text-section p {
+    font-size: 13px;
+  }
+
+  .buttons {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .buttons .ubicacion, .buttons .contacto {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .text-section h1 {
+    font-size: 28px;
+  }
+
+  .text-section p {
+    font-size: 12px;
+  }
+
+  .doctor-image {
+    max-width: 100%;
+  }
 }

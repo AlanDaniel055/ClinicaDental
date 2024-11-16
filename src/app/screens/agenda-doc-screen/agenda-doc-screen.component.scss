@@ -2,8 +2,8 @@
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
 }
 
 .wrapper {
@@ -69,7 +69,7 @@ body{
   transform: translateY(-50%);
   font-size: 45px;
   cursor: pointer;
-  border: #F3F5F9;
+  border: none;
   background-color: #F3F5F9;
 }
 
@@ -84,4 +84,46 @@ body{
 button {
   margin: 30px;
   padding: 5px;
+}
+
+.edit-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-icon {
+  cursor: pointer;
+  margin-left: 190px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .citas-agenda {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+  }
+
+  .cita {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .btn-flecha {
+    display: none; /* Ocultar flechas en pantallas pequeñas */
+  }
+
+  .edit-icon,
+  .delete-icon {
+    margin-left: 0;
+    display: inline-block;
+    margin-right: 10px;
+  }
 }

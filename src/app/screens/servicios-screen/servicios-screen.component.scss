@@ -1,17 +1,13 @@
-/* Servicios */
-
 * {
   font-family: Nexa !important;
 }
 
 body {
   background-color: #F3F5F9;
-  /* color */
 }
 
 .header-landing {
   background-color: #F3F5F9;
-  /* color */
 }
 
 .wrapper {
@@ -40,8 +36,7 @@ body {
 /* Sección de servicios */
 .services-section {
   background-color: #F3F5F9;
-  //padding: 10px;
-  //text-align: center;
+  padding: 20px;
 }
 
 .services-section h2 {
@@ -50,30 +45,28 @@ body {
   margin-bottom: 40px;
   font-family: Nexa !important;
   font-weight: bold;
-  line-height: 1.1;
   text-align: left;
 }
 
 .services-carousel {
   display: flex;
-  //justify-content: space-around;
-  //align-items: stretch;
-  gap: 20px; // Espacio entre las card
+  gap: 20px;
+  flex-wrap: wrap; /* Permite el ajuste en dispositivos más pequeños */
   font-family: Nexa !important;
+  justify-content: center; /* Centra las cards en pantallas pequeñas */
 }
 
 .service-card {
   background-color: white;
   border-radius: 20px;
   padding: 30px;
-  width: 100%;
-  //max-width: 300px;
+  width: calc(33.33% - 20px); /* Toma un tercio del ancho con espacio */
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  //align-items: center;
-  //text-align: center;
   font-family: Nexa !important;
+  margin-bottom: 20px;
+  min-height: 350px; /* Ajusta la altura mínima según tus necesidades */
 }
 
 .service-icon img {
@@ -88,12 +81,12 @@ body {
   margin-bottom: 15px;
   font-family: Nexa !important;
 }
-
 .service-card p {
   font-size: 15px;
   color: black;
-  margin-bottom: 30px;
+  margin-bottom: auto; /* Esto empuja el botón hacia abajo */
 }
+
 
 .two p {
   margin-bottom: 70px;
@@ -103,23 +96,66 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Alinea el texto a la izquierda y el icono a la derecha */
   color: #3167D9;
   padding: 10px 20px;
   border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
   border: 1px solid #3167D9;
+  margin-top: auto; /* Asegura que el botón quede al final del card */
 }
-
 .btn-appointment i {
   margin-left: 10px;
-  /* Espacio entre el texto y el icono */
 }
 
 .btn-appointment:hover {
   background-color: #3167D9;
   border-color: #3167D9;
   color: white;
+}
 
+/* Responsive Styles */
+
+@media (max-width: 1200px) {
+  .service-card {
+    width: calc(50% - 20px); /* Toma la mitad del ancho con espacio */
+  }
+
+  .text-section h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-section h1 {
+    font-size: 36px;
+  }
+
+  .services-section h2 {
+    font-size: 24px;
+  }
+
+  .service-card {
+    width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .btn-appointment {
+    width: 100%;
+    justify-content: center; /* Centra el contenido dentro del botón */
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .text-section h1 {
+    font-size: 28px;
+  }
+
+  .services-section h2 {
+    font-size: 20px;
+    text-align: center; /* Centra el título en pantallas pequeñas */
+  }
 }

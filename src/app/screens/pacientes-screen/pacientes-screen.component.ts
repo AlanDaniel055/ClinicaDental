@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MbscCalendarEvent, MbscEventcalendarOptions, localeEs } from '@mobiscroll/angular';
 import { FacadeService } from 'src/app/services/facade.service';
 import { PacientesService } from 'src/app/services/pacientes.service';
-
+import { RecetasService } from 'src/app/services/recetas.service';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -20,11 +20,16 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
   public name_user: string = "";
   public lista_pacientes: any[] = [];
 
+  // Receta reciente
+  public ultimaReceta: any = null;
+  public errorMessage: string = '';
+
   constructor(
     private http: HttpClient,
     public facadeService: FacadeService, // Lo vamos a usar en las funciones: las cookies
     private pacientesService: PacientesService,
     private router: Router,
+    private recetasService: RecetasService,
     public dialog: MatDialog,
     public activatedRoute: ActivatedRoute,
   ) { }
@@ -79,6 +84,9 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
 
     // Obtener nombre completo del usuario
     this.name_user = this.facadeService.getUserCompleteName();
+
+    // Obtener ultima receta
+    this.obtenerUltimaReceta();
   }
 
   // Obtener un paciente por ID
@@ -128,6 +136,18 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
     this.router.navigate(["Registro/paciente/" + idUser]);
   } // Se concatena el iduser, para obtener los datos /paciente
   // TODO: nos sirve mas adelante
+
+  obtenerUltimaReceta(){
+    this.recetasService.obtenerUltimaRecetaGeneral().subscribe({
+      next: (response) => {
+        this.ultimaReceta = response;
+        console.log("Última receta obtenida:", this.ultimaReceta);
+      },
+      error: (error) => {
+        console.error("Error al obtener la última receta:", error);
+      }
+    });
+  }
 
 
 }

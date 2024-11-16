@@ -5,8 +5,11 @@
       <div class="navbar-logo">
         <img src="/assets/images/Logo.png" alt="Logo-Consultorio">
       </div>
-
-      <ul class="navbar-links">
+      <!-- Botón de menú para pantallas pequeñas -->
+      <div class="navbar-toggle" (click)="isMenuOpen = !isMenuOpen">
+        ☰
+      </div>
+      <ul class="navbar-links" [class.active]="isMenuOpen">
 
         <li class="nav-item">
           <a class="nav-link active" id="Inicio" aria-current="page" (click)="clickNavLink('Inicio')">Inicio</a>
@@ -17,7 +20,8 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" id="Servicios" aria-current="page" (click)="clickNavLink('Servicios')">Servicios</a>
+          <a class="nav-link active" id="Servicios" aria-current="page"
+            (click)="clickNavLink('Servicios')">Servicios</a>
         </li>
 
         <li class="nav-item">
@@ -26,7 +30,7 @@
 
       </ul>
 
-      <div class="navbar-actions">
+      <div class="navbar-actions" [class.active]="isMenuOpen">
         <a class="register" (click)="clickNavLink('Login')">Iniciar Sesión</a>
         <a class="register" (click)="clickNavLink('Registro')">Registrarse</a>
       </div>

@@ -2,8 +2,8 @@
   font-family: Nexa !important;
 }
 
-body{
-  background-color: #F3F5F9; /* color */
+body {
+  background-color: #F3F5F9;
 }
 
 .wrapper {
@@ -23,7 +23,7 @@ body{
   font-weight: bold;
 }
 
-tr td {
+.tr td {
   height: 3rem;
 }
 
@@ -31,18 +31,14 @@ th {
   font-family: Nexa-Bold !important;
   font-size: 18px;
   text-align: left;
-  letter-spacing: 0px;
   color: #231F20;
-  opacity: 1;
 }
 
 td {
   text-align: left;
   font-family: Nexa !important;
   font-size: 15px !important;
-  letter-spacing: 0px !important;
   color: #231F20 !important;
-  opacity: 1 !important;
   padding-top: 18px;
 }
 
@@ -51,13 +47,13 @@ td {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Permite el desplazamiento horizontal en pantallas pequeñas */
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-  border-bottom: #C1D2F6;
 }
 
 thead th {
@@ -83,4 +79,25 @@ th, td {
 
 tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .tabla-historial {
+    padding: 15px;
+  }
 }

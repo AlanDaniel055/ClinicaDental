@@ -1,10 +1,7 @@
 /* Navbar */
-
-.wrapper{
-  //width: 100vw;
+.wrapper {
   font-family: Nexa !important;
   font-size: medium;
-  //height: 100vh;
 }
 
 .navbar {
@@ -12,84 +9,124 @@
   justify-content: space-between;
   align-items: center;
   padding: 25px;
-  background-color: #F3F5F9; // color
+  background-color: #F3F5F9;
   padding-left: 100px;
   padding-right: 100px;
+  position: relative;
 }
 
 .navbar-logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  margin-right: auto; /* Empuja el logo a la izquierda */
 }
 
 .navbar-logo img {
-  height: 40px;  /* Ajusta la altura */
-  width: auto;   /* Mantén el ancho proporcional */
+  height: 40px;
+  width: auto;
   margin-right: 10px;
 }
 
+/* Botón de menú hamburguesa para pantallas pequeñas */
+.navbar-toggle {
+  display: none; /* Se mostrará solo en pantallas pequeñas */
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto; /* Asegura que el botón esté al final */
+}
+
+/* Lista de enlaces y acciones */
 .navbar-links {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   cursor: pointer;
+  margin-right: auto;
 }
 
-.active {
-  //background-color: #03aed8;
-  color: #3167D9;
-
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
+/* Activo para mostrar menú en pantallas pequeñas */
+.navbar-links.active,
+.navbar-actions.active {
+  display: block;
+}
+
+/* Elementos específicos del menú */
 .navbar-links li {
   margin: 0 15px;
 }
-
-// .navbar-links a.inicio { // Modificar despues con los activate
-//   text-decoration: none;
-//   color: #3167D9;
-// }
 
 .navbar-links a {
   text-decoration: none;
   color: #1a1a1a;
 }
 
-.navbar-actions { // Botones de registrar/iniciar
-  display: flex;
-  align-items: center;
-  gap: 20px; // espacio botones
+.navbar-links a:hover {
+  color: #3167D9;
 }
 
 .navbar-actions a {
   text-decoration: none;
   padding: 8px 25px;
   border-radius: 25px;
-  color: #3167D9 ;
+  color: #3167D9;
   margin-left: 10px;
   border: 1px solid #3167D9;
 }
 
 .navbar-actions a.register {
-  //background-color: #1a1a1a;
   color: #3167D9;
   cursor: pointer;
-}
-
-/* Hover Effects */
-.navbar-links a:hover {
-  color: #3167D9;
-}
-
-.navbar-actions a:hover {
-  color: #F3F5F9;
 }
 
 .navbar-actions a.register:hover {
   background-color: #0056b3;
   border-color: #0056b3;
+  color: #F3F5F9;
 }
 
+/* Efectos hover */
+.navbar-actions a:hover {
+  color: #F3F5F9;
+}
 
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row; /* Mantener en línea */
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 
+  .navbar-toggle {
+    display: block; /* Mostrar el ícono de hamburguesa */
+  }
+
+  .navbar-links,
+  .navbar-actions {
+    display: none; /* Ocultar por defecto en pantallas pequeñas */
+    width: 100%;
+  }
+
+  .navbar-links.active,
+  .navbar-actions.active {
+    display: block; /* Mostrar cuando están activos */
+  }
+
+  .navbar-links {
+    flex-direction: column; /* Alinear en columna en pantallas pequeñas */
+  }
+
+  .navbar-links li,
+  .navbar-actions a {
+    margin: 10px 0;
+  }
+}

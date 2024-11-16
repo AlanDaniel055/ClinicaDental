@@ -48,7 +48,7 @@ export class AgendarCitaScreenComponent implements OnInit {
       }
     });
   }
-  
+
   public obtenerPacientePorId(id: number) {
     this.pacientesService.getPacienteByID(id).subscribe(
       (response) => {

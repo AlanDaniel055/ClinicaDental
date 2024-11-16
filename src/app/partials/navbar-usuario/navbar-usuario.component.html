@@ -2,12 +2,16 @@
   <header>
     <nav class="navbar">
       <div class="navbar-logo">
-        <!-- Navega de acuerdo al tipo de usuario -->
         <img src="/assets/images/Logo.png" alt="Logo-Consultorio" (click)="clickNavLink(getNavLinkForRole())">
       </div>
 
-      <ul class="navbar-links">
-        <!-- Menú Paciente -->
+      <!-- Botón de menú para pantallas pequeñas -->
+      <div class="navbar-toggle" (click)="isMenuOpen = !isMenuOpen">
+        ☰
+      </div>
+
+      <!-- Enlaces de navegación, se muestran u ocultan según el estado de isMenuOpen -->
+      <ul class="navbar-links" [class.active]="isMenuOpen">
         <ng-container *ngIf="rol === 'paciente'">
           <li class="nav-item" *ngFor="let link of pacienteLinks">
             <a class="nav-link active" [id]="link.id" aria-current="page" (click)="clickNavLink(link.path)">
@@ -16,7 +20,6 @@
           </li>
         </ng-container>
 
-        <!-- Menú Doctor -->
         <ng-container *ngIf="rol === 'doctor'">
           <li class="nav-item" *ngFor="let link of doctorLinks">
             <a class="nav-link active" [id]="link.id" aria-current="page" (click)="clickNavLink(link.path)">
@@ -25,7 +28,6 @@
           </li>
         </ng-container>
 
-        <!-- Menú Recepcionista -->
         <ng-container *ngIf="rol === 'recepcionista'">
           <li class="nav-item" *ngFor="let link of recepcionistaLinks">
             <a class="nav-link active" [id]="link.id" aria-current="page" (click)="clickNavLink(link.path)">
@@ -35,7 +37,7 @@
         </ng-container>
       </ul>
 
-      <div class="navbar-actions">
+      <div class="navbar-actions" [class.active]="isMenuOpen">
         <a class="register" (click)="logout()">Cerrar Sesión</a>
       </div>
     </nav>

@@ -58,7 +58,8 @@
 
   <label>Número telefónico</label>
   <mat-form-field class="mat-input" appearance="outline">
-    <input matInput [(ngModel)]="recepcionista.telefono" mask='(000) 000-0000' placeholder="Ingresa tu número telefónico">
+    <input matInput [(ngModel)]="recepcionista.telefono" mask='(000) 000-0000'
+      placeholder="Ingresa tu número telefónico">
   </mat-form-field>
   <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 
