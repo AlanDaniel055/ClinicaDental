@@ -34,10 +34,10 @@ export class CitasService {
       'duracion_cita': '',
       'forma_pago': '',
       // Datos del paciente
-      //'paciente_nombre': '',
-      //'paciente_apellido_paterno': '',
-      //'paciente_apellido_materno': '',
-      //'paciente_email': '',
+      'paciente_nombre': '',
+      'paciente_apellido_paterno': '',
+      'paciente_apellido_materno': '',
+      'paciente_email': '',
     };
   }
 
