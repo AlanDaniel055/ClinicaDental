@@ -33,17 +33,14 @@
             <div class="left-section">
               <!-- Historial de servicios -->
               <h3>Historial de servicios</h3>
-              <div class="services-history ">
-
+              <div class="services-history">
                 <ul>
-                  <!-- TODO: hacerlo en formato de tabla -->
-                  <li><strong>Restauración dental</strong> - 06/08/2024</li>
-                  <li><strong>Tratamiento de encías</strong> - 12/08/2024</li>
-                  <li><strong>Implantes</strong> - 18/08/2024</li>
+                  <li *ngFor="let servicio of lista_historial_servicios">
+                    <strong>{{ servicio.diagnostico }}</strong> -
+                    {{ servicio.fecha_receta | date: 'dd/MM/yyyy' }}
+                  </li>
                 </ul>
               </div>
-
-
             </div>
 
           </div>
@@ -54,7 +51,6 @@
               <h3>Agenda</h3>
               <div class="calendar">
                 <mbsc-eventcalendar [data]="myEvents" [options]="eventSettings"></mbsc-eventcalendar>
-                <!-- <img src="/assets/images/calendario.png" alt="Calendario"> -->
                 <p><strong>Revisión y limpieza dental</strong><br>Dra. Cynthia López<br>10:00 AM - 10:45 AM</p>
                 <p><strong>Ajuste de ortodoncia</strong><br>Dra. Cynthia López<br>1:00 PM - 1:45 PM</p>
               </div>

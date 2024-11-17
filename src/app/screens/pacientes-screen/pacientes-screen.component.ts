@@ -7,6 +7,8 @@ import { FacadeService } from 'src/app/services/facade.service';
 import { PacientesService } from 'src/app/services/pacientes.service';
 import { RecetasService } from 'src/app/services/recetas.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { CitasService } from 'src/app/services/citas.service';
+
 
 
 @Component({
@@ -24,6 +26,9 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
   public ultimaReceta: any = null;
   public errorMessage: string = '';
 
+  // Nueva propiedad para almacenar el historial de servicios
+  public lista_historial_servicios: any[] = [];
+
   constructor(
     private http: HttpClient,
     public facadeService: FacadeService, // Lo vamos a usar en las funciones: las cookies
@@ -32,6 +37,7 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
     private recetasService: RecetasService,
     public dialog: MatDialog,
     public activatedRoute: ActivatedRoute,
+    private citasService: CitasService
   ) { }
 
   myEvents: MbscCalendarEvent[] = [];
@@ -74,6 +80,7 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
       const id = params.get('id'); // Obtener el id del usuario desde la URL
       if (id) {
         this.obtenerPacientePorId(parseInt(id));
+        this.obtenerHistorialDeServicios(parseInt(id)); // Cargar el historial de servicios
       }
     });
 
@@ -137,7 +144,7 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
   } // Se concatena el iduser, para obtener los datos /paciente
   // TODO: nos sirve mas adelante
 
-  obtenerUltimaReceta(){
+  obtenerUltimaReceta() {
     this.recetasService.obtenerUltimaRecetaGeneral().subscribe({
       next: (response) => {
         this.ultimaReceta = response;
@@ -149,5 +156,17 @@ export class PacientesScreenComponent implements OnInit, AfterViewInit {
     });
   }
 
+  // Método para obtener el historial de servicios (recetas)
+  obtenerHistorialDeServicios(idPaciente: number) {
+    this.recetasService.obtenerListaRecetas().subscribe({
+      next: (response) => {
+        this.lista_historial_servicios = response;
+        console.log("Historial de servicios:", this.lista_historial_servicios);
+      },
+      error: (error) => {
+        console.error("Error al obtener el historial de servicios:", error);
+      }
+    });
+  }
 
 }
