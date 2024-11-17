@@ -57,10 +57,10 @@ class Recepcionista(models.Model):
 class Cita(models.Model):
     id = models.BigAutoField(primary_key=True)
     cita = models.CharField(max_length=255, null=True, blank=True)
-    # paciente_nombre = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
-    # paciente_apellido_paterno = models.CharField(max_length=255, null=True, blank=True)
-    # paciente_apellido_materno = models.CharField(max_length=255, null=True, blank=True)
-    # paciente_email = models.CharField(max_length=255, null=True, blank=True)
+    paciente_nombre = models.CharField(max_length=255, null=True, blank=True)
+    paciente_apellido_paterno = models.CharField(max_length=255, null=True, blank=True)
+    paciente_apellido_materno = models.CharField(max_length=255, null=True, blank=True)
+    paciente_email = models.CharField(max_length=255, null=True, blank=True)
     fecha_cita = models.DateTimeField(null=True, blank=True)
     horario_cita = models.CharField(max_length=255, null=True, blank=True)
     servicios = models.CharField(max_length=255, null=True, blank=True)
@@ -70,7 +70,7 @@ class Cita(models.Model):
     update = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return "Cita: "+self.id_cita+" "+self.fecha_cita
+        return "Cita: "+self.paciente_nombre+" "+self.fecha_cita
     
 
 class Receta(models.Model):

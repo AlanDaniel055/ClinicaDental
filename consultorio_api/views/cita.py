@@ -53,20 +53,22 @@ class CitasView(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
 
             #Agarra los datos de la cita
-            # paciente_nombre = request.data['paciente_nombre']
-            # paciente_apellido_paterno = request.data['paciente_apellido_paterno']
-            # paciente_apellido_materno = request.data['paciente_apellido_materno']
-            # paciente_email = request.data['paciente_email']
+            paciente_nombre = request.data['paciente_nombre']
+            paciente_apellido_paterno = request.data['paciente_apellido_paterno']
+            paciente_apellido_materno = request.data['paciente_apellido_materno']
+            paciente_email = request.data['paciente_email']
+
             fecha_cita = request.data['fecha_cita']
             horario_cita = request.data['horario_cita']
             servicios = request.data['servicios']
             duracion_cita = request.data['duracion_cita']
             forma_pago = request.data['forma_pago']
 
-            cita = Cita.objects.create( # paciente_nombre = paciente_nombre,
-                                        # paciente_apellido_paterno = paciente_apellido_paterno,
-                                        # paciente_apellido_materno = paciente_apellido_materno,
-                                        # paciente_email = paciente_email,
+            cita = Cita.objects.create( paciente_nombre = paciente_nombre,
+                                        paciente_apellido_paterno = paciente_apellido_paterno,
+                                        paciente_apellido_materno = paciente_apellido_materno,
+                                        paciente_email = paciente_email,
+                                        
                                         fecha_cita = fecha_cita,
                                         horario_cita = horario_cita,
                                         servicios = servicios,
@@ -84,10 +86,10 @@ class CitasViewEdit(generics.CreateAPIView):
     #Editar cita
     def put(self, request, *args, **kwargs):
         cita = get_object_or_404(Cita, id=request.data["id"])
-        # cita.paciente_nombre = request.data["paciente_nombre"]
-        # cita.paciente_apellido_paterno = request.data["paciente_apellido_paterno"]
-        # cita.paciente_apellido_materno = request.data["paciente_apellido_materno"]
-        # cita.paciente_email = request.data["paciente_email"]
+        cita.paciente_nombre = request.data["paciente_nombre"]
+        cita.paciente_apellido_paterno = request.data["paciente_apellido_paterno"]
+        cita.paciente_apellido_materno = request.data["paciente_apellido_materno"]
+        cita.paciente_email = request.data["paciente_email"]
 
         cita.horario_cita = request.data["horario_cita"]
         cita.servicios = request.data["servicios"]
