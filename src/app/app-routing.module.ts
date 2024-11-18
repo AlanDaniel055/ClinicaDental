@@ -21,6 +21,7 @@ import { AgendarCitaRecepScreenComponent } from './screens/agendar-cita-recep-sc
 import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc-screen.component';
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
+import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -55,7 +56,9 @@ const routes: Routes = [
   { path: 'Registro-doctor', component: DoctorScreenComponent, pathMatch: 'full' }, // Pagina registro para el doctor
   { path: 'Agenda', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda del doctor
   { path: 'Agenda/:rol/:id', component: AgendaDocScreenComponent, pathMatch: 'full' }, // Agenda del doctor por ID
-  // Falta consulta
+  { path: 'Info-consulta', component: InfoConsultaScreenComponent, pathMatch: 'full' }, // Informacion consulta
+  // { path: 'Info-consulta/:rol/:id', component: InfoConsultaScreenComponent, pathMatch: 'full' }, // Informacion consulta
+  { path: 'Info-consulta/:idPaciente', component: InfoConsultaScreenComponent, pathMatch: 'full' }, // Informacion consulta
   { path: 'Lista-pacientes', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista pacientes del doctor
   { path: 'Lista-pacientes/:rol/:id', component: ListaPacientesScreenComponent, pathMatch: 'full' }, // Lista pacientes del doctor por ID
 

@@ -1,0 +1,97 @@
+<body>
+  <div>
+    <app-navbar-usuario></app-navbar-usuario>
+  </div>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>Consulta</h1>
+      </div>
+
+      <div class="content">
+        <div class="sidebar">
+
+          <div class="perfil">
+            <p>Perfil del Paciente</p>
+            <img src="/assets/images/user.jpg" alt="Foto del paciente" class="rounded-circle">
+            <!-- <h3>{{ paciente?.nombre }}</h3> -->
+            <h3>Nombre</h3>
+
+          </div>
+
+          <ul>
+            <li (click)="cambiarSeccion('infoGeneral')" [class.active]="seccionActual === 'infoGeneral'">Información
+              General</li>
+            <li (click)="cambiarSeccion('tratamiento')" [class.active]="seccionActual === 'tratamiento'">Tratamiento en
+              curso</li>
+            <li (click)="cambiarSeccion('historial')" [class.active]="seccionActual === 'historial'">Historial médico
+            </li>
+            <li (click)="cambiarSeccion('notas')" [class.active]="seccionActual === 'notas'">Notas de consulta</li>
+            <li (click)="cambiarSeccion('recetas')" [class.active]="seccionActual === 'recetas'">Generar Receta</li>
+            <li (click)="cambiarSeccion('archivos')" [class.active]="seccionActual === 'archivos'">Archivos</li>
+          </ul>
+
+        </div>
+
+        <div class="detalle-receta print-area">
+          <div *ngIf="seccionActual === 'infoGeneral'">
+            <h2>Información General</h2>
+
+            <div class="profile-content">
+              <!-- Información del perfil - Columna Izquierda -->
+              <div class="profile-info-left">
+                <p><strong>Nombre: </strong> <span>{{ datosPaciente?.user?.first_name || 'Sin datos' }}</span></p>
+                <p><strong>Apellido Paterno: </strong> <span>{{ datosPaciente?.user?.last_name || 'Sin datos' }}</span></p>
+                <p><strong>Apellido Materno: </strong> <span>{{ datosPaciente?.apellido_materno || 'Sin datos' }}</span></p>
+                <p><strong>Fecha de Nacimiento: </strong> <span>{{ datosPaciente?.fecha_nacimiento | date: 'dd/MM/yyyy' }}</span></p>
+                <p><strong>Edad: </strong> <span>{{ calcularEdad(datosPaciente?.fecha_nacimiento) }}</span></p>
+              </div>
+
+              <!-- Información del perfil - Columna Derecha -->
+              <div class="profile-info-right">
+                <p><strong>Correo Electrónico: </strong> <span>{{ datosPaciente?.user?.email || 'Sin datos' }}</span></p>
+                <p><strong>Alergias: </strong> <span>{{ datosPaciente?.alergias || 'Sin datos' }}</span></p>
+                <p><strong>Enfermedades Crónicas: </strong> <span>{{ datosPaciente?.enfermedades || 'Sin datos' }}</span></p>
+                <p><strong>Tipo de Sangre: </strong> <span>{{ datosPaciente?.tipo_sangre || 'Sin datos' }}</span></p>
+                <p><strong>Contacto de Emergencia: </strong> <span>{{ datosPaciente?.contacto_emergencia || 'Sin datos' }}</span></p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div *ngIf="seccionActual === 'tratamiento'">
+            <h2>Tratamiento en curso</h2>
+
+          </div>
+
+          <div *ngIf="seccionActual === 'historial'">
+            <h2>Historial médico</h2>
+
+          </div>
+
+          <div *ngIf="seccionActual === 'notas'">
+            <h2>Notas de consulta</h2>
+
+          </div>
+
+          <div *ngIf="seccionActual === 'recetas'">
+            <h2>Generar receta</h2>
+
+          </div>
+
+          <div *ngIf="seccionActual === 'archivos'">
+            <h2>Archivos</h2>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>

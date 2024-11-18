@@ -85,8 +85,8 @@ export class NavbarUsuarioComponent implements OnInit {
 
   doctorLinks = [
     { id: 'Agenda', label: 'Agenda', path: 'Agenda' },
-    { id: 'Consulta', label: 'Consulta', path: 'Consulta' },
-    { id: 'Lista-Pacientes', label: 'Lista de pacientes', path: 'Lista-pacientes' }
+    { id: 'Lista-Pacientes', label: 'Lista de pacientes', path: 'Lista-pacientes' },
+    { id: 'Consulta', label: 'Consulta', path: 'Info-consulta' }
   ];
 
   recepcionistaLinks = [
