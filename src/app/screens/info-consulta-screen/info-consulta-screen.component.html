@@ -15,9 +15,8 @@
           <div class="perfil">
             <p>Perfil del Paciente</p>
             <img src="/assets/images/user.jpg" alt="Foto del paciente" class="rounded-circle">
-            <!-- <h3>{{ paciente?.nombre }}</h3> -->
-            <h3>Nombre</h3>
-
+            <h3>{{ datosPaciente?.user?.first_name}} {{ datosPaciente?.user?.last_name}} {{
+              datosPaciente?.apellido_materno}} </h3>
           </div>
 
           <ul>
@@ -35,6 +34,7 @@
         </div>
 
         <div class="detalle-receta print-area">
+
           <div *ngIf="seccionActual === 'infoGeneral'">
             <h2>Información General</h2>
 
@@ -42,19 +42,25 @@
               <!-- Información del perfil - Columna Izquierda -->
               <div class="profile-info-left">
                 <p><strong>Nombre: </strong> <span>{{ datosPaciente?.user?.first_name || 'Sin datos' }}</span></p>
-                <p><strong>Apellido Paterno: </strong> <span>{{ datosPaciente?.user?.last_name || 'Sin datos' }}</span></p>
-                <p><strong>Apellido Materno: </strong> <span>{{ datosPaciente?.apellido_materno || 'Sin datos' }}</span></p>
-                <p><strong>Fecha de Nacimiento: </strong> <span>{{ datosPaciente?.fecha_nacimiento | date: 'dd/MM/yyyy' }}</span></p>
+                <p><strong>Apellido Paterno: </strong> <span>{{ datosPaciente?.user?.last_name || 'Sin datos' }}</span>
+                </p>
+                <p><strong>Apellido Materno: </strong> <span>{{ datosPaciente?.apellido_materno || 'Sin datos' }}</span>
+                </p>
+                <p><strong>Fecha de Nacimiento: </strong> <span>{{ datosPaciente?.fecha_nacimiento | date: 'dd/MM/yyyy'
+                    }}</span></p>
                 <p><strong>Edad: </strong> <span>{{ calcularEdad(datosPaciente?.fecha_nacimiento) }}</span></p>
               </div>
 
               <!-- Información del perfil - Columna Derecha -->
               <div class="profile-info-right">
-                <p><strong>Correo Electrónico: </strong> <span>{{ datosPaciente?.user?.email || 'Sin datos' }}</span></p>
+                <p><strong>Correo Electrónico: </strong> <span>{{ datosPaciente?.user?.email || 'Sin datos' }}</span>
+                </p>
                 <p><strong>Alergias: </strong> <span>{{ datosPaciente?.alergias || 'Sin datos' }}</span></p>
-                <p><strong>Enfermedades Crónicas: </strong> <span>{{ datosPaciente?.enfermedades || 'Sin datos' }}</span></p>
+                <p><strong>Enfermedades Crónicas: </strong> <span>{{ datosPaciente?.enfermedades || 'Sin datos'
+                    }}</span></p>
                 <p><strong>Tipo de Sangre: </strong> <span>{{ datosPaciente?.tipo_sangre || 'Sin datos' }}</span></p>
-                <p><strong>Contacto de Emergencia: </strong> <span>{{ datosPaciente?.contacto_emergencia || 'Sin datos' }}</span></p>
+                <p><strong>Contacto de Emergencia: </strong> <span>{{ datosPaciente?.contacto_emergencia || 'Sin datos'
+                    }}</span></p>
               </div>
             </div>
 
@@ -79,7 +85,70 @@
           <div *ngIf="seccionActual === 'recetas'">
             <h2>Generar receta</h2>
 
+            <div class="registro">
+              <h4> <strong>Paciente: </strong> <span>
+                  {{ receta.nombre_paciente }}
+                </span>
+              </h4>
+
+              <label>Horario:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="receta.horario_receta" placeholder="Ingresa la hora">
+              </mat-form-field>
+              <div *ngIf="errors.horario_receta" class="invalid-feedback">{{ errors.horario_receta }}</div>
+
+              <label>Fecha:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="receta.fecha_receta" (focus)="picker.open()"
+                  placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div *ngIf="errors.fecha_receta" class="invalid-feedback">{{ errors.fecha_receta }}</div>
+
+              <label>Diagnóstico:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="receta.diagnostico" placeholder="Ingresa el diagnóstico">
+              </mat-form-field>
+              <div *ngIf="errors.diagnostico" class="invalid-feedback">{{ errors.diagnostico }}</div>
+
+              <label>Medicamento:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="receta.medicamento" placeholder="Ingresa el medicamento">
+              </mat-form-field>
+              <div *ngIf="errors.medicamento" class="invalid-feedback">{{ errors.medicamento }}</div>
+
+              <label>Indicaciones:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="receta.indicaciones" placeholder="Ingresa las indicaciones">
+              </mat-form-field>
+              <div *ngIf="errors.indicaciones" class="invalid-feedback">{{ errors.indicaciones }}</div>
+
+              <label>Nota:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="receta.nota" placeholder="Ingresa notas">
+              </mat-form-field>
+              <div *ngIf="errors.nota" class="invalid-feedback">{{ errors.nota }}</div>
+
+              <label>Conclusiones:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="receta.conclusiones" placeholder="Ingresa las conclusiones">
+              </mat-form-field>
+              <div *ngIf="errors.conclusiones" class="invalid-feedback">{{ errors.conclusiones }}</div>
+
+            </div>
+
+            <div class="registro2">
+              <p><strong>Firma y sello del odontólogo:</strong></p>
+              <img src="/assets/images/firma.png" alt="Firma" class="Firma">
+
+              <div class="button-container">
+                <button class="cancel-button" (click)="cancelar()">Cancelar</button>
+                <button class="save-button" (click)="guardar()">Guardar</button>
+              </div>
+            </div>
           </div>
+
 
           <div *ngIf="seccionActual === 'archivos'">
             <h2>Archivos</h2>

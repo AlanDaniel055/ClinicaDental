@@ -25,9 +25,10 @@ export class RecetasService {
     private router: Router
   ) { }
 
-  public esquemaRecetas() {
+  public esquemaRecetas(paciente?: any) {
     return {
-      'paciente': '',
+      'paciente': paciente ? paciente.id : '', // Aquí asignamos el ID del paciente
+      'nombre_paciente': paciente ? `${paciente.user?.first_name} ${paciente.user?.last_name} ${paciente.apellido_materno}` : '', // Nombre completo del paciente
       'fecha_receta': '',
       'horario_receta': '',
       'diagnostico': '',
