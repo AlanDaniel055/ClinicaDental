@@ -25,6 +25,7 @@ from consultorio_api.views import recepcionista
 
 from consultorio_api.views import cita
 from consultorio_api.views import receta
+from consultorio_api.views import tratamiento
 
 
 from django.conf import settings
@@ -57,6 +58,14 @@ urlpatterns = [
         path('lista-recetas/', receta.RecetasAll.as_view()),
     #Ultima Receta
     path('ultima-receta/', receta.UltimaRecetaView.as_view()),
+    #Create Tratamiento
+        path('tratamientos/', tratamiento.TratamientosView.as_view()),
+    #Tratamientos Data
+        path('lista-tratamientos/', tratamiento.TratamientosAll.as_view()),
+    #ID Tratamiento
+        path('id-tratamiento/', tratamiento.TratamientosView.as_view()),
+    #Edit Tratamiento
+        path('tratamiento-edit/', tratamiento.TratamientosViewEdit.as_view()),    
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout

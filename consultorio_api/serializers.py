@@ -43,5 +43,11 @@ class RecetaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Receta
         fields = '__all__' 
+
+class TratamientoSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Tratamiento
+        fields = '__all__' 
   
   

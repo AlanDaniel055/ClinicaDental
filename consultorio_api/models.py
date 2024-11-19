@@ -89,3 +89,16 @@ class Receta(models.Model):
     def __str__(self):
         return "Receta: " + str(self.id) + " " + self.paciente
 
+class Tratamiento(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    paciente = models.CharField(max_length=255, null=True, blank=True)
+    fecha_tratamiento = models.DateTimeField(null=True, blank=True)
+    diagnostico_tratamiento = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    plan = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    observaciones = models.TextField(null=True, blank=True)  # Cambiado a TextField
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return "Tratamiento: " + str(self.id) + " " + self.paciente
+
