@@ -28,6 +28,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+
 
 // mat-form-field
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -102,6 +105,8 @@ import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info
     MatCheckboxModule,
     MatSelectModule,
     MatFormFieldModule, // mat-form-field
+    MatExpansionModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

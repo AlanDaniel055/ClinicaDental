@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { PacientesService } from 'src/app/services/pacientes.service';
 import { RecetasService } from 'src/app/services/recetas.service';
 import { TratamientosService } from 'src/app/services/tratamientos.service';
-import {MatExpansionModule} from '@angular/material/expansion';
 
 declare var $: any;
 
@@ -20,6 +19,7 @@ export class InfoConsultaScreenComponent implements OnInit {
   public editar: boolean = false;
   public errors: any = {};
   public tratamiento: any = {};
+  tratamientos: any[] = []; // Variable para almacenar la lista de tratamientos
 
   idPaciente!: number;
   datosPaciente: any;  // Variable para almacenar los datos del paciente
@@ -40,6 +40,7 @@ export class InfoConsultaScreenComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.idPaciente = +params['idPaciente'];
       this.obtenerDatosPaciente(this.idPaciente);
+      this.obtenerListaTratamientos(); // Carga los tratamientos del paciente
     });
 
     // Definir el esquema a mi JSON para recetas
@@ -49,6 +50,18 @@ export class InfoConsultaScreenComponent implements OnInit {
     // Definir el esquema a mi JSON para tratamientos
     this.tratamiento = this.tratamientosService.esquemaTratamientos();
     console.log("Tratamiento: ", this.tratamiento);
+  }
+
+  obtenerListaTratamientos(): void {
+    this.tratamientosService.obtenerListaTratamientos().subscribe({
+      next: (data) => {
+        this.tratamientos = data; // Asignar la lista de tratamientos
+        console.log('Tratamientos obtenidos:', this.tratamientos);
+      },
+      error: (error) => {
+        console.error('Error al obtener la lista de tratamientos:', error);
+      }
+    });
   }
 
   obtenerDatosPaciente(id: number): void {
@@ -158,6 +171,7 @@ export class InfoConsultaScreenComponent implements OnInit {
       }
     });
   }
+
 
 
 }

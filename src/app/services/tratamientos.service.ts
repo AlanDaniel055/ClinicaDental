@@ -87,7 +87,7 @@ export class TratamientosService {
   // Función para obtener un tratamiento y filtrar por ID
   //Obtener un solo usuario dependiendo su ID
   public getTratamientoByID(idUser: Number) {
-    return this.http.get<any>(`${environment.url_api}/tratamiento/?id=${idUser}`, httpOptions);
+    return this.http.get<any>(`${environment.url_api}/id-tratamiento/?id=${idUser}`, httpOptions);
   }
 
   //Servicio para actualizar una tratamiento

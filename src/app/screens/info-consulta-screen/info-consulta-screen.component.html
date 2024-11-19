@@ -70,53 +70,103 @@
           <div *ngIf="seccionActual === 'tratamiento'">
             <h2>Tratamiento en curso</h2>
 
-            <div class="registro">
-              <h4> <strong>Paciente: </strong> <span>
-                  {{ tratamiento.nombre_paciente }}
-                </span>
-              </h4>
+            <mat-accordion class="seccion-tratamiento">
 
-              <label>Fecha tratamiento:</label>
-              <mat-form-field class="mat-input" appearance="outline">
-                <input matInput [matDatepicker]="picker" [(ngModel)]="tratamiento.fecha_tratamiento"
-                  (focus)="picker.open()" placeholder="Agregar fecha" (dateChange)="changeFechaTratamiento($event)" type="string">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-              <div *ngIf="errors.fecha_tratamiento" class="invalid-feedback">{{ errors.fecha_tratamiento }}</div>
+              <!-- Panel para registrar nuevo tratamiento -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Registrar nuevo tratamiento
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
 
-              <label>Diagnóstico:</label>
-              <mat-form-field class="mat-input" appearance="outline">
-                <input matInput [(ngModel)]="tratamiento.diagnostico_tratamiento" placeholder="Ingresa el diagnóstico">
-              </mat-form-field>
-              <div *ngIf="errors.diagnostico_tratamiento" class="invalid-feedback">{{ errors.diagnostico_tratamiento }}
-              </div>
+                <div class="registro">
+                  <h4> <strong>Paciente: </strong> <span>
+                      {{ tratamiento.nombre_paciente }}
+                    </span>
+                  </h4>
 
-              <label>Plan de Tratamiento:</label>
-              <mat-form-field class="mat-input" appearance="outline">
-                <input matInput [(ngModel)]="tratamiento.plan" placeholder="Ingresa el plan">
-              </mat-form-field>
-              <div *ngIf="errors.plan" class="invalid-feedback">{{ errors.plan }}</div>
+                  <label>Fecha tratamiento:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="tratamiento.fecha_tratamiento"
+                      (focus)="picker.open()" placeholder="Agregar fecha" (dateChange)="changeFechaTratamiento($event)"
+                      type="string">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <div *ngIf="errors.fecha_tratamiento" class="invalid-feedback">{{ errors.fecha_tratamiento }}</div>
 
-              <label>Observaciones:</label>
-              <mat-form-field class="mat-input" appearance="outline">
-                <input matInput [(ngModel)]="tratamiento.observaciones" placeholder="Ingresa las observaciones">
-              </mat-form-field>
-              <div *ngIf="errors.observaciones" class="invalid-feedback">{{ errors.observaciones }}</div>
+                  <label>Diagnóstico:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="tratamiento.diagnostico_tratamiento"
+                      placeholder="Ingresa el diagnóstico">
+                  </mat-form-field>
+                  <div *ngIf="errors.diagnostico_tratamiento" class="invalid-feedback">{{ errors.diagnostico_tratamiento
+                    }}
+                  </div>
 
-              <h4> <strong>Odontólogo Responsable: </strong> <span>
-                  <p>Dra. Cynthia López</p>
-                </span>
-              </h4>
+                  <label>Plan de Tratamiento:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="tratamiento.plan" placeholder="Ingresa el plan">
+                  </mat-form-field>
+                  <div *ngIf="errors.plan" class="invalid-feedback">{{ errors.plan }}</div>
 
-              <div class="registro2">
-                <div class="button-container">
-                  <button class="cancel-button" (click)="cancelar()">Cancelar</button>
-                  <button class="save-button" (click)="guardarTratamiento()">Guardar</button>
+                  <label>Observaciones:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="tratamiento.observaciones" placeholder="Ingresa las observaciones">
+                  </mat-form-field>
+                  <div *ngIf="errors.observaciones" class="invalid-feedback">{{ errors.observaciones }}</div>
+
+                  <h4> <strong>Odontólogo Responsable: </strong> <span>
+                      <p>Dra. Cynthia López</p>
+                    </span>
+                  </h4>
+
+                  <div class="registro2">
+                    <div class="button-container">
+                      <button class="cancel-button" (click)="cancelar()">Cancelar</button>
+                      <button class="save-button" (click)="guardarTratamiento()">Guardar</button>
+                    </div>
+                  </div>
+
                 </div>
-              </div>
 
-            </div>
+              </mat-expansion-panel>
+
+              <!-- Panel para visualizar tratamientos existentes -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Tratamientos del paciente
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngIf="tratamientos && tratamientos.length > 0; else noTratamientos">
+                  <div *ngFor="let tratamiento of tratamientos">
+                    <mat-card-content>
+                      <p><strong>Fecha:</strong> {{ tratamiento.diagnostico_tratamiento }}</p>
+                      <p><strong>Diagnóstico:</strong> {{ tratamiento.diagnostico_tratamiento }}</p>
+                      <p><strong>Plan:</strong> {{ tratamiento.plan }}</p>
+                      <p><strong>Observaciones:</strong> {{ tratamiento.observaciones }}</p>
+
+                      <p> <strong>Odontólogo Responsable: </strong> <span>
+                          <p>Dra. Cynthia López</p>
+                        </span>
+                      </p>
+
+                    </mat-card-content>
+                  </div>
+                </div>
+
+                <!-- Si no hay tratamientos -->
+                <ng-template #noTratamientos>
+                  <p>No hay tratamientos registrados para este paciente.</p>
+                </ng-template>
+
+              </mat-expansion-panel>
+
+            </mat-accordion>
+
 
           </div>
 
