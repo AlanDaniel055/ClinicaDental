@@ -70,6 +70,54 @@
           <div *ngIf="seccionActual === 'tratamiento'">
             <h2>Tratamiento en curso</h2>
 
+            <div class="registro">
+              <h4> <strong>Paciente: </strong> <span>
+                  {{ tratamiento.nombre_paciente }}
+                </span>
+              </h4>
+
+              <label>Fecha tratamiento:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="tratamiento.fecha_tratamiento"
+                  (focus)="picker.open()" placeholder="Agregar fecha" (dateChange)="changeFechaTratamiento($event)" type="string">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div *ngIf="errors.fecha_tratamiento" class="invalid-feedback">{{ errors.fecha_tratamiento }}</div>
+
+              <label>Diagnóstico:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="tratamiento.diagnostico_tratamiento" placeholder="Ingresa el diagnóstico">
+              </mat-form-field>
+              <div *ngIf="errors.diagnostico_tratamiento" class="invalid-feedback">{{ errors.diagnostico_tratamiento }}
+              </div>
+
+              <label>Plan de Tratamiento:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="tratamiento.plan" placeholder="Ingresa el plan">
+              </mat-form-field>
+              <div *ngIf="errors.plan" class="invalid-feedback">{{ errors.plan }}</div>
+
+              <label>Observaciones:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="tratamiento.observaciones" placeholder="Ingresa las observaciones">
+              </mat-form-field>
+              <div *ngIf="errors.observaciones" class="invalid-feedback">{{ errors.observaciones }}</div>
+
+              <h4> <strong>Odontólogo Responsable: </strong> <span>
+                  <p>Dra. Cynthia López</p>
+                </span>
+              </h4>
+
+              <div class="registro2">
+                <div class="button-container">
+                  <button class="cancel-button" (click)="cancelar()">Cancelar</button>
+                  <button class="save-button" (click)="guardarTratamiento()">Guardar</button>
+                </div>
+              </div>
+
+            </div>
+
           </div>
 
           <div *ngIf="seccionActual === 'historial'">
