@@ -26,6 +26,7 @@ from consultorio_api.views import recepcionista
 from consultorio_api.views import cita
 from consultorio_api.views import receta
 from consultorio_api.views import tratamiento
+from consultorio_api.views import historial
 
 
 from django.conf import settings
@@ -65,7 +66,16 @@ urlpatterns = [
     #ID Tratamiento
         path('id-tratamiento/', tratamiento.TratamientosView.as_view()),
     #Edit Tratamiento
-        path('tratamiento-edit/', tratamiento.TratamientosViewEdit.as_view()),    
+        path('tratamiento-edit/', tratamiento.TratamientosViewEdit.as_view()),
+    #Create Historial
+        path('historial-medico/', historial.HistorialesView.as_view()),
+    #Historial Data
+        path('lista-historial/', historial.HistorialAll.as_view()),
+    #ID Historial
+        path('id-historial/', historial.HistorialesView.as_view()),
+    #Edit Historial
+        path('historial-edit/', historial.HistorialViewEdit.as_view()),
+        
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout

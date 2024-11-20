@@ -102,3 +102,17 @@ class Tratamiento(models.Model):
     def __str__(self):
         return "Tratamiento: " + str(self.id) + " " + self.paciente
 
+class Historial(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    paciente = models.CharField(max_length=255, null=True, blank=True)
+    antecedentes_medicos = models.CharField(max_length=255, null=True, blank=True)
+    medicamentos_historial = models.CharField(max_length=255, null=True, blank=True)
+    vacunas = models.CharField(max_length=255, null=True, blank=True)
+    habitos = models.CharField(max_length=255, null=True, blank=True)
+    antecedentes_familiares = models.CharField(max_length=255, null=True, blank=True)
+    notas_adicionales = models.CharField(max_length=255, null=True, blank=True)
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return "Historial médico: " + str(self.id) + " " + self.paciente

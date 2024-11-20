@@ -49,5 +49,10 @@ class TratamientoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tratamiento
         fields = '__all__' 
-  
+
+class HistorialSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Historial
+        fields = '__all__' 
   
