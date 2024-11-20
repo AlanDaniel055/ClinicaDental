@@ -122,6 +122,17 @@ export class RecetasService {
     return this.http.get<any>(`${environment.url_api}/ultima-receta/`, { headers });
   }
 
+  // Servicio para obtener la última receta de un paciente por su ID
+  public obtenerUltimaRecetaPorPaciente(idPaciente: number): Observable<any> {
+    const token = this.facadeService.getSessionToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${environment.url_api}/ultima-receta/?paciente_id=${idPaciente}`, { headers });
+  }
+
+
 
 
 

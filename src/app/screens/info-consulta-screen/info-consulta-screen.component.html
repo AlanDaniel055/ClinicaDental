@@ -202,26 +202,26 @@
                     <input matInput [(ngModel)]="historial.antecedentes_medicos"
                       placeholder="Ingresa los antecedentes médicos">
                   </mat-form-field>
-                  <div *ngIf="errors.antecedentes_medicos" class="invalid-feedback">{{ errors.antecedentes_medicos}}</div>
+                  <div *ngIf="errors.antecedentes_medicos" class="invalid-feedback">{{ errors.antecedentes_medicos}}
+                  </div>
 
                   <label>Medicamentos Actuales:</label>
                   <mat-form-field class="mat-input" appearance="outline">
                     <input matInput [(ngModel)]="historial.medicamentos_historial"
                       placeholder="Ingresa los medicamentos actuales">
                   </mat-form-field>
-                  <div *ngIf="errors.medicamentos_historial" class="invalid-feedback">{{ errors.medicamentos_historial}}</div>
+                  <div *ngIf="errors.medicamentos_historial" class="invalid-feedback">{{ errors.medicamentos_historial}}
+                  </div>
 
                   <label>Vacunas:</label>
                   <mat-form-field class="mat-input" appearance="outline">
-                    <input matInput [(ngModel)]="historial.vacunas"
-                      placeholder="Ingresa las vacunas">
+                    <input matInput [(ngModel)]="historial.vacunas" placeholder="Ingresa las vacunas">
                   </mat-form-field>
                   <div *ngIf="errors.vacunas" class="invalid-feedback">{{ errors.vacunas}}</div>
 
                   <label>Hábitos:</label>
                   <mat-form-field class="mat-input" appearance="outline">
-                    <input matInput [(ngModel)]="historial.habitos"
-                      placeholder="Ingresa los habitos">
+                    <input matInput [(ngModel)]="historial.habitos" placeholder="Ingresa los habitos">
                   </mat-form-field>
                   <div *ngIf="errors.habitos" class="invalid-feedback">{{ errors.habitos}}</div>
 
@@ -230,12 +230,12 @@
                     <input matInput [(ngModel)]="historial.antecedentes_familiares"
                       placeholder="Ingresa los antecedentes familiares">
                   </mat-form-field>
-                  <div *ngIf="errors.antecedentes_familiares" class="invalid-feedback">{{ errors.antecedentes_familiares}}</div>
+                  <div *ngIf="errors.antecedentes_familiares" class="invalid-feedback">{{
+                    errors.antecedentes_familiares}}</div>
 
                   <label>Notas Adicionales:</label>
                   <mat-form-field class="mat-input" appearance="outline">
-                    <input matInput [(ngModel)]="historial.notas_adicionales"
-                      placeholder="Ingresa notas adionales">
+                    <input matInput [(ngModel)]="historial.notas_adicionales" placeholder="Ingresa notas adionales">
                   </mat-form-field>
                   <div *ngIf="errors.notas_adicionales" class="invalid-feedback">{{ errors.notas_adicionales}}</div>
 
@@ -294,6 +294,18 @@
           <div *ngIf="seccionActual === 'notas'">
             <h2>Notas de consulta</h2>
 
+            <div *ngIf="receta_nota" class="registro2">
+              <p><strong>Fecha:</strong> {{ receta_nota.fecha_receta | date: 'dd/MM/yyyy' }}</p>
+              <p><strong>Horario:</strong> {{ receta_nota.horario_receta }}</p>
+              <p><strong>Diagnóstico:</strong> {{ receta_nota.diagnostico }}</p>
+              <p><strong>Medicamento:</strong> {{ receta_nota.medicamento }}</p>
+              <p><strong>Indicaciones:</strong> {{ receta_nota.indicaciones }}</p>
+              <p><strong>Nota:</strong> {{ receta_nota.nota }}</p>
+              <p><strong>Conclusiones:</strong> {{ receta_nota.conclusiones }}</p>
+            </div>
+            <div *ngIf="!receta_nota">
+              <p>No hay recetas disponibles para este paciente.</p>
+            </div>
           </div>
 
           <div *ngIf="seccionActual === 'recetas'">
@@ -366,6 +378,34 @@
 
           <div *ngIf="seccionActual === 'archivos'">
             <h2>Archivos</h2>
+
+            <!-- Subir archivo -->
+            <!-- <div class="subir-archivo">
+              <label for="archivo">Selecciona un archivo:</label>
+              <input type="file" id="archivo" (change)="onArchivoSeleccionado($event)" />
+
+              <label for="tipoArchivo">Tipo de archivo:</label>
+              <select id="tipoArchivo" [(ngModel)]="tipoArchivo">
+                <option value="">Selecciona el tipo</option>
+                <option value="imagen">Imagen</option>
+                <option value="pdf">PDF</option>
+              </select>
+
+              <button (click)="subirArchivo()">Subir</button>
+            </div> -->
+
+            <!-- Mostrar archivos -->
+            <!-- <div class="galeria-archivos">
+              <h3>Galería de Archivos</h3>
+              <div *ngFor="let archivo of archivos" class="archivo-item">
+                <ng-container *ngIf="archivo.tipo === 'imagen'; else pdfTemplate">
+                  <img [src]="archivo.url" alt="Imagen" />
+                </ng-container>
+                <ng-template #pdfTemplate>
+                  <a [href]="archivo.url" target="_blank">Ver PDF</a>
+                </ng-template>
+              </div>
+            </div> -->
 
           </div>
 
