@@ -1,0 +1,89 @@
+/* Estilos generales */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #F3F5F9;
+}
+
+.section-home {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.body-home {
+  padding: 20px;
+}
+
+/* Estilos de Desktop */
+@media (min-width: 960px) {
+  .home-paciente, .home-doctor, .home-recepcionista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .home-paciente {
+    background-color: #E8F7FF;
+  }
+
+  .home-doctor {
+    background-color: #FFF3E8;
+  }
+
+  .home-recepcionista {
+    background-color: #F0E8FF;
+  }
+}
+
+/* Estilos para tablets y pantallas medianas */
+@media (min-width: 600px) and (max-width: 959px) {
+  .section-home {
+    max-width: 90%;
+  }
+
+  .home-paciente, .home-doctor, .home-recepcionista {
+    padding: 30px;
+  }
+
+  .body-home {
+    padding: 20px;
+  }
+}
+
+/* Estilos para móviles */
+@media (max-width: 599px) {
+  .section-home {
+    max-width: 100%;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .body-home {
+    padding: 10px;
+  }
+
+  .home-paciente, .home-doctor, .home-recepcionista {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .home-paciente {
+    background-color: #E8F7FF;
+  }
+
+  .home-doctor {
+    background-color: #FFF3E8;
+  }
+
+  .home-recepcionista {
+    background-color: #F0E8FF;
+  }
+}
