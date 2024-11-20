@@ -20,7 +20,8 @@
 
         <div class="detalle-receta print-area">
           <h2>{{ recetaSeleccionada.diagnostico }}</h2>
-          <p><strong>Paciente:</strong> {{ recetaSeleccionada.paciente }}</p>
+          <!-- <p><strong>Paciente:</strong> {{ recetaSeleccionada.paciente }}</p> -->
+           <!-- TODO: checar que sea dinamico -->
           <p><strong>Fecha:</strong> {{ recetaSeleccionada.fecha_receta  | date: 'dd/MM/yyyy':'UTC' }}</p>
           <p><strong>Diagnóstico:</strong> {{ recetaSeleccionada.diagnostico }}</p>
           <p><strong>Medicamento:</strong> {{ recetaSeleccionada.medicamento }}</p>

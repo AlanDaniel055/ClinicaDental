@@ -1,34 +1,36 @@
-<div>
-  <app-navbar-usuario></app-navbar-usuario>
-</div>
-
-<div class="header-landing">
-  <h2 class="my-4">Lista de pacientes</h2>
-  <div class="container">
-    <!-- Mostrar mensaje de carga -->
-    <div *ngIf="loading" class="text-center">
-      <p>Cargando lista de pacientes...</p>
-    </div>
-
-    <!-- Mostrar mensaje de error -->
-    <div *ngIf="error" class="text-center text-danger">
-      <p>Error al cargar los datos de los pacientes. Intenta de nuevo más tarde.</p>
-    </div>
-
-    <!-- Mostrar la lista de pacientes cuando los datos estén disponibles -->
-    <ul *ngIf="!loading && !error" class="list-group">
-      <li *ngFor="let paciente of listaPacientes"
-        class="list-group-item d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-          <img [src]="paciente.photoFileName || 'assets/images/user.jpg'" alt="user" class="rounded-circle" width="50"
-            height="50">
-          <span class="ml-3">{{ paciente.nombre }}</span>
-          <!-- <span class="ml-3">{{ paciente.id }}</span> -->
-        </div>
-        <button class="btn btn-primary" (click)="irAConsulta(paciente.id)">
-          Ver perfil
-        </button>
-      </li>
-    </ul>
+<body>
+  <div>
+    <app-navbar-usuario></app-navbar-usuario>
   </div>
-</div>
+
+  <div class="header-landing">
+    <h2 class="my-4">Lista de pacientes</h2>
+    <div class="container">
+      <!-- Mostrar mensaje de carga -->
+      <div *ngIf="loading" class="text-center">
+        <p>Cargando lista de pacientes...</p>
+      </div>
+
+      <!-- Mostrar mensaje de error -->
+      <div *ngIf="error" class="text-center text-danger">
+        <p>Error al cargar los datos de los pacientes. Intenta de nuevo más tarde.</p>
+      </div>
+
+      <!-- Mostrar la lista de pacientes cuando los datos estén disponibles -->
+      <ul *ngIf="!loading && !error" class="list-group">
+        <li *ngFor="let paciente of listaPacientes"
+          class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <img [src]="paciente.photoFileName || 'assets/images/user.jpg'" alt="user" class="rounded-circle" width="50"
+              height="50">
+            <span class="ml-3">{{ paciente.nombre }}</span>
+            <!-- <span class="ml-3">{{ paciente.id }}</span> -->
+          </div>
+          <button class="btn btn-primary" (click)="irAConsulta(paciente.id)">
+            Ver perfil
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
