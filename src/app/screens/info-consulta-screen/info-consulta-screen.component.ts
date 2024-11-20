@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { PacientesService } from 'src/app/services/pacientes.service';
 import { RecetasService } from 'src/app/services/recetas.service';
 import { TratamientosService } from 'src/app/services/tratamientos.service';
+import { HistorialMedicoService } from 'src/app/services/historial-medico.service';
 
 declare var $: any;
 
@@ -20,6 +21,8 @@ export class InfoConsultaScreenComponent implements OnInit {
   public errors: any = {};
   public tratamiento: any = {};
   tratamientos: any[] = []; // Variable para almacenar la lista de tratamientos
+  historial: any = {}; // Almacena el historial médico
+  historiales: any[] = []; // Variable para almacenar la lista de tratamientos
 
   idPaciente!: number;
   datosPaciente: any;  // Variable para almacenar los datos del paciente
@@ -33,6 +36,7 @@ export class InfoConsultaScreenComponent implements OnInit {
     private pacientesService: PacientesService,
     private recetasService: RecetasService,
     private tratamientosService: TratamientosService,
+    private historialMedicoService: HistorialMedicoService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +45,7 @@ export class InfoConsultaScreenComponent implements OnInit {
       this.idPaciente = +params['idPaciente'];
       this.obtenerDatosPaciente(this.idPaciente);
       this.obtenerListaTratamientos(); // Carga los tratamientos del paciente
+      this.obtenerListaHistorial(); // Carga los tratamientos del paciente
     });
 
     // Definir el esquema a mi JSON para recetas
@@ -60,6 +65,18 @@ export class InfoConsultaScreenComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error al obtener la lista de tratamientos:', error);
+      }
+    });
+  }
+
+  obtenerListaHistorial(): void {
+    this.historialMedicoService.obtenerListaHistorial().subscribe({
+      next: (data) => {
+        this.historiales = data; // Asignar la lista
+        console.log('Historiales obtenidos:', this.historiales);
+      },
+      error: (error) => {
+        console.error('Error al obtener la lista de historiales:', error);
       }
     });
   }
@@ -168,6 +185,35 @@ export class InfoConsultaScreenComponent implements OnInit {
       error: (error) => {
         alert("No se pudo registrar el tratamiento");
         console.error("Error al registrar el tratamiento", error);
+      }
+    });
+  }
+
+  public guardarHistorial() {
+    // Limpiar los errores previos
+    this.errors = {};
+
+    // Validar
+    this.errors = this.historialMedicoService.validarHistorial(this.historial, this.editar);
+    if (Object.keys(this.errors).length > 0) {
+      console.error("Errores de validación:", this.errors);
+      alert("Por favor, revisa los campos obligatorios.");
+      return;
+    }
+
+    // Asignar el ID del paciente al tratamiento
+    this.historial.paciente = this.datosPaciente?.id;
+
+    // Llamar al servicio para registrar el tratamiento
+    this.historialMedicoService.registrarHistorial(this.historial).subscribe({
+      next: (response) => {
+        alert("Historial médico registrado correctamente");
+        console.log("Historial registrado:", response);
+        window.location.reload();
+      },
+      error: (error) => {
+        alert("No se pudo registrar el historial médico");
+        console.error("Error al registrar historial médico:", error);
       }
     });
   }

@@ -48,7 +48,7 @@
                 </p>
                 <p><strong>Fecha de Nacimiento: </strong> <span>{{ datosPaciente?.fecha_nacimiento | date: 'dd/MM/yyyy'
                     }}</span></p>
-                <p><strong>Edad: </strong> <span>{{ calcularEdad(datosPaciente?.fecha_nacimiento) }}</span></p>
+                <p><strong>Edad: </strong> <span>{{ calcularEdad(datosPaciente?.fecha_nacimiento) }} años</span></p>
               </div>
 
               <!-- Información del perfil - Columna Derecha -->
@@ -144,7 +144,7 @@
                 <div *ngIf="tratamientos && tratamientos.length > 0; else noTratamientos">
                   <div *ngFor="let tratamiento of tratamientos">
                     <mat-card-content>
-                      <p><strong>Fecha:</strong> {{ tratamiento.diagnostico_tratamiento }}</p>
+                      <p><strong>Fecha:</strong> {{ tratamiento.fecha_tratamiento | date: 'dd/MM/yyyy':'UTC' }}</p>
                       <p><strong>Diagnóstico:</strong> {{ tratamiento.diagnostico_tratamiento }}</p>
                       <p><strong>Plan:</strong> {{ tratamiento.plan }}</p>
                       <p><strong>Observaciones:</strong> {{ tratamiento.observaciones }}</p>
@@ -167,11 +167,127 @@
 
             </mat-accordion>
 
-
           </div>
 
           <div *ngIf="seccionActual === 'historial'">
             <h2>Historial médico</h2>
+
+            <mat-accordion class="seccion-historial">
+
+              <!-- Panel para registrar el historial medico -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Registrar historial médico
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="registro">
+                  <h4> <!-- Datos generales -->
+                    <strong>Paciente: </strong>
+                    <span>
+                      {{ tratamiento.nombre_paciente }}
+                    </span>
+
+                    <p><strong>Fecha de Nacimiento: </strong> <span>{{ datosPaciente?.fecha_nacimiento | date:
+                        'dd/MM/yyyy'
+                        }}</span></p>
+                    <p><strong>Edad: </strong> <span>{{ calcularEdad(datosPaciente?.fecha_nacimiento) }} años</span></p>
+                  </h4>
+
+                  <!-- Datos del historial -->
+
+                  <label>Antecedentes Médicos:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="historial.antecedentes_medicos"
+                      placeholder="Ingresa los antecedentes médicos">
+                  </mat-form-field>
+                  <div *ngIf="errors.antecedentes_medicos" class="invalid-feedback">{{ errors.antecedentes_medicos}}</div>
+
+                  <label>Medicamentos Actuales:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="historial.medicamentos_historial"
+                      placeholder="Ingresa los medicamentos actuales">
+                  </mat-form-field>
+                  <div *ngIf="errors.medicamentos_historial" class="invalid-feedback">{{ errors.medicamentos_historial}}</div>
+
+                  <label>Vacunas:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="historial.vacunas"
+                      placeholder="Ingresa las vacunas">
+                  </mat-form-field>
+                  <div *ngIf="errors.vacunas" class="invalid-feedback">{{ errors.vacunas}}</div>
+
+                  <label>Hábitos:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="historial.habitos"
+                      placeholder="Ingresa los habitos">
+                  </mat-form-field>
+                  <div *ngIf="errors.habitos" class="invalid-feedback">{{ errors.habitos}}</div>
+
+                  <label>Antecedentes Familiares:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="historial.antecedentes_familiares"
+                      placeholder="Ingresa los antecedentes familiares">
+                  </mat-form-field>
+                  <div *ngIf="errors.antecedentes_familiares" class="invalid-feedback">{{ errors.antecedentes_familiares}}</div>
+
+                  <label>Notas Adicionales:</label>
+                  <mat-form-field class="mat-input" appearance="outline">
+                    <input matInput [(ngModel)]="historial.notas_adicionales"
+                      placeholder="Ingresa notas adionales">
+                  </mat-form-field>
+                  <div *ngIf="errors.notas_adicionales" class="invalid-feedback">{{ errors.notas_adicionales}}</div>
+
+                  <h4> <strong>Odontólogo Responsable: </strong> <span>
+                      <p>Dra. Cynthia López</p>
+                    </span>
+                  </h4>
+
+                  <div class="registro2">
+                    <div class="button-container">
+                      <button class="cancel-button" (click)="cancelar()">Cancelar</button>
+                      <button class="save-button" (click)="guardarHistorial()">Guardar</button>
+                    </div>
+                  </div>
+
+                </div>
+
+              </mat-expansion-panel>
+
+              <!-- Panel para visualizar historial existente -->
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Historial del paciente
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngIf="historiales && historiales.length > 0; else noHistorial">
+                  <div *ngFor="let historial of historiales">
+                    <mat-card-content>
+                      <p><strong>Antecedentes Médicos: </strong> {{ historial.antecedentes_medicos }}</p>
+                      <p><strong>Medicamentos Actuales: </strong> {{ historial.medicamentos_historial }}</p>
+                      <p><strong>Vacunas: </strong> {{ historial.vacunas }}</p>
+                      <p><strong>Hábitos: </strong> {{ historial.habitos }}</p>
+                      <p><strong>Antecedentes Familiares: </strong> {{ historial.antecedentes_familiares }}</p>
+                      <p><strong>Notas Adicionales: </strong> {{ historial.notas_adicionales }}</p>
+
+                      <p><strong>Firma y sello del odontólogo:</strong></p>
+                      <img src="/assets/images/firma.png" alt="Firma" class="Firma">
+
+                    </mat-card-content>
+                  </div>
+                </div>
+
+                <!-- Si no hay tratamientos -->
+                <ng-template #noHistorial>
+                  <p>No hay historial médico registrado para este paciente.</p>
+                </ng-template>
+
+              </mat-expansion-panel>
+
+            </mat-accordion>
 
           </div>
 
