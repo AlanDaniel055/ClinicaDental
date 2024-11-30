@@ -55,4 +55,10 @@ class HistorialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Historial
         fields = '__all__' 
+
+class ArchivoSerializer(serializers.ModelSerializer):
+    user=UserSerializer(read_only=True)
+    class Meta:
+        model = Archivo
+        fields = '__all__' 
   

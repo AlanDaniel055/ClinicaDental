@@ -116,3 +116,14 @@ class Historial(models.Model):
 
     def __str__(self):
         return "Historial médico: " + str(self.id) + " " + self.paciente
+    
+class Archivo(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    archivo = models.FileField(upload_to='archivos_clinicos/', blank=False, null=False)  # Subir archivo
+    paciente = models.ForeignKey(Pacientes, on_delete=models.CASCADE, related_name='archivos')  # Relación con paciente
+    descripcion = models.TextField(blank=True, null=True)  # Campo opcional para descripción del archivo
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(auto_now=True, null=True, blank=True)
+
+    def __str__(self):
+        return f"Archivo {self.id} nuevo del paciente {self.paciente}"

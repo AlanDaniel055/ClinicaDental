@@ -27,6 +27,7 @@ from consultorio_api.views import cita
 from consultorio_api.views import receta
 from consultorio_api.views import tratamiento
 from consultorio_api.views import historial
+from consultorio_api.views import archivo
 
 
 from django.conf import settings
@@ -75,6 +76,10 @@ urlpatterns = [
         path('id-historial/', historial.HistorialesView.as_view()),
     #Edit Historial
         path('historial-edit/', historial.HistorialViewEdit.as_view()),
+    #Crete Archivos
+        path('archivo/', archivo.ArchivoView.as_view()),
+    #Tratamientos Data
+    path('lista-archivos/', archivo.ArchivosAllView.as_view()),
         
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
