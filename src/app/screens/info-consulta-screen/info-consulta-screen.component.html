@@ -64,7 +64,6 @@
               </div>
             </div>
 
-
           </div>
 
           <div *ngIf="seccionActual === 'tratamiento'">
@@ -378,34 +377,72 @@
 
           <div *ngIf="seccionActual === 'archivos'">
             <h2>Archivos</h2>
+            <h3>Subir archivo</h3>
 
-            <!-- Subir archivo -->
-            <!-- <div class="subir-archivo">
-              <label for="archivo">Selecciona un archivo:</label>
-              <input type="file" id="archivo" (change)="onArchivoSeleccionado($event)" />
-
-              <label for="tipoArchivo">Tipo de archivo:</label>
-              <select id="tipoArchivo" [(ngModel)]="tipoArchivo">
-                <option value="">Selecciona el tipo</option>
-                <option value="imagen">Imagen</option>
-                <option value="pdf">PDF</option>
-              </select>
-
-              <button (click)="subirArchivo()">Subir</button>
-            </div> -->
-
-            <!-- Mostrar archivos -->
-            <!-- <div class="galeria-archivos">
-              <h3>Galería de Archivos</h3>
-              <div *ngFor="let archivo of archivos" class="archivo-item">
-                <ng-container *ngIf="archivo.tipo === 'imagen'; else pdfTemplate">
-                  <img [src]="archivo.url" alt="Imagen" />
-                </ng-container>
-                <ng-template #pdfTemplate>
-                  <a [href]="archivo.url" target="_blank">Ver PDF</a>
-                </ng-template>
+            <!-- imagen -->
+            <div class="image-upload-container">
+              <div class="upload-input">
+                <!-- Ícono de la imagen -->
+                <img src="assets/images/img.png" alt="Icono de imagen" class="icon-image">
               </div>
-            </div> -->
+
+              <!-- Entrada de carga -->
+              <div class="upload-input">
+                <label>Agregar imagen</label>
+                <button class="btn-upload">
+                  <label for="fileInput" class="seleccion">Selecciona la imagen</label>
+                </button>
+                <input id="fileInput" type="file" (change)="onFileSelected($event)" accept="image/*">
+                <div *ngIf="errors.photoFileName" class="invalid-feedback">{{ errors.photoFileName }}</div>
+              </div>
+
+              <!-- Vista previa de la imagen cargada -->
+              <div class="image-preview">
+                <img *ngIf="imagePreview" [src]="imagePreview" alt="Vista previa de la imagen">
+                <!-- <img *ngIf="!imagePreview" src="assets/images/img.png" alt="Imagen por defecto"> -->
+              </div>
+            </div>
+
+            <!-- PDF -->
+            <div class="pdf-upload-container">
+
+              <div class="upload-input">
+                <!-- Ícono de PDF -->
+                <img src="assets/images/pdf.png" alt="Icono de PDF" class="icon-pdf">
+              </div>
+
+              <!-- Entrada de carga -->
+              <div class="upload-input">
+                <label>Agregar archivo PDF</label>
+                <button class="btn-upload">
+                  <label for="pdfInput" class="seleccion">Selecciona el PDF</label>
+                </button>
+                <input id="pdfInput" type="file" (change)="onPdfSelected($event)" accept="application/pdf">
+                <div *ngIf="errors.pdfFileName" class="invalid-feedback">{{ errors.pdfFileName }}</div>
+              </div>
+
+              <!-- Vista previa del PDF cargado -->
+              <div class="pdf-preview">
+                <span *ngIf="pdfFileName">{{ pdfFileName }}</span>
+                <!-- <span *ngIf="!pdfFileName">Ningún archivo seleccionado</span> -->
+              </div>
+            </div>
+
+            <!-- Entrada descripcion -->
+
+            <div class="registro">
+              <label>Descripción:</label>
+              <mat-form-field class="mat-input" appearance="outline">
+                <input matInput [(ngModel)]="archivos.descripcion" placeholder="Ingresa la descripción del archivo">
+              </mat-form-field>
+              <div *ngIf="errors.descripcion" class="invalid-feedback">{{ errors.descripcion }}</div>
+            </div>
+
+            <!-- Botones -->
+            <div class="button-container">
+              <button class="cancel-button" (click)="cancelar()">Cancelar</button>
+              <button class="save-button" (click)="guardarArchivo()">Guardar</button>
+            </div>
 
           </div>
 

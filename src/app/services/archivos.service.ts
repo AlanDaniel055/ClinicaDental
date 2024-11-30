@@ -28,31 +28,30 @@ export class ArchivosService {
 
   public esquemaArchivos(paciente?: any) {
     return {
+      'archivo': '',
       'paciente': paciente ? paciente.id : '', // Aquí asignamos el ID del paciente
-      'nombre_paciente': paciente ? `${paciente.user?.first_name} ${paciente.user?.last_name} ${paciente.apellido_materno}` : '', // Nombre completo del paciente
-      'archivo_pdf': '',
-      'archivo_img': '',
+      'descripcion': '',
     };
   }
 
-  // Validación para el formulario de la receta que genera el doctor
-  public validarReceta(data: any, editar: boolean) {
-    console.log("Validando receta... ", data);
+  // Validación para el formulario de la archivo que genera el doctor
+  public validarArchivo(data: any, editar: boolean) {
+    console.log("Validando archivo... ", data);
     let error: any = [];
 
-    // Nombre del paciente
+    // Nombre del archivo
+    if (!this.validatorService.required(data["archivo"])) {
+      error["archivo"] = this.errorService.required;
+    }
+
+    // Nombre paciente
     if (!this.validatorService.required(data["paciente"])) {
       error["paciente"] = this.errorService.required;
     }
 
-    // archivo pdf
-    if (!this.validatorService.required(data["horario_receta"])) {
-      error["horario_receta"] = this.errorService.required;
-    }
-
-    // imagen
-    if (!this.validatorService.required(data["horario_receta"])) {
-      error["horario_receta"] = this.errorService.required;
+    // Descripció del archivo
+    if (!this.validatorService.required(data["descripcion"])) {
+      error["descripcion"] = this.errorService.required;
     }
 
     return error;
@@ -62,11 +61,11 @@ export class ArchivosService {
   //Aquí van los servicios HTTP
   //Servicio para registrar archivos
   public subirArchivo(data: any): Observable<any> {
-    return this.http.post<any>(`${environment.url_api}/subir-archivos/`, data, httpOptions);
+    return this.http.post<any>(`${environment.url_api}/archivo/`, data, httpOptions);
   }
 
   obtenerArchivos(): Observable<any[]> {
-    return this.http.post<any>(`${environment.url_api}/archivos/`, httpOptions);
+    return this.http.post<any>(`${environment.url_api}/lista-archivos/`, httpOptions);
   }
 
 

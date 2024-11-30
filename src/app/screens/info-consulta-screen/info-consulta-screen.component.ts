@@ -27,9 +27,10 @@ export class InfoConsultaScreenComponent implements OnInit {
   historiales: any[] = []; // Variable para almacenar la lista de tratamientos
 
   // Archivos
-  archivos: any[] = [];
-  archivoSeleccionado: File | null = null;
-  tipoArchivo: string = '';
+  public archivos: any = {};
+  archivo: any[] = []; // Variable para almacenar la lista de archivos
+  imagePreview: string | ArrayBuffer | null = null; // Imagenes
+  pdfFileName: string | null = null; // Variable para almacenar el nombre del archivo PDF
 
   idPaciente!: number;
   datosPaciente: any;  // Variable para almacenar los datos del paciente
@@ -119,7 +120,8 @@ export class InfoConsultaScreenComponent implements OnInit {
   }
 
   public cancelar() {
-    this.location.back(); // Por el momento
+    // this.location.back(); // Por el momento
+    window.location.reload();
   }
 
   public guardar() { // Receta
@@ -241,36 +243,40 @@ export class InfoConsultaScreenComponent implements OnInit {
     });
   }
 
-//   // Cargar archivos desde el servidor
-//   cargarArchivos(): void {
-//     this.archivosService.obtenerArchivos().subscribe({
-//       next: (data) => this.archivos = data,
-//       error: (err) => console.error('Error al obtener archivos:', err)
-//     });
-//   }
+  // Metodo para la imagen
+  onFileSelected(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      this.archivos.photoFileName = file.name; // Aquí actualizamos el nombre del archivo en el objeto archivo.
 
-//   // Manejar selección de archivo
-//   onArchivoSeleccionado(event: any): void {
-//     this.archivoSeleccionado = event.target.files[0];
-//   }
+      // Crear una vista previa de la imagen
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
-//   // Subir archivo
-//   subirArchivo(): void {
-//     if (this.archivoSeleccionado && this.tipoArchivo) {
-//       const formData = new FormData();
-//       formData.append('archivo', this.archivoSeleccionado);
-//       formData.append('tipo_archivo', this.tipoArchivo);
+  onPdfSelected(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      if (file.type === 'application/pdf') {
+        this.pdfFileName = file.name; // Actualiza el nombre del archivo seleccionado
+        this.archivos.pdfFileName = file.name; // Guarda el nombre del archivo en el objeto 'archivos'
+      } else {
+        this.pdfFileName = null;
+        this.errors.pdfFileName = 'Por favor, selecciona un archivo PDF válido.';
+      }
+    }
+  }
 
-//       this.archivosService.subirArchivo(formData).subscribe({
-//         next: (res) => {
-//           console.log('Archivo subido:', res);
-//           this.cargarArchivos(); // Refrescar lista
-//         },
-//         error: (err) => console.error('Error al subir archivo:', err)
-//       });
-//     } else {
-//       alert('Por favor selecciona un archivo y un tipo.');
-//     }
-//   }
+  public guardarArchivo(){
+
+  }
+
+
 
 }
