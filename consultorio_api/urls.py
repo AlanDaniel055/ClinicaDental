@@ -40,6 +40,8 @@ urlpatterns = [
          path('paciente/', pacientes.PacientesView.as_view()), # TODO: cambie de pacienteS a paciente
     #Paciente Data
         path('lista-pacientes/', pacientes.PacientesAll.as_view()),
+    #Paciente Data
+        path('correo-paciente/', pacientes.PacientesView.as_view()),
     #Edit Paciente
         path('pacientes-edit/', pacientes.PacientesViewEdit.as_view()),
     #Create Doctor

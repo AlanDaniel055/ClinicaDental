@@ -40,13 +40,22 @@ class PacientesAll(generics.CreateAPIView):
         return Response(lista, 200)
 
 class PacientesView(generics.CreateAPIView):
-    #Obtener usuario por ID
-    # permission_classes = (permissions.IsAuthenticated,)
+    # Obtener usuario por ID o por correo electrónico
     def get(self, request, *args, **kwargs):
-        paciente = get_object_or_404(Pacientes, id = request.GET.get("id"))
-        paciente = PacienteSerializer(paciente, many=False).data
+        # Buscar por ID
+        paciente_id = request.GET.get("id")
+        email = request.GET.get("email")
 
-        return Response(paciente, 200)
+        if paciente_id:
+            paciente = get_object_or_404(Pacientes, id=paciente_id)
+        elif email:
+            paciente = get_object_or_404(Pacientes, user__email=email)
+        else:
+            return Response({"error": "Se requiere un parámetro de búsqueda ('id' o 'email')"}, status=400)
+
+        paciente_serializado = PacienteSerializer(paciente, many=False).data
+        return Response(paciente_serializado, status=200)
+
     
     #Registrar nuevo usuario
     @transaction.atomic
