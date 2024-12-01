@@ -33,13 +33,10 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
   ngOnInit(): void {
     // Definir el esquema a mi JSON
     this.cita = this.citasService.esquemaCitas();
-    this.cita.rol = this.rol;
     console.log("Cita: ", this.cita);
 
     // Obtener lista de pacientes
     this.cargarPacientes();
-
-    this.obtenerPacientePorEmail;
   }
 
   public guardar() {
@@ -51,17 +48,12 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
       return;
     }
 
-    if (!this.cita.paciente.email) {
-      alert("Por favor selecciona un paciente.");
-      return;
-    }
-
     // Registrar la cita
     this.citasService.registrarCita(this.cita).subscribe(
       (response) => {
         alert("Cita registrada correctamente");
         console.log("Cita registrada:", response);
-        this.router.navigate(['/Citas-agendadas']);
+        this.router.navigate(['/Citas-agenda-recep']);
       },
       (error) => {
         console.error("Error al registrar la cita:", error);
@@ -89,10 +81,11 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
   // Para el select de los servicios
   // Define precios para cada servicio
   public servicios: any[] = [
-    { value: '1', viewValue: 'Consulta Dental', price: 200 },
-    { value: '2', viewValue: 'Limpieza', price: 150 },
-    { value: '3', viewValue: 'Ortodoncia', price: 300 },
+    { value: '1', viewValue: 'Consulta Dental', price: 200, duration: 60 }, // Duración en minutos
+    { value: '2', viewValue: 'Limpieza', price: 150, duration: 45 },
+    { value: '3', viewValue: 'Ortodoncia', price: 300, duration: 90 },
   ];
+
 
   // Para el select de la forma de pago
   public forma_pago: any[] = [
@@ -105,8 +98,10 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
     const selectedService = this.servicios.find(service => service.viewValue === this.cita.servicios);
     if (selectedService) {
       this.total = selectedService.price;
+      this.cita.duracion_cita = selectedService.duration; // Almacenar la duración del servicio
     } else {
-      this.total = 0; // Por si no se selecciona ningún servicio
+      this.total = 0;
+      this.cita.duracion_cita = 0; // En caso de que no haya un servicio seleccionado
     }
   }
 
@@ -129,9 +124,17 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
   }
 
   public actualizarPaciente(pacienteSeleccionado: any): void {
+    // Asignar los datos del paciente seleccionado a la cita
     this.cita.paciente = pacienteSeleccionado;
     console.log("Paciente seleccionado: ", this.cita.paciente);
+
+    // Asegúrate de usar 'pacienteSeleccionado' en lugar de 'this.pacientes[0]'
+    this.cita.paciente_nombre = pacienteSeleccionado.user.first_name;
+    this.cita.paciente_apellido_paterno = pacienteSeleccionado.user.last_name;
+    this.cita.paciente_apellido_materno = pacienteSeleccionado.apellido_materno;
+    this.cita.paciente_email = pacienteSeleccionado.user.email;
   }
+
 
   public obtenerPacientePorEmail(email: string): void {
     this.pacientesService.getPacienteByEmail(email).subscribe(
