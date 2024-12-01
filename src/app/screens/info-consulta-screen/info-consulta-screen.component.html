@@ -393,7 +393,7 @@
                   <label for="fileInput" class="seleccion">Selecciona la imagen</label>
                 </button>
                 <input id="fileInput" type="file" (change)="onFileSelected($event)" accept="image/*">
-                <div *ngIf="errors.photoFileName" class="invalid-feedback">{{ errors.photoFileName }}</div>
+                <div *ngIf="errors.imagen" class="invalid-feedback">{{ errors.imagen }}</div>
               </div>
 
               <!-- Vista previa de la imagen cargada -->
@@ -429,7 +429,6 @@
             </div>
 
             <!-- Entrada descripcion -->
-
             <div class="registro">
               <label>Descripción:</label>
               <mat-form-field class="mat-input" appearance="outline">
@@ -443,6 +442,19 @@
               <button class="cancel-button" (click)="cancelar()">Cancelar</button>
               <button class="save-button" (click)="guardarArchivo()">Guardar</button>
             </div>
+
+            <div *ngIf="archivosPaciente.length > 0; else noArchivos">
+              <h3>Archivos del Paciente</h3>
+              <ul>
+                <li *ngFor="let archivo of archivosPaciente">
+                  <a [href]="archivo.archivo" target="_blank">{{ archivo.descripcion || 'Archivo sin descripción' }}</a>
+                  <p>Subido el: {{ archivo.creation | date }}</p>
+                </li>
+              </ul>
+            </div>
+            <ng-template #noArchivos>
+              <p>No hay archivos para este paciente.</p>
+            </ng-template>
 
           </div>
 

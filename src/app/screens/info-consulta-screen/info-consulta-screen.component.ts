@@ -31,6 +31,7 @@ export class InfoConsultaScreenComponent implements OnInit {
   archivo: any[] = []; // Variable para almacenar la lista de archivos
   imagePreview: string | ArrayBuffer | null = null; // Imagenes
   pdfFileName: string | null = null; // Variable para almacenar el nombre del archivo PDF
+  archivosPaciente: any[] = [];
 
   idPaciente!: number;
   datosPaciente: any;  // Variable para almacenar los datos del paciente
@@ -66,6 +67,10 @@ export class InfoConsultaScreenComponent implements OnInit {
     // Definir el esquema a mi JSON para tratamientos
     this.tratamiento = this.tratamientosService.esquemaTratamientos();
     console.log("Tratamiento: ", this.tratamiento);
+
+    // Definir el esquema a mi JSON para archivos
+    this.archivos = this.archivosService.esquemaArchivos();
+    console.log("Archivo: ", this.tratamiento);
   }
 
   obtenerListaTratamientos(): void {
@@ -100,7 +105,9 @@ export class InfoConsultaScreenComponent implements OnInit {
         console.log('Datos del paciente:', this.datosPaciente);
         // Inicializar receta y tratamiento con los datos del paciente
         this.receta = this.recetasService.esquemaRecetas(this.datosPaciente);
-        this.tratamiento = this.tratamientosService.esquemaTratamientos(this.datosPaciente); // <-- Aquí está el cambio
+        this.tratamiento = this.tratamientosService.esquemaTratamientos(this.datosPaciente);
+        this.cargarArchivosPaciente();
+
       },
       error: (error) => {
         console.error('Error al obtener los datos del paciente:', error);
@@ -243,14 +250,14 @@ export class InfoConsultaScreenComponent implements OnInit {
     });
   }
 
-  // Metodo para la imagen
+  // Método para la imagen
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       const file = fileInput.files[0];
-      this.archivos.photoFileName = file.name; // Aquí actualizamos el nombre del archivo en el objeto archivo.
+      this.archivos.imagen = file; // Asignar el archivo completo.
 
-      // Crear una vista previa de la imagen
+      // Vista previa
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result;
@@ -259,24 +266,76 @@ export class InfoConsultaScreenComponent implements OnInit {
     }
   }
 
+  // Método para el archivo PDF
   onPdfSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       const file = fileInput.files[0];
-      if (file.type === 'application/pdf') {
-        this.pdfFileName = file.name; // Actualiza el nombre del archivo seleccionado
-        this.archivos.pdfFileName = file.name; // Guarda el nombre del archivo en el objeto 'archivos'
-      } else {
-        this.pdfFileName = null;
-        this.errors.pdfFileName = 'Por favor, selecciona un archivo PDF válido.';
-      }
+      this.archivos.pdf = file; // Asignar directamente el archivo PDF.
+      this.pdfFileName = file.name; // Actualizar el nombre del archivo.
     }
   }
 
-  public guardarArchivo(){
+  // Método para guardar el archivo
+  guardarArchivo(): void {
+    if (!this.archivos.imagen && !this.archivos.pdf) {
+      alert('Por favor, selecciona al menos un archivo.');
+      return;
+    }
+    if (!this.archivos.descripcion) {
+      alert('Por favor, ingresa una descripción.');
+      return;
+    }
 
+    const formData = new FormData();
+    formData.append('descripcion', this.archivos.descripcion);
+    if (this.archivos.imagen) {
+      formData.append('archivo', this.archivos.imagen); // Archivo de imagen.
+    }
+    if (this.archivos.pdf) {
+      formData.append('archivo', this.archivos.pdf); // Archivo PDF.
+    }
+    formData.append('paciente', String(this.datosPaciente?.id));
+
+    // Depurar FormData
+    console.log('FormData a enviar:');
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
+
+    this.archivosService.subirArchivo(formData).subscribe({
+      next: (response) => {
+        alert('Archivo subido correctamente.');
+        console.log('Respuesta del servidor:', response);
+        this.archivos = {};
+        this.imagePreview = null;
+        this.pdfFileName = null;
+        window.location.reload();
+      },
+      error: (error) => {
+        console.error('Error al subir el archivo:', error);
+        alert('Hubo un error al subir el archivo.');
+      },
+    });
   }
 
+  // Método archivos por paciente
+  cargarArchivosPaciente(): void {
+    if (!this.datosPaciente?.id) {
+      alert('El ID del paciente no está disponible.');
+      return;
+    }
 
+    this.archivosService.obtenerArchivosPorPaciente(this.datosPaciente.id).subscribe({
+      next: (archivos) => {
+        this.archivosPaciente = archivos;
+        console.log('Archivos del paciente:', this.archivosPaciente);
+      },
+      error: (error) => {
+        console.error('Error al obtener archivos:', error);
+        alert('Hubo un error al cargar los archivos.');
+      }
+    });
+  }
 
 }

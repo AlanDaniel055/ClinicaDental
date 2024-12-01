@@ -58,14 +58,30 @@ export class ArchivosService {
 
   }
 
-  //Aquí van los servicios HTTP
-  //Servicio para registrar archivos
-  public subirArchivo(data: any): Observable<any> {
-    return this.http.post<any>(`${environment.url_api}/archivo/`, data, httpOptions);
-  }
+  // Metodos
 
   obtenerArchivos(): Observable<any[]> {
     return this.http.post<any>(`${environment.url_api}/lista-archivos/`, httpOptions);
+  }
+
+  subirArchivo(formData: FormData): Observable<any> {
+    const token = this.facadeService.getSessionToken(); // Asegúrate de obtener el token de sesión correctamente
+
+    // Configurar encabezados (sin especificar el Content-Type para FormData)
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}` // Cambia a 'Token' si usas DRF TokenAuthentication
+    });
+
+    // Realizar la solicitud POST con FormData
+    return this.http.post<any>(`${environment.url_api}/archivo/`, formData, { headers });
+  }
+
+  obtenerArchivosPorPaciente(idUser: number): Observable<any[]> {
+    const token = this.facadeService.getSessionToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get<any[]>(`${environment.url_api}/archivos-paciente/?id=${idUser}`, { headers });
   }
 
 
