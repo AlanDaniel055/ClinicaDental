@@ -79,8 +79,7 @@ urlpatterns = [
     #Crete Archivos
         path('archivo/', archivo.ArchivoView.as_view()),
     #Tratamientos Data
-    path('lista-archivos/', archivo.ArchivosAllView.as_view()),
-        
+    path('archivos-paciente/', archivo.ArchivosPorPacienteView.as_view()),      
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout

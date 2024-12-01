@@ -93,3 +93,19 @@ class ArchivoEditView(generics.UpdateAPIView):
 
         archivo_serializado = self.serializer_class(archivo, many=False).data
         return Response(archivo_serializado, status=status.HTTP_200_OK)
+    
+class ArchivosPorPacienteView(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ArchivoSerializer
+
+    def get_queryset(self):
+        paciente_id = self.request.query_params.get("id")  # Cambiado de "paciente_id" a "id" para coincidir con el frontend
+        if paciente_id:
+            return Archivo.objects.filter(paciente_id=paciente_id).order_by("id")  # Asegúrate de que "paciente_id" es el campo correcto
+        return Archivo.objects.none()
+
+    def get(self, request, *args, **kwargs):
+        archivos = self.get_queryset()
+        archivos_serializados = self.serializer_class(archivos, many=True).data
+        return Response(archivos_serializados, status=status.HTTP_200_OK)
+
