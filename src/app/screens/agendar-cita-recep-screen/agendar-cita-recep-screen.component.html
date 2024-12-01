@@ -6,105 +6,49 @@
 
 <div class="wrapper">
   <div class="container">
-    <!-- Sección de perfil -->
-    <div class="profile-header">
+
+    <div class="header">
       <h1>Agendar Cita</h1>
     </div>
 
-    <div class="appointment-section">
-      <div class="appointment-left">
+    <!-- Sección de perfil -->
+    <div class="appointment-info">
+      <!-- Selección del paciente -->
+      <label>Selecciona el paciente</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Paciente</mat-label>
+        <mat-select [(ngModel)]="cita.paciente" (selectionChange)="actualizarPaciente($event.value)">
+          <mat-option *ngFor="let paciente of pacientes" [value]="paciente">
+            {{ paciente.user.email }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <div class="profile-content">
-
-          <!-- Información del perfil - Columna Izquierda -->
-          <div class="profile-info-left">
-            <label>Nombre(s)</label>
-            <mat-form-field class="appointment-input" appearance="outline">
-              <input matInput [(ngModel)]="paciente.first_name" name="nombre" placeholder="Ingresa el nombre">
-            </mat-form-field>
-            <div *ngIf="errors.first_name" class="invalid-feedback">{{ errors.first_name }}</div>
-
-            <label>Apellido Paterno</label>
-            <mat-form-field class="appointment-input" appearance="outline">
-              <input matInput [(ngModel)]="paciente.last_name" placeholder="Ingresa el apellido paterno">
-            </mat-form-field>
-            <div *ngIf="errors.last_name" class="invalid-feedback">{{ errors.last_name }}</div>
-
-            <label>Apellido Materno</label>
-            <mat-form-field class="appointment-input" appearance="outline">
-              <input matInput [(ngModel)]="paciente.apellido_materno" placeholder="Ingresa el apellido materno">
-            </mat-form-field>
-            <div *ngIf="errors.apellido_materno " class="invalid-feedback">{{ errors.apellido_materno }}</div>
-
-            <div class="date-time-section">
-              <label for="appointment-input">Fecha de nacimiento</label>
-              <mat-form-field class="appointment-input" appearance="outline">
-                <input matInput [matDatepicker]="picker" [(ngModel)]="cita.fecha_cita" (focus)="picker.open()"
-                  placeholder="Agregar fecha" (dateChange)="changeFecha($event)" type="string">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-              <div *ngIf="errors.fecha_cita" class="invalid-feedback">{{ errors.fecha_cita }}</div>
-            </div>
-
-            <label>Correo electrónico</label>
-            <mat-form-field class="appointment-input" appearance="outline">
-              <input matInput [(ngModel)]="paciente.email" placeholder="Ingresa el correo electrónico"
-                [disabled]="editar">
-            </mat-form-field>
-            <div *ngIf="errors.email" class="invalid-feedback">{{ errors.email }}</div>
-
-          </div>
+      <!-- Información del paciente -->
+      <div class="patient-info" *ngIf="cita.paciente">
+        <div class="info-group">
+          <label>Nombre(s)</label>
+          <p>{{ cita.paciente.user.first_name }}</p>
+        </div>
+        <div class="info-group">
+          <label>Apellido Paterno</label>
+          <p>{{ cita.paciente.user.last_name }}</p>
+        </div>
+        <div class="info-group">
+          <label>Apellido Materno</label>
+          <p>{{ cita.paciente.apellido_materno }}</p>
+        </div>
+        <div class="info-group">
+          <label>Correo Electrónico</label>
+          <p>{{ cita.paciente.user.email }}</p>
         </div>
       </div>
 
-      <!-- Información del perfil - Columna Derecha -->
-      <div class="appointment-right">
-
-        <div class="profile-info-right">
-
-          <label>Alergias</label>
-          <mat-form-field class="appointment-input" appearance="outline">
-            <input matInput [(ngModel)]="paciente.alergias" placeholder="Ingresa las alergias">
-          </mat-form-field>
-          <div *ngIf="errors.alergias" class="invalid-feedback">{{ errors.alergias }}</div>
-
-          <label>Enfermedades crónicas</label>
-          <mat-form-field class="appointment-input" appearance="outline">
-            <input matInput [(ngModel)]="paciente.enfermedades_cronicas"
-              placeholder="Ingresa las enfermedades crónicas">
-          </mat-form-field>
-          <div *ngIf="errors.enfermedades_cronicas" class="invalid-feedback">{{ errors.enfermedades_cronicas }}</div>
-
-          <label>Tipo de sangre</label>
-          <mat-form-field class="appointment-input" appearance="outline">
-            <input matInput [(ngModel)]="paciente.tipo_sangre" placeholder="Ingresa el tipo de sangre">
-          </mat-form-field>
-          <div *ngIf="errors.tipo_sangre" class="invalid-feedback">{{ errors.tipo_sangre }}</div>
-
-          <label>Número telefónico</label>
-          <mat-form-field class="appointment-input" appearance="outline">
-            <input matInput [(ngModel)]="paciente.telefono" mask='(000) 000-0000'
-              placeholder="Ingresa el número telefónico">
-          </mat-form-field>
-          <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
-
-          <label>Contacto de emergencia</label>
-          <mat-form-field class="appointment-input" appearance="outline">
-            <input matInput [(ngModel)]="paciente.contacto_emergencia" mask='(000) 000-0000'
-              placeholder="Ingresa el contacto de emergencia">
-          </mat-form-field>
-          <div *ngIf="errors.contacto_emergencia" class="invalid-feedback">{{ errors.contacto_emergencia }}</div>
-
-        </div>
-      </div>
     </div>
-  </div>
-</div>
 
 
-<div class="wrapper">
-  <div class="container">
+    <!-- Sección de Agendar Cita -->
+
     <div class="appointment-section">
       <!-- Selección de fecha y horarios -->
       <div class="appointment-left">
@@ -125,26 +69,27 @@
 
           <h3>Mañana</h3>
           <div class="time-row">
-            <button class="time-slot">09:00</button>
-            <button class="time-slot">10:00</button>
-            <button class="time-slot">11:00</button>
-            <button class="time-slot">12:00</button>
+            <button class="time-slot" (click)="seleccionarHora('09:00')">09:00</button>
+            <button class="time-slot" (click)="seleccionarHora('10:00')">10:00</button>
+            <button class="time-slot" (click)="seleccionarHora('11:00')">11:00</button>
+            <button class="time-slot" (click)="seleccionarHora('12:00')">12:00</button>
           </div>
           <h3>Tarde</h3>
           <div class="time-row">
-            <button class="time-slot">13:00</button>
-            <button class="time-slot">14:00</button>
-            <button class="time-slot">15:00</button>
-            <button class="time-slot">16:00</button>
-            <button class="time-slot">17:00</button>
+            <button class="time-slot" (click)="seleccionarHora('13:00')">13:00</button>
+            <button class="time-slot" (click)="seleccionarHora('14:00')">14:00</button>
+            <button class="time-slot" (click)="seleccionarHora('15:00')">15:00</button>
+            <button class="time-slot" (click)="seleccionarHora('16:00')">16:00</button>
+            <button class="time-slot" (click)="seleccionarHora('17:00')">17:00</button>
           </div>
           <h3>Noche</h3>
           <div class="time-row">
-            <button class="time-slot">19:00</button>
-            <button class="time-slot">20:00</button>
-            <button class="time-slot">21:00</button>
+            <button class="time-slot" (click)="seleccionarHora('19:00')">19:00</button>
+            <button class="time-slot" (click)="seleccionarHora('20:00')">20:00</button>
+            <button class="time-slot" (click)="seleccionarHora('21:00')">21:00</button>
           </div>
         </div>
+        <div *ngIf="errors.horario_cita" class="invalid-feedback">{{ errors.horario_cita }}</div>
 
         <div class="services-section">
           <label for="service-select">Servicios</label>
@@ -179,23 +124,24 @@
         <div class="appointment-summary">
           <h3>Resumen</h3>
           <p><strong>Fecha:</strong> {{ cita.fecha_cita }}</p>
-          <p><strong>Hora:</strong> 20:00 <!-- TODO: Aquí agregar un valor dinámico más adelante -->
-          </p>
+          <p><strong>Hora:</strong> {{ cita.horario_cita }}</p>
           <p><strong>Servicio:</strong> {{ cita.servicios }}</p>
+          <p><strong>Duración estimada:</strong> {{ cita.duracion_cita }} minutos</p>
           <p><strong>Forma de pago:</strong> {{ cita.forma_pago }}</p>
           <p><strong>Total:</strong> ${{ total }}
             <!-- TODO: Si el precio es fijo, calcularlo con base en el servicio seleccionado -->
           </p>
         </div>
 
-        <br><br>
 
         <div class="appointment-buttons">
-          <button class="cancel-button">Cancelar</button>
+          <button class="cancel-button" (click)="cancelar()">Cancelar</button>
           <button class="save-button" (click)="guardar()">Guardar</button>
         </div>
 
       </div>
     </div>
+
+
   </div>
 </div>

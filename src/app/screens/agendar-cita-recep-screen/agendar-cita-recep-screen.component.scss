@@ -11,6 +11,7 @@
   width: 80%;
   max-width: 1200px;
   background-color: #F3F5F9;
+  margin: 0 auto;
 }
 
 .header {
@@ -68,12 +69,26 @@ label {
   font-weight: bold;
 }
 
+.appointment-info label {
+  margin-bottom: 10px;
+}
+
 .info-group p {
   font-size: 1.1em;
   color: #333;
 }
 
 .appointment-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.appointment-info {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
@@ -97,7 +112,6 @@ label {
   font-size: 1rem;
 }
 
-/* Estilos para los botones de horarios */
 .time-slots {
   display: flex;
   flex-direction: column;
@@ -105,8 +119,8 @@ label {
 
 .time-row {
   display: flex;
-  flex-direction: column; /* Alinea los botones en una sola columna */
-  gap: 10px; /* Añade espacio entre los botones */
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .time-slot {
@@ -117,8 +131,12 @@ label {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%; /* Ocupa el ancho completo */
-  text-align: center;
+}
+
+.time-slot.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
 }
 
 .time-slot:hover {
@@ -142,7 +160,8 @@ label {
   justify-content: space-between;
 }
 
-.cancel-button, .save-button {
+.cancel-button,
+.save-button {
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 1rem;
@@ -170,127 +189,60 @@ label {
   background-color: #254A9B;
 }
 
-.container-2 {
-  width: 80%;
-  max-width: 1200px;
-  padding: 20px;
-}
-
-.profile-header {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.profile-header h1 {
-  color: #3167D9;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.profile-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.profile-photo {
-  flex: 1;
-  text-align: center;
-}
-
-.profile-photo img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile-info-left, .profile-info-right {
-  flex: 2;
-  margin-left: 20px;
-}
-
-.profile-info-left label, .profile-info-right label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 0.9em;
-}
-
-.input-group {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.input-group input, .input-group textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 0.9em;
-  border: 1px solid #FFFFFF;
-  border-radius: 4px;
-  background-color: #FFFFFF;
-  color: #8D9396;
-}
-
-.input-group textarea {
-  height: 120px;
-  resize: none;
-}
-
-.calendar-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  font-size: 1.2em;
-  cursor: pointer;
-  color: #007bff;
-}
-
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-/* Estilos responsivos */
+/* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
   .container {
     width: 90%;
   }
 
-  .appointment-inf, .appointment-section {
+  .appointment-inf,
+  .appointment-section {
     flex-direction: column;
-    padding: 15px;
+    padding: 20px;
   }
 
-  .profile-content {
+  .appointment-info {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .appointment-left,
+  .appointment-right {
+    width: 100%;
+  }
+
+  .patient-info {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-group {
+    margin: 10px 0;
+  }
+
+  .time-row {
+    flex-direction: column;
+  }
+
+  .appointment-buttons {
     flex-direction: column;
     align-items: center;
   }
 
-  .appointment-left, .appointment-right, .profile-info-left, .profile-info-right {
+  .cancel-button,
+  .save-button {
     width: 100%;
-    margin-left: 0;
+    max-width: 300px;
+    margin: 10px 0;
   }
+}
 
-  .header h1, .profile-header h1 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .time-slot, .appointment-buttons button {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0;
-  }
-
-  .cancel-button, .save-button {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .profile-photo img, .calendar-icon {
-    width: 80px;
-    height: 80px;
+/* Quitar flecha del selector de fecha en pantallas pequeñas */
+@media (max-width: 768px) {
+  .appointment-input input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
   }
 }

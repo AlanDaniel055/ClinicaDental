@@ -186,6 +186,11 @@ export class PacientesService {
     return this.http.put<any>(`${environment.url_api}/pacientes-edit/`, data, { headers: headers });
   }
 
+  // Obtener paciente por correo
+  public getPacienteByEmail(email: string): Observable<any> {
+    return this.http.get<any>(`${environment.url_api}/correo-paciente/?email=${email}`, httpOptions);
+  }
+
 
 
 }
