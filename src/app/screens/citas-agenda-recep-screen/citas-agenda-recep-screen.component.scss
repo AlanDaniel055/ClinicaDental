@@ -89,12 +89,29 @@ button {
 .edit-icon {
   cursor: pointer;
   margin-left: 10px;
+  color: #3167D9;
+  font-size: 24px; /* Tamaño del icono */
+  transition: transform 0.2s ease, color 0.2s ease; /* Animación suave */
+}
+
+.edit-icon:hover {
+  color: #6c98f8; /* Color más claro al pasar el cursor */
+  transform: scale(1.2); /* Agrandar ligeramente al pasar el cursor */
 }
 
 .delete-icon {
   cursor: pointer;
-  margin-left: 190px;
+  margin-left: 200px;
+  color: #f44336; /* Color rojo para eliminar */
+  font-size: 24px; /* Tamaño del icono */
+  transition: transform 0.2s ease, color 0.2s ease; /* Animación suave */
 }
+
+.delete-icon:hover {
+  color: #e57373; /* Color más claro al pasar el cursor */
+  transform: scale(1.2); /* Agrandar ligeramente al pasar el cursor */
+}
+
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

@@ -87,16 +87,22 @@ export class CitasService {
 
   // Función para obtener una cita y filtrar por ID
   //Obtener un solo usuario dependiendo su ID
-  public getCitaByID(idUser: Number) {
-    return this.http.get<any>(`${environment.url_api}/cita/?id=${idUser}`, httpOptions);
+  // public getCitaByID(idUser: Number) {
+  //   return this.http.get<any>(`${environment.url_api}/cita/?id=${idUser}`, httpOptions);
+  // }
+
+  //Servicio para obtnener cita por id
+  public getCitaByID(idCita: number): Observable<any> {
+    const token = this.facadeService.getSessionToken();
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` });
+    return this.http.get<any>(`${environment.url_api}/citas/?id=${idCita}`, { headers });
   }
 
   //Servicio para actualizar una cita
-  public editarCita(data: any): Observable<any> {
+  public editarCita(cita: any): Observable<any> {
     var token = this.facadeService.getSessionToken();
     var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
-    return this.http.put<any>(`${environment.url_api}/cita-edit/`, data, { headers: headers });
+    return this.http.put<any>(`${environment.url_api}/cita-edit/${cita.id}`, cita, { headers: headers });
   }
-
 
 }
