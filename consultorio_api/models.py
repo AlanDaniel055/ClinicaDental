@@ -35,6 +35,11 @@ class Doctor(models.Model):
     fecha_nacimiento = models.DateTimeField(null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
     photoFileName = models.ImageField(upload_to='doctor/', null=True, blank=True)  # Aquí definir el campo para la imagen
+    especialidad = models.CharField(max_length=255, null=True, blank=True)
+    direccion = models.CharField(max_length=255, null=True, blank=True) 
+    cedula = models.CharField(max_length=255, null=True, blank=True) 
+    experiencia = models.TextField(null=True, blank=True) 
+    referencias = models.TextField(null=True, blank=True) 
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update = models.DateTimeField(null=True, blank=True)
 
@@ -56,7 +61,7 @@ class Recepcionista(models.Model):
 
 class Cita(models.Model):
     id = models.BigAutoField(primary_key=True)
-    cita = models.CharField(max_length=255, null=True, blank=True)
+    # cita = models.CharField(max_length=255, null=True, blank=True)
     paciente_nombre = models.CharField(max_length=255, null=True, blank=True)
     paciente_apellido_paterno = models.CharField(max_length=255, null=True, blank=True)
     paciente_apellido_materno = models.CharField(max_length=255, null=True, blank=True)

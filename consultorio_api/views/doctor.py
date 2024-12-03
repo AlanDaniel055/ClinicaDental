@@ -85,7 +85,13 @@ class DoctorView(generics.CreateAPIView):
                                             apellido_materno= request.data["apellido_materno"],
                                             fecha_nacimiento= request.data["fecha_nacimiento"],
                                             telefono= request.data["telefono"],
-                                            photoFileName= request.data["photoFileName"]) # TODO:  campo para la foto
+                                            photoFileName= request.data["photoFileName"],  # TODO:  campo para la foto
+                                            especialidad= request.data["especialidad"],
+                                            direccion= request.data["direccion"],
+                                            cedula= request.data["cedula"],
+                                            experiencia= request.data["experiencia"],
+                                            referencias= request.data["referencias"],                                            
+                                            )
             doctor.save()
 
             return Response({"doctor_created_id": doctor.id }, 201)

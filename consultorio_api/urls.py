@@ -56,6 +56,8 @@ urlpatterns = [
         path('citas/', cita.CitasView.as_view()),
     #Cita Data
         path('lista-citas/', cita.CitasAll.as_view()),
+    #Edit Cita
+        path('cita-edit/', cita.CitasViewEdit.as_view()),
     #Create Receta
         path('recetas/', receta.RecetasView.as_view()),
     #Receta Data
