@@ -35,6 +35,11 @@ export class DoctorService {
       'confirmar_password': '',
       'telefono': '',
       'photoFileName': '',
+      'especialidad': '',
+      'direccion': '',
+      'cedula': '',
+      'experiencia': '',
+      'referencias': '',
     }
   }
 
@@ -107,6 +112,31 @@ export class DoctorService {
     // Validaciones para el archivo de la foto
     if (!this.validatorService.required(data["photoFileName"])) {
       error["photoFileName"] = this.errorService.required;
+    }
+
+    // Validaciones para la especialidad
+    if (!this.validatorService.required(data["especialidad"])) {
+      error["especialidad"] = this.errorService.required;
+    }
+
+    // Validaciones para la dirección
+    if (!this.validatorService.required(data["direccion"])) {
+      error["direccion"] = this.errorService.required;
+    }
+
+    // Validaciones para la Cédula profesional
+    if (!this.validatorService.required(data["cedula"])) {
+      error["cedula"] = this.errorService.required;
+    }
+
+    // Validaciones para la Experiencia laboral
+    if (!this.validatorService.required(data["experiencia"])) {
+      error["experiencia"] = this.errorService.required;
+    }
+
+    // Validaciones para las referencias laborales
+    if (!this.validatorService.required(data["referencias"])) {
+      error["referencias"] = this.errorService.required;
     }
 
     //Return arreglo de errores

@@ -1,0 +1,104 @@
+<body>
+  <div>
+    <app-navbar-usuario></app-navbar-usuario>
+  </div>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1>Perfil dentista</h1>
+      </div>
+
+
+      <div class="content">
+        <div class="sidebar">
+
+          <div class="perfil">
+            <p>Perfil dentista</p>
+            <img src="/assets/images/Doctora3.png" alt="Foto del dentista" class="rounded-circle">
+            <h3>
+              {{ doctorData.user.first_name || 'Nombre del doctor' }}
+              {{ doctorData.user.last_name || '' }}
+              {{ doctorData.apellido_materno || '' }}
+            </h3>
+          </div>
+
+          <ul>
+            <li (click)="cambiarSeccion('infoGeneral')" [class.active]="seccionActual === 'infoGeneral'">Información
+              General</li>
+            <li (click)="cambiarSeccion('experiencia')" [class.active]="seccionActual === 'experiencia'">Experiencia
+              Laboral</li>
+            <li (click)="cambiarSeccion('referencias')" [class.active]="seccionActual === 'referencias'">Referencias
+              Laborales</li>
+          </ul>
+
+        </div>
+
+        <div class="detalle-receta print-area">
+
+          <div *ngIf="seccionActual === 'infoGeneral'">
+            <h2>Información General</h2>
+
+            <div class="profile-content">
+              <div class="profile-info-left">
+                <p><strong>Nombre (s): </strong> <span>
+                    {{ doctorData.user.first_name || '-' }}
+                    {{ doctorData.user.last_name || '' }}
+                    {{ doctorData.apellido_materno || '' }}</span></p>
+                <p><strong>Especialidad: </strong> <span>{{ doctorData.especialidad || '-' }}</span></p>
+                <p><strong>Teléfono de contacto: </strong> <span>{{ doctorData.telefono || '-' }}</span></p>
+                <p><strong>Dirección: </strong> <span>{{ doctorData.direccion || '-' }}</span></p>
+                <p><strong>Cédula profesional: </strong> <span>{{ doctorData.cedula || '-' }}</span></p>
+
+              </div>
+
+            </div>
+
+            <div class="registro2">
+              <div class="button-container">
+                <button class="cancel-button" (click)="Eliminar()">Eliminar</button>
+                <button class="save-button" (click)="Editar()">Editar</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="seccionActual === 'experiencia'">
+            <h2>Experiencia Laboral</h2>
+            <div class="profile-content">
+              <div class="profile-info-left">
+                <p><strong>Experiencia: </strong> <span>{{ doctorData.experiencia || '-' }}</span></p>
+              </div>
+            </div>
+            <div class="registro2">
+              <div class="button-container">
+                <button class="cancel-button" (click)="Eliminar()">Eliminar</button>
+                <button class="save-button" (click)="Editar()">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="seccionActual === 'referencias'">
+            <h2>Referencias Laborales</h2>
+            <div class="profile-content">
+              <div class="profile-content">
+                <div class="profile-info-left">
+                  <p><strong>Referencias: </strong> <span>{{ doctorData.referencias || '-' }}</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="registro2">
+              <div class="button-container">
+                <button class="cancel-button" (click)="Eliminar()">Eliminar</button>
+                <button class="save-button" (click)="Editar()">Editar</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</body>

@@ -92,8 +92,7 @@ export class NavbarUsuarioComponent implements OnInit {
   recepcionistaLinks = [
     { id: 'Agendar-Cita-Recep', label: 'Agendar cita', path: 'Agendar-cita-recep' },
     { id: 'Citas-Agendadas', label: 'Citas agendadas', path: 'Citas-agenda-recep' },
-    { id: 'Perfil-dentista', label: 'Perfil dentista', path: 'Agenda' } // TODO: falta el perfil
-
+    { id: 'Perfil-dentista', label: 'Perfil dentista', path: 'Perfil-dentista' }
   ];
 
   getNavLinkForRole() {

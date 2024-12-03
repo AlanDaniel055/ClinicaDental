@@ -62,6 +62,37 @@
   </mat-form-field>
   <div *ngIf="errors.telefono" class="invalid-feedback">{{ errors.telefono }}</div>
 
+  <label>Especialidad</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="doctor.especialidad" placeholder="Ingresa tu especialidad">
+  </mat-form-field>
+  <div *ngIf="errors.especialidad " class="invalid-feedback">{{ errors.especialidad }}</div>
+
+  <label>Dirección</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="doctor.direccion" placeholder="Ingresa tu dirección">
+  </mat-form-field>
+  <div *ngIf="errors.direccion " class="invalid-feedback">{{ errors.direccion }}</div>
+
+  <label>Cédula profesional</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="doctor.cedula" placeholder="Ingresa tu cédula profesional">
+  </mat-form-field>
+  <div *ngIf="errors.cedula " class="invalid-feedback">{{ errors.cedula }}</div>
+
+  <label>Experiencia Laboral</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="doctor.experiencia" placeholder="Ingresa tu experiencia laboral">
+  </mat-form-field>
+  <div *ngIf="errors.experiencia " class="invalid-feedback">{{ errors.experiencia }}</div>
+
+  <label>Referencias Laborales</label>
+  <mat-form-field class="mat-input" appearance="outline">
+    <input matInput [(ngModel)]="doctor.referencias" placeholder="Ingresa tus referencias laborales">
+  </mat-form-field>
+  <div *ngIf="errors.referencias " class="invalid-feedback">{{ errors.referencias }}</div>
+
+
 
   <div class="image-upload-container">
     <div class="image-preview">

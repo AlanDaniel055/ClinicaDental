@@ -22,6 +22,7 @@ import { AgendaDocScreenComponent } from './screens/agenda-doc-screen/agenda-doc
 import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/lista-pacientes-screen.component';
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
 import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
+import { PerfilDentistaScreenComponent } from './screens/perfil-dentista-screen/perfil-dentista-screen.component';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent, pathMatch: 'full' }, // Pagina principal
@@ -70,6 +71,9 @@ const routes: Routes = [
   { path: 'Agendar-cita-recep/:rol/:id', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Registro para el recepcionista por ID
   { path: 'Citas-agenda-recep', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista
   { path: 'Citas-agenda-recep/:rol/:id', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista por ID
+  { path: 'Perfil-dentista', component: PerfilDentistaScreenComponent, pathMatch: 'full' }, // Perfil del dentista
+  { path: 'Perfil-dentista/:rol/:id', component: PerfilDentistaScreenComponent, pathMatch: 'full' }, // Perfil del dentista
+
   // Falta Perfil dentista
 
 ];
