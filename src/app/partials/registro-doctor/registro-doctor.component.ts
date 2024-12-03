@@ -2,8 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatRadioChange } from '@angular/material/radio';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from './../../services/doctor.service';
+import { FacadeService } from 'src/app/services/facade.service';
 
 declare var $: any;
 
@@ -29,18 +30,35 @@ export class RegistroDoctorComponent implements OnInit {
   public doctor: any = {};
   public editar: boolean = false;
   public errors: any = {};
+  public token: string = "";
+  public idUser: Number = 0;
+  public recepcionista: any = {};
 
   constructor(
     private doctorService: DoctorService,
     private location: Location,
     public dialog: MatDialog,
     private router: Router,
+    public activatedRoute: ActivatedRoute,
+    private facadeService: FacadeService,
   ) { }
 
   ngOnInit(): void {
-    // Definir el esquema a mi JSON
-    this.doctor = this.doctorService.esquemaDoctor();
-    this.doctor.rol = this.rol; // Asigna el valor de la propiedad rol del componente (this.rol) a la propiedad rol del objeto doctor
+    //El primer if valida si existe un parámetro en la URL
+    if (this.activatedRoute.snapshot.params['id'] != undefined) {
+      this.editar = true;
+      //Asignamos a nuestra variable global el valor del ID que viene por la URL
+      this.idUser = this.activatedRoute.snapshot.params['id'];
+      console.log("ID User: ", this.idUser);
+      //Al iniciar la vista asignamos los datos del user
+      this.doctor = this.datos_user;
+    } else {
+      //Definir el esquema a mi JSON
+      this.doctor = this.doctorService.esquemaDoctor();
+      this.doctor.rol = this.rol; // Asigna el valor de la propiedad rol del componente (this.rol) a la propiedad rol del objeto doctor
+      this.token = this.facadeService.getSessionToken();
+    }
+    //Imprimir datos en consola
     console.log("Doctor: ", this.doctor);
   }
 
@@ -126,6 +144,29 @@ export class RegistroDoctorComponent implements OnInit {
       this.inputType_2 = 'password';
       this.hide_2 = false;
     }
+  }
+
+  public actualizar() {
+    // Validación
+    this.errors = [];
+
+    this.errors = this.doctorService.validarDoctor(this.doctor, this.editar);
+    if (!$.isEmptyObject(this.errors)) {
+      //return false; // TODO: checar este return
+    }
+    console.log("Pasó la validación");
+
+    this.doctorService.editarDoctor(this.doctor).subscribe(
+      (response) => {
+        alert("Doctor editado correctamente");
+        console.log("Doctor editado: ", response);
+        // Si se editó, entonces mandar al home con rol y ID
+        // this.router.navigate([`Recepcionista/${this.recepcionista.rol}/${this.recepcionista.id}`]); // Redirigir a la página con rol e id
+        this.location.back(); // Navegar hacia la página anterior
+      }, (error) => {
+        alert("No se pudo editar al doctor");
+      }
+    );
   }
 
 

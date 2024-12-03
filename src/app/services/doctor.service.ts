@@ -161,6 +161,13 @@ export class DoctorService {
     return this.http.get<any>(`${environment.url_api}/doctor/?id=${idUser}`, httpOptions);
   }
 
+  //Servicio para actualizar un usuario
+  public editarDoctor(data: any): Observable<any> {
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
+    return this.http.put<any>(`${environment.url_api}/doctor-edit/`, data, { headers: headers });
+  }
+
 
 
 }
