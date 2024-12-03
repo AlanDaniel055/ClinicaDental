@@ -121,11 +121,11 @@ class PacientesViewEdit(generics.CreateAPIView):
         paciente.apellido_materno = request.data["apellido_materno"]
         paciente.fecha_nacimiento = request.data["fecha_nacimiento"]
         paciente.telefono = request.data["telefono"]
-        paciente.alergias= request.data["alergias"],
-        paciente.enfermedades=request.data["enfermedades"],
-        paciente.tipo_sangre=request.data["tipo_sangre"],
-        paciente.contacto_emergencia=request.data["contacto_emergencia"],
-        paciente.historial=request.data["historial"],
+        paciente.alergias= request.data["alergias"]
+        paciente.enfermedades=request.data["enfermedades"]
+        paciente.tipo_sangre=request.data["tipo_sangre"]
+        paciente.contacto_emergencia=request.data["contacto_emergencia"]
+        paciente.historial=request.data["historial"]
         paciente.photoFileName = request.data["photoFileName"]
         paciente.save()
         temp = paciente.user

@@ -48,6 +48,8 @@ urlpatterns = [
         path('doctor/', doctor.DoctorView.as_view()),
     #Doctor Data
         path('lista-doctor/', doctor.DoctorAll.as_view()),
+    #Edit Doctor
+        path('doctor-edit/', doctor.DoctorViewEdit.as_view()),
     #Create Recepcionista
         path('recepcionista/', recepcionista.RecepcionistaView.as_view()),
     #Recepcionista Data

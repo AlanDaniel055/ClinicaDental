@@ -97,3 +97,37 @@ class DoctorView(generics.CreateAPIView):
             return Response({"doctor_created_id": doctor.id }, 201)
 
         return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class DoctorViewEdit(generics.CreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    #Editar doctor
+    def put(self, request, *args, **kwargs):
+        # iduser=request.data["id"]
+        doctor = get_object_or_404(Doctor, id=request.data["id"])
+        doctor.apellido_materno = request.data["apellido_materno"]
+        doctor.fecha_nacimiento = request.data["fecha_nacimiento"]
+        doctor.telefono = request.data["telefono"]
+        doctor.photoFileName= request.data["photoFileName"]
+        doctor.especialidad=request.data["especialidad"]
+        doctor.direccion=request.data["direccion"]
+        doctor.cedula=request.data["cedula"]
+        doctor.experiencia=request.data["experiencia"]
+        doctor.referencias = request.data["referencias"]
+        doctor.save()
+        temp = doctor.user
+        temp.first_name = request.data["first_name"]
+        temp.last_name = request.data["last_name"]
+        temp.save()
+        user = DoctorSerializer(doctor, many=False).data
+
+        return Response(user,200)
+    
+    #Eliminar doctor
+    def delete(self, request, *args, **kwargs):
+        doctor = get_object_or_404(Doctor, id=request.GET.get("id"))
+        try:
+            doctor.user.delete()
+            return Response({"details":"Doctor eliminado"},200)
+        except Exception as e:
+            return Response({"details":"Algo pasó al eliminar"},400)
