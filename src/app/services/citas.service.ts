@@ -117,10 +117,17 @@ export class CitasService {
     return this.http.put<any>(`${environment.url_api}/citas/${id}`, datos, { headers: headers });
   }
 
-  public actualizarCi(data : any): Observable<any> {
+  public actualizarCi(data: any): Observable<any> {
     var token = this.facadeService.getSessionToken();
     var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
     return this.http.put<any>(`${environment.url_api}/cita-edit/`, data, { headers: headers });
+  }
+
+  //Eliminar Cita
+  public eliminarCita(idCita: number): Observable<any> {
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
+    return this.http.delete<any>(`${environment.url_api}/cita-edit/?id=${idCita}`, { headers: headers });
   }
 
 

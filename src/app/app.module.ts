@@ -54,6 +54,8 @@ import { ListaPacientesScreenComponent } from './screens/lista-pacientes-screen/
 import { CitasAgendaRecepScreenComponent } from './screens/citas-agenda-recep-screen/citas-agenda-recep-screen.component';
 import { InfoConsultaScreenComponent } from './screens/info-consulta-screen/info-consulta-screen.component';
 import { PerfilDentistaScreenComponent } from './screens/perfil-dentista-screen/perfil-dentista-screen.component';
+import { EliminarCitaComponent } from './modals/eliminar-cita/eliminar-cita.component';
+import { EliminarUserComponent } from './modals/eliminar-user/eliminar-user.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,9 @@ import { PerfilDentistaScreenComponent } from './screens/perfil-dentista-screen/
     ListaPacientesScreenComponent,
     CitasAgendaRecepScreenComponent,
     InfoConsultaScreenComponent,
-    PerfilDentistaScreenComponent
+    PerfilDentistaScreenComponent,
+    EliminarCitaComponent,
+    EliminarUserComponent
   ],
   imports: [
     MbscModule, // Calendario

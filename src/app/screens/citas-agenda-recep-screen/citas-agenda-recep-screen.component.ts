@@ -5,6 +5,8 @@ import { CitasService } from 'src/app/services/citas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FacadeService } from 'src/app/services/facade.service';
 import { RecepcionistaService } from 'src/app/services/recepcionista.service';
+import { EliminarCitaComponent } from 'src/app/modals/eliminar-cita/eliminar-cita.component';
+import { MatDialog } from '@angular/material/dialog';
 
 declare var $: any;
 
@@ -46,6 +48,7 @@ export class CitasAgendaRecepScreenComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public facadeService: FacadeService, // Lo vamos a usar en las funciones: las cookies
     private recepcionistaService: RecepcionistaService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -162,26 +165,26 @@ export class CitasAgendaRecepScreenComponent implements OnInit {
 
   }
 
+  public delete(idCita: number) {
+    const dialogRef = this.dialog.open(EliminarCitaComponent, {
+      data: { id: idCita}, //Se transfieren/pasan valores/parametros a través del componente
+      height: '288px',
+      width: '328px',
+    });
 
-  // public delete(idUser: number) {
-  //   const dialogRef = this.dialog.open(EliminarUserModalComponent, {
-  //     data: { id: idUser, rol: 'administrador' }, //Se transfieren/pasan valores/parametros a través del componente
-  //     height: '288px',
-  //     width: '328px',
-  //   });
+    dialogRef.afterClosed().subscribe(result => { // Función que devuelve una llamada
+      if (result.isDelete) { // Si la bandera es true, significa que el admin fue elimninado
+        console.log("Cita eliminada");
+        this.router.navigate(["Agendar-cita-recep"]);
+        //Recargar página
+        //window.location.reload(); // Recargar la pagina
+      } else {
+        alert("Cita no eliminada ");
+        console.log("No se eliminó la cita");
+      }
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => { // Función que devuelve una llamada
-  //     if (result.isDelete) { // Si la bandera es true, significa que el admin fue elimninado
-  //       console.log("Admin eliminado");
-  //       //Recargar página
-  //       window.location.reload(); // Recargar la pagina
-  //     } else {
-  //       alert("Administrador no eliminado ");
-  //       console.log("No se eliminó el admin");
-  //     }
-  //   });
-
-  // }
+  }
 
 
 

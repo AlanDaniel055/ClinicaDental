@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CitasService } from 'src/app/services/citas.service';
 import { PacientesService } from 'src/app/services/pacientes.service';
+import { EliminarCitaComponent } from 'src/app/modals/eliminar-cita/eliminar-cita.component';
 declare var $: any;
 
 @Component({
@@ -162,7 +163,6 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
     this.cita.paciente_apellido_materno = pacienteSeleccionado.apellido_materno;
     this.cita.paciente_email = pacienteSeleccionado.user.email;
   }
-
 
   public obtenerPacientePorEmail(email: string): void {
     this.pacientesService.getPacienteByEmail(email).subscribe(
