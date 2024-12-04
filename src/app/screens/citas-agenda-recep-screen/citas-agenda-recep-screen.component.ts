@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MbscCalendarEvent, MbscEventcalendarView, setOptions, localeEs } from '@mobiscroll/angular';
 import { CitasService } from 'src/app/services/citas.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FacadeService } from 'src/app/services/facade.service';
+import { RecepcionistaService } from 'src/app/services/recepcionista.service';
 
 declare var $: any;
 
@@ -29,11 +31,21 @@ export class CitasAgendaRecepScreenComponent implements OnInit {
   public lista_citas: any[] = [];
   public cita: any = {};
 
+  //Editar cita
+  public idCita: number = 0;
+  public datos_cita: any = {};
+  public editar: boolean = false;
+
+  // Info cita
+  public id_cita: string = ""; // que vamos a cachar
+
   constructor(
     private http: HttpClient,
     private citasService: CitasService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    public facadeService: FacadeService, // Lo vamos a usar en las funciones: las cookies
+    private recepcionistaService: RecepcionistaService,
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +61,7 @@ export class CitasAgendaRecepScreenComponent implements OnInit {
           paciente: cita.paciente_nombre,
           PA: cita.paciente_apellido_paterno,
           PM: cita.paciente_apellido_materno,
+          id: cita.id,
           color: this.obtenerColorPorDia(this.obtenerDiaSemana(cita.fecha_cita))
         }));
       },
@@ -56,6 +69,22 @@ export class CitasAgendaRecepScreenComponent implements OnInit {
         console.error('Error al obtener la lista de citas:', error);
       }
     );
+
+    //Obtener de la URL del id_cita para saber cual editar
+    if (this.activatedRoute.snapshot.params['id_cita'] != undefined) {
+      this.id_cita = this.activatedRoute.snapshot.params['id_cita'];
+      console.log("ID cita detectado: ", this.id_cita);
+    }
+    //El if valida si existe un parámetro (id_cita) en la URL
+    if (this.activatedRoute.snapshot.params['id_cita'] != undefined) { // Si la url tiene id, activa la bandera editar
+      this.editar = true;
+      //Asignamos a nuestra variable global el valor del ID que viene por la URL
+      this.idCita = this.activatedRoute.snapshot.params['id_cita'];
+      console.log("ID Cita: ", this.idCita);
+      //Al iniciar la vista obtiene el usuario por su ID
+      this.obtenerCitaByID(); // Manda a traer la funcion para obtener el id
+    }
+
   }
 
   // Añade un método para definir el color basado en el día de la semana
@@ -98,6 +127,39 @@ export class CitasAgendaRecepScreenComponent implements OnInit {
         alert("No se puede obtener la lista de las citas");
       }
     );
+  }
+
+  public obtenerCitaByID() {
+    this.citasService.getCitaByID(this.idCita).subscribe(
+      (response) => {
+        this.cita = response;
+        // Agregamos valores faltantes
+        // this.cita.paciente_nombre = response.cita.paciente_nombre;
+        // this.cita.paciente_apellido_paterno = response.cita.paciente_apellido_paterno;
+        // this.cita.paciente_apellido_materno = response.cita.paciente_apellido_materno;
+        this.cita.paciente_email = response.cita.paciente_email;
+        this.cita.fecha_cita = response.cita.fecha_cita;
+        this.cita.horario_cita = response.cita.horario_cita;
+        this.cita.servicios = response.cita.servicios;
+        this.cita.duracion_cita = response.cita.duracion_cita;
+        this.cita.forma_pago = response.cita.forma_pago;
+        console.log("Datos cita: ", this.cita);
+      }, (error) => {
+        alert("No se pudieron obtener los datos de la cita");
+      }
+    );
+  }
+
+  public goEditar(idCita: number) {
+    const idRecepcionista = this.facadeService.getUserId(); // Obtener el id del usuario a través del FacadeService
+    this.router.navigate([`Agendar-cita-recep/recepcionista/${idRecepcionista}/citas/${idCita}`]);
+  }
+
+  public seleccionarCita(idCita: number): void {
+    this.idCita = idCita; // Guarda el ID seleccionado
+    this.obtenerCitaByID(); // Llama al servicio para obtener los datos
+    console.log("ID Cita: ", this.idCita);
+
   }
 
 

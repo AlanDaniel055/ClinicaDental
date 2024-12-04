@@ -69,6 +69,7 @@ const routes: Routes = [
   { path: 'Registro-recepcionista', component: RegistroRecepcionistaComponent, pathMatch: 'full' }, // Registro para el recepcionista
   { path: 'Agendar-cita-recep', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Registro para el recepcionista
   { path: 'Agendar-cita-recep/:rol/:id', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Registro para el recepcionista por ID
+  { path: 'Agendar-cita-recep/:rol/:id/citas/:idCita', component: AgendarCitaRecepScreenComponent, pathMatch: 'full' }, // Editar cita del paciente por ID
   { path: 'Citas-agenda-recep', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista
   { path: 'Citas-agenda-recep/:rol/:id', component: CitasAgendaRecepScreenComponent, pathMatch: 'full' }, // Citas agendadas recepcionista por ID
   { path: 'Perfil-dentista', component: PerfilDentistaScreenComponent, pathMatch: 'full' }, // Perfil del dentista

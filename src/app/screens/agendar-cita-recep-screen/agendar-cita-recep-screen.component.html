@@ -123,7 +123,7 @@
 
         <div class="appointment-summary">
           <h3>Resumen</h3>
-          <p><strong>Fecha:</strong> {{ cita.fecha_cita }}</p>
+          <p><strong>Fecha:</strong> {{ cita.fecha_cita | date:'dd/MM/yyyy' }}</p>
           <p><strong>Hora:</strong> {{ cita.horario_cita }}</p>
           <p><strong>Servicio:</strong> {{ cita.servicios }}</p>
           <p><strong>Duración estimada:</strong> {{ cita.duracion_cita }} minutos</p>
@@ -136,7 +136,9 @@
 
         <div class="appointment-buttons">
           <button class="cancel-button" (click)="cancelar()">Cancelar</button>
-          <button class="save-button" (click)="guardar()">Guardar</button>
+          <button *ngIf="!editar" class="save-button" (click)="guardar()">Guardar</button>
+          <button *ngIf="editar" class="save-button" (click)="actualizar()">Actualizar</button>
+
         </div>
 
       </div>

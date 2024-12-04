@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CitasService } from 'src/app/services/citas.service';
 import { PacientesService } from 'src/app/services/pacientes.service';
 declare var $: any;
@@ -22,22 +22,53 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
   public total: number = 0;
   public pacientes: any[] = []; // Lista de pacientes
 
+  //Editar cita
+  public idCita: number = 0;
+  public datos_cita: any = {};
+
   constructor(
     private pacientesService: PacientesService,
     private citasService: CitasService,
     private location: Location,
     public dialog: MatDialog,
+    public activatedRoute: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-    // Definir el esquema a mi JSON
-    this.cita = this.citasService.esquemaCitas();
+    //El primer if valida si existe un parámetro en la URL
+    if (this.activatedRoute.snapshot.params['idCita'] != undefined) {
+      this.editar = true;
+      //Asignamos a nuestra variable global el valor del ID que viene por la URL
+      this.idCita = this.activatedRoute.snapshot.params['idCita'];
+      this.cargarDatosCita(this.idCita); // Cargar datos de la cita para editar
+      console.log("ID Cita: ", this.idCita);
+      //Al iniciar la vista asignamos los datos de la cita
+      this.cita = this.datos_cita;
+    } else {
+      //Definir el esquema a mi JSON
+      this.cita = this.citasService.esquemaCitas();
+    }
+    //Imprimir datos en consola
     console.log("Cita: ", this.cita);
 
     // Obtener lista de pacientes
     this.cargarPacientes();
   }
+
+  private cargarDatosCita(id: number): void {
+    this.citasService.getCitaByID(id).subscribe(
+      (data) => {
+        this.cita = data;
+        this.total = this.servicios.find(service => service.viewValue === this.cita.servicios)?.price || 0;
+        console.log("Datos de la cita cargados:", this.cita);
+      },
+      (error) => {
+        console.error("Error al cargar los datos de la cita: ", error);
+      }
+    );
+  }
+
 
   public guardar() {
     this.errors = this.citasService.validarCita(this.cita, this.editar);
@@ -61,9 +92,6 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
       }
     );
   }
-
-
-
 
   public cancelar() {
     this.location.back(); // Por el momento
@@ -160,6 +188,45 @@ export class AgendarCitaRecepScreenComponent implements OnInit {
       }
     );
   }
+
+  public actualizar() {
+    // Validar los datos de la cita
+    this.errors = [];
+
+    this.errors = this.citasService.validarCita(this.cita, this.editar);
+    if (!$.isEmptyObject(this.errors)) {
+      console.log("Errores encontrados:", this.errors);
+      alert("Por favor corrige los errores antes de continuar.");
+      return;
+    }
+    console.log("Pasó la validación");
+
+    // Verificar que el id de la cita esté presente
+    if (!this.cita.id) {
+      console.error("No se pudo obtener el ID de la cita.");
+      alert("Error: No se pudo obtener el ID de la cita.");
+      return;
+    }
+
+    // Llamar al servicio de actualización de cita, pasando el ID y los datos de la cita
+    this.citasService.actualizarCi(this.cita).subscribe(
+      (response) => {
+        alert("Cita actualizada correctamente");
+        console.log("Cita actualizada:", response);
+        // this.router.navigate(['/Citas-agenda-recep']);
+        this.location.back(); // Por el momento
+      },
+      (error) => {
+        console.error("Error al actualizar la cita:", error);
+        alert("No se pudo actualizar la cita. Por favor, intenta nuevamente.");
+      }
+    );
+
+  }
+
+
+
+
 
 
 

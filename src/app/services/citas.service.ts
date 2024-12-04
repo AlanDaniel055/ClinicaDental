@@ -85,12 +85,6 @@ export class CitasService {
     return this.http.get<any>(`${environment.url_api}/lista-citas/`, { headers: headers });
   }
 
-  // Función para obtener una cita y filtrar por ID
-  //Obtener un solo usuario dependiendo su ID
-  // public getCitaByID(idUser: Number) {
-  //   return this.http.get<any>(`${environment.url_api}/cita/?id=${idUser}`, httpOptions);
-  // }
-
   //Servicio para obtnener cita por id
   public getCitaByID(idCita: number): Observable<any> {
     const token = this.facadeService.getSessionToken();
@@ -99,10 +93,37 @@ export class CitasService {
   }
 
   //Servicio para actualizar una cita
-  public editarCita(cita: any): Observable<any> {
+  public editarCita(id: any, datos: any): Observable<any> {
     var token = this.facadeService.getSessionToken();
     var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
-    return this.http.put<any>(`${environment.url_api}/cita-edit/${cita.id}`, cita, { headers: headers });
+    return this.http.put<any>(`${environment.url_api}/citas/${id}`, datos, { headers: headers });
   }
+  // TODO: checar que este bien el edit cita
+
+  public obtenerCitaPorId(id: number): Observable<any> {
+    return this.http.get<any>(`/api/citas/${id}`);
+  }
+
+  // public actualizarCita(id: number, datos: any): Observable<any> {
+  //   return this.http.put<any>(`/api/citas/${id}`, datos);
+  // }
+
+  public actualizarCita(id: number, datos: any): Observable<any> {
+    const token = this.facadeService.getSessionToken(); // Obtener token de sesión
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(`${environment.url_api}/citas/${id}`, datos, { headers: headers });
+  }
+
+  public actualizarCi(data : any): Observable<any> {
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token });
+    return this.http.put<any>(`${environment.url_api}/cita-edit/`, data, { headers: headers });
+  }
+
+
+
 
 }
